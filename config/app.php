@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'CMS IFG/JATAI'),
 
     /*
     |--------------------------------------------------------------------------
@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Sao_Paulo',
 
     /*
     |--------------------------------------------------------------------------
@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'pt-BR',
 
     /*
     |--------------------------------------------------------------------------
@@ -177,6 +177,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
+
+
     ],
 
     /*
@@ -225,6 +229,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
 
     ],
 
