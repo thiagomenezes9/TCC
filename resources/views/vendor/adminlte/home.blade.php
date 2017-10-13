@@ -22,9 +22,7 @@
 								<i class="fa fa-times"></i></button>
 						</div>
 					</div>
-					<div class="box-body">
-						{{ trans('adminlte_lang::message.logged') }}. Start creating your amazing application!
-					</div>
+
 					<!-- /.box-body -->
 				</div>
 				<!-- /.box -->
