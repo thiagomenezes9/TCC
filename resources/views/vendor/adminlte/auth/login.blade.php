@@ -9,7 +9,7 @@
     <div id="app" v-cloak>
         <div class="login-box">
             <div class="login-logo">
-                <a href="{{ url('/home') }}"><b>Admin</b>LTE</a>
+                <a href="{{ url('/home') }}"><b>IFG</b>Jatai</a>
             </div><!-- /.login-logo -->
 
         @if (count($errors) > 0)
@@ -24,15 +24,18 @@
         @endif
 
         <div class="login-box-body">
-        <p class="login-box-msg"> {{ trans('adminlte_lang::message.siginsession') }} </p>
+        <p class="login-box-msg"> Entre com as credenciais para usar o sistema </p>
+        {{--<p class="login-box-msg"> {{ trans('adminlte_lang::message.siginsession') }} </p>--}}
 
         <login-form name="{{ config('auth.providers.users.field','email') }}"
                     domain="{{ config('auth.defaults.domain','') }}"></login-form>
 
-        @include('adminlte::auth.partials.social_login')
+        {{--@include('adminlte::auth.partials.social_login')--}}
 
-        <a href="{{ url('/password/reset') }}">{{ trans('adminlte_lang::message.forgotpassword') }}</a><br>
-        <a href="{{ url('/register') }}" class="text-center">{{ trans('adminlte_lang::message.registermember') }}</a>
+        <a href="{{ url('/password/reset') }}">Eu esqueci minha senha!</a><br>
+        {{--<a href="{{ url('/password/reset') }}">{{ trans('adminlte_lang::message.forgotpassword') }}</a><br>--}}
+        <a href="{{ url('/register') }}" class="text-center">Registrar novo membro</a>
+        {{--<a href="{{ url('/register') }}" class="text-center">{{ trans('adminlte_lang::message.registermember') }}</a>--}}
 
     </div>
 
