@@ -36,7 +36,7 @@
             <li>
                 {{--MENU AKI DEPOIS--}}
 
-                <a href="{{route('pais.index')}}">
+                <a href="#">
                     <i class="fa fa-globe"></i>
                     <span>Paises</span>
                     {{--<i class="fa fa-angle-left pull-right"></i>--}}
@@ -44,7 +44,7 @@
 
                 {{--//--}}
 
-                <a href="{{route('estados.index')}}">
+                <a href="#">
                     <i class="fa fa-flag"></i>
                     <span>Estados</span>
                     {{--<i class="fa fa-angle-left pull-right"></i>--}}
@@ -52,7 +52,7 @@
 
                 {{--//fsdf--}}
 
-                <a href="{{route('cidades.index')}}">
+                <a href="#">
                     <i class="fa fa-map"></i>
                     <span>Cidades</span>
                     {{--<i class="fa fa-angle-left pull-right"></i>--}}
@@ -60,7 +60,7 @@
 
 
 
-                <a href="{{route('clientes.index')}}">
+                <a href="#">
                     <i class="fa fa-user"></i>
                     <span>Clientes</span>
                     {{--<i class="fa fa-angle-left pull-right"></i>--}}

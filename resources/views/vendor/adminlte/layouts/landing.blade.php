@@ -45,7 +45,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><b>IFG Câmpus Jati</b></a>
+                <a class="navbar-brand" href="#"><b>IFG Câmpus Jataí</b></a>
             </div>
             <div class="navbar-collapse collapse">
                 {{--<ul class="nav navbar-nav">--}}
