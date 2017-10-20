@@ -21,7 +21,7 @@
                 <div class="box">
                     <div class="box-header with-border">
                         <h3 class="box-title">Coordenação</h3>
-                        <div align="right"><a href="#" class="btn btn-success">Novo</a></div>
+                        <div align="right"><a href="<?php echo e(route('coordenacoes.create')); ?>" class="btn btn-success">Novo</a></div>
                     </div>
 
                     <div class="box-body">
@@ -44,7 +44,7 @@
                                     <td align="left"><?php echo e($c->sigla); ?></td>
                                     <td align="left"><?php echo e($c->ativo); ?></td>
                                     <td>
-                                        <a class="btn btn-small btn-info" href="#" >
+                                        <a class="btn btn-small btn-info" href="<?php echo e(route('coordenacoes.show',compact('c'))); ?>" >
                                             <i class="fa fa-search-plus"></i>
                                             Detalhes
                                         </a>

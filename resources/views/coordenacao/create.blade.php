@@ -48,12 +48,12 @@
                 <div class="box">
                     <div class="box-header with-border">
                         <h3 class="box-title">Nova Coordenação</h3>
-                        <div align="right"><a href="#" class="btn btn-info">Voltar</a></div>
+                        <div align="right"><a href="{{route('coordenacoes.index')}}" class="btn btn-info">Voltar</a></div>
                     </div>
 
                     <div class="box-body">
 
-                        <form class="form-horizontal" action="#" method="post" enctype="multipart/form-data">
+                        <form class="form-horizontal" action="{{route('coordenacoes.store')}}" method="post" enctype="multipart/form-data">
 
                             <!-- 'nome', 'sigla',
                                 'ativo' -->

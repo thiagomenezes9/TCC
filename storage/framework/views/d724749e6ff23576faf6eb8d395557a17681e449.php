@@ -7,7 +7,7 @@
     <div id="app" v-cloak>
         <div class="login-box">
             <div class="login-logo">
-                <a href="<?php echo e(url('/home')); ?>"><b>IFG</b>Jatai</a>
+                <a href="<?php echo e(url('/home')); ?>"><b>IFG</b>News</a>
             </div><!-- /.login-logo -->
 
         <?php if(count($errors) > 0): ?>
