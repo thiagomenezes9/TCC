@@ -37,8 +37,8 @@
                 
 
                 <a href="#">
-                    <i class="fa fa-globe"></i>
-                    <span>Paises</span>
+                    <i class="fa fa-users"></i>
+                    <span>Coordenações</span>
                     
                 </a>
 

@@ -50,6 +50,7 @@ return array(
     'Acacha\\User\\Http\\Middleware\\GuestUser' => $vendorDir . '/acacha/user/src/Http/Middleware/GuestUser.php',
     'Acacha\\User\\Providers\\GuestUserServiceProvider' => $vendorDir . '/acacha/user/src/Providers/GuestUserServiceProvider.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\Coordenacao' => $baseDir . '/app/Coordenacao.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
