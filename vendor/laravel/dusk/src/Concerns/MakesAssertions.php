@@ -37,14 +37,33 @@ trait MakesAssertions
     }
 
     /**
-     * Assert that the current URL path matches the given path.
+     * Assert that the current URL path matches the given pattern.
      *
      * @param  string  $path
      * @return $this
      */
     public function assertPathIs($path)
     {
-        PHPUnit::assertEquals($path, parse_url(
+        $pattern = preg_quote($path, '/');
+
+        $pattern = str_replace('\*', '.*', $pattern);
+
+        PHPUnit::assertRegExp('/^'.$pattern.'/u', parse_url(
+            $this->driver->getCurrentURL()
+        )['path']);
+
+        return $this;
+    }
+
+    /**
+     * Assert that the current URL path begins with given path.
+     *
+     * @param  string  $path
+     * @return $this
+     */
+    public function assertPathBeginsWith($path)
+    {
+        PHPUnit::assertStringStartsWith($path, parse_url(
             $this->driver->getCurrentURL()
         )['path']);
 
@@ -162,6 +181,22 @@ trait MakesAssertions
         PHPUnit::assertTrue(
             ! is_null($this->cookie($name)),
             "Did not find expected cookie [{$name}]."
+        );
+
+        return $this;
+    }
+
+    /**
+     * Assert that the given cookie is not present.
+     *
+     * @param  string  $name
+     * @return $this
+     */
+    public function assertCookieMissing($name)
+    {
+        PHPUnit::assertTrue(
+            is_null($this->cookie($name)),
+            "Found unexpected cookie [{$name}]."
         );
 
         return $this;
@@ -349,7 +384,7 @@ trait MakesAssertions
     {
         $this->ensurejQueryIsAvailable();
 
-        $selector = trim($this->resolver->format("a:contains('{$link}')"));
+        $selector = addslashes(trim($this->resolver->format("a:contains('{$link}')")));
 
         $script = <<<JS
             var link = jQuery.find("{$selector}");
@@ -653,5 +688,79 @@ JS;
         );
 
         return $this;
+    }
+
+    /**
+     * Assert that the Vue component's attribute at the given key has the given value.
+     *
+     * @param  string  $key
+     * @param  string  $value
+     * @return $this
+     */
+    public function assertVue($key, $value, $componentSelector = null)
+    {
+        PHPUnit::assertEquals($value, $this->vueAttribute($componentSelector, $key));
+
+        return $this;
+    }
+
+    /**
+     * Assert that the Vue component's attribute at the given key
+     * does not have the given value.
+     *
+     * @param  string  $key
+     * @param  string  $value
+     * @return $this
+     */
+    public function assertVueIsNot($key, $value, $componentSelector = null)
+    {
+        PHPUnit::assertNotEquals($value, $this->vueAttribute($componentSelector, $key));
+
+        return $this;
+    }
+
+    /**
+     * Assert that the Vue component's attribute at the given key
+     * is an array that contains the given value.
+     *
+     * @param  string  $key
+     * @param  string  $value
+     * @return $this
+     */
+    public function assertVueContains($key, $value, $componentSelector = null)
+    {
+        PHPUnit::assertContains($value, $this->vueAttribute($componentSelector, $key));
+
+        return $this;
+    }
+
+    /**
+     * Assert that the Vue component's attribute at the given key
+     * is an array that contains the given value.
+     *
+     * @param  string  $key
+     * @param  string  $value
+     * @return $this
+     */
+    public function assertVueDoesNotContain($key, $value, $componentSelector = null)
+    {
+        PHPUnit::assertNotContains($value, $this->vueAttribute($componentSelector, $key));
+
+        return $this;
+    }
+
+    /**
+     * Retrieve the value of the Vue component's attribute at the given key.
+     *
+     * @param  string  $key
+     * @return mixed
+     */
+    public function vueAttribute($componentSelector, $key)
+    {
+        $fullSelector = $this->resolver->format($componentSelector);
+
+        return $this->driver->executeScript(
+            "return document.querySelector('" . $fullSelector . "').__vue__." . $key
+        );
     }
 }

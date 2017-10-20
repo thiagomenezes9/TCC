@@ -15,6 +15,8 @@ class CoordenacaoController extends Controller
     public function index()
     {
         //
+        $coordenacoes = Coordenacao::paginate(10);
+        return view('coordenacao.index',compact('coordenacoes'));
     }
 
     /**

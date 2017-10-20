@@ -15,6 +15,10 @@ class CreateCoordenacaosTable extends Migration
     {
         Schema::create('coordenacaos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nome');
+            $table->string('sigla');
+            $table->boolean('ativo');
+            $table->integer('resp');
             $table->timestamps();
         });
     }

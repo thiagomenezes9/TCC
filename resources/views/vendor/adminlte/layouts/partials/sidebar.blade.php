@@ -36,7 +36,7 @@
             <li>
                 {{--MENU AKI DEPOIS--}}
 
-                <a href="#">
+                <a href="{{route('coordenacoes.index')}}">
                     <i class="fa fa-users"></i>
                     <span>Coordenações</span>
                     {{--<i class="fa fa-angle-left pull-right"></i>--}}

@@ -100,7 +100,8 @@ class AcachaAdmintLTELaravelTest extends DuskTestCase
                 ->waitFor('#result')
                 ->pause(5000)
                 ->assertPathIs('/home')
-                ->assertSee($user->name);
+                ->assertSee($user->name)
+                ->assertAuthenticated();
         });
 
         $this->logout();
@@ -187,6 +188,31 @@ class AcachaAdmintLTELaravelTest extends DuskTestCase
     }
 
     /**
+     * Test Login with remember me.
+     *
+     * @return void
+     */
+    public function testLoginWithRememberMe()
+    {
+        dump('testLoginWithRememberMe');
+
+        $this->browse(function (Browser $browser) {
+            $user = factory(\App\User::class)->create(['password' => Hash::make('passw0RD')]);
+            $browser->visit('/login')
+                ->type('email', $user->email)
+                ->type('password', 'passw0RD')
+                ->script("$('input[name=remember]').iCheck('check');");
+            $browser->press('Sign In')
+                ->waitFor('#result')
+                ->pause(5000)
+                ->assertPathIs('/home')
+                ->assertHasCookie(Auth::getRecallerName())
+                ->assertSee($user->name);
+        });
+        $this->logout();
+    }
+
+    /**
      * Test register page.
      *
      * @return void
@@ -267,7 +293,8 @@ class AcachaAdmintLTELaravelTest extends DuskTestCase
                 ->click('#user_menu')
                 ->pause(500)
                 ->click('#logout')
-                ->pause(500);
+                ->pause(500)
+                ->assertGuest();
         });
     }
 
@@ -378,9 +405,8 @@ class AcachaAdmintLTELaravelTest extends DuskTestCase
             $browser->visit('password/reset')
                 ->type('email', $user->email)
                 ->press('Send Password Reset Link')
-                ->waitFor('#result')
-                ->pause(1000)
-                ->assertSee('We have e-mailed your password reset link!');
+                ->waitFor('div.alert-success')
+                ->assertSeeIn('div.alert-success', 'We have e-mailed your password reset link!');
         });
     }
 

@@ -32,9 +32,9 @@
                             <thead>
                             <tr>
                                 <td class="col-md-5"><strong>Nome</strong></td>
-                                <td class="col-md-3"><strong>Sigla</strong></td>
-                                <td class="col-md-3"><strong>Ativo</strong></td>
-                                <td align="center"><strong>Ações</strong></td>
+                                <td class="col-md-2"><strong>Sigla</strong></td>
+                                <td class="col-md-2"><strong>Ativo</strong></td>
+                                <td class="col-mb-4" align="center"><strong>Ações</strong></td>
                             </tr>
                             </thead>
 

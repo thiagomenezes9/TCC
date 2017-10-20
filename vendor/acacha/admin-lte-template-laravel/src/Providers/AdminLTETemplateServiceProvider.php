@@ -91,6 +91,7 @@ class AdminLTETemplateServiceProvider extends ServiceProvider
         $this->changeRegisterController();
         $this->changeLoginController();
         $this->changeForgotPasswordController();
+        $this->publishNoGuestForgotPasswordController();
         $this->changeResetPasswordController();
         $this->publishPublicAssets();
         $this->publishViews();
@@ -151,6 +152,14 @@ class AdminLTETemplateServiceProvider extends ServiceProvider
     private function changeForgotPasswordController()
     {
         $this->publishes(AdminLTE::forgotPasswordController(), 'adminlte');
+    }
+
+    /**
+     * Publish no guest forgot password Controller.
+     */
+    private function publishNoGuestForgotPasswordController()
+    {
+        $this->publishes(AdminLTE::noGuestForgotPasswordController(), 'adminlte');
     }
 
     /**

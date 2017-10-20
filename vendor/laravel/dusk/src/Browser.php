@@ -7,6 +7,7 @@ use BadMethodCallException;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
 use Facebook\WebDriver\WebDriverDimension;
+use Facebook\WebDriver\Remote\WebDriverBrowserType;
 
 class Browser
 {
@@ -43,11 +44,29 @@ class Browser
     public static $storeConsoleLogAt;
 
     /**
+     * The browsers that support retrieving logs.
+     *
+     * @var array
+     */
+    public static $supportsRemoteLogs = [
+        WebDriverBrowserType::CHROME,
+        WebDriverBrowserType::SAFARI,
+        WebDriverBrowserType::PHANTOMJS,
+    ];
+
+    /**
      * Get the callback which resolves the default user to authenticate.
      *
      * @var \Closure
      */
     public static $userResolver;
+
+    /**
+     * The default wait time in seconds.
+     *
+     * @var int
+     */
+    public static $waitSeconds = 5;
 
     /**
      * The RemoteWebDriver instance.
@@ -69,6 +88,13 @@ class Browser
      * @var mixed
      */
     public $page;
+
+    /**
+     * The component object currently being viewed.
+     *
+     * @var mixed
+     */
+    public $component;
 
     /**
      * Create a browser instance.
@@ -142,14 +168,14 @@ class Browser
     {
         $this->page = $page;
 
-        $page->assert($this);
-
         // Here we will set the page elements on the resolver instance, which will allow
         // the developer to access short-cuts for CSS selectors on the page which can
         // allow for more expressive navigation and interaction with all the pages.
         $this->resolver->pageElements(array_merge(
             $page::siteElements(), $page->elements()
         ));
+
+        $page->assert($this);
 
         return $this;
     }
@@ -177,7 +203,7 @@ class Browser
 
         return $this;
     }
-    
+
     /**
      * Maximize the browser window.
      *
@@ -229,16 +255,30 @@ class Browser
      */
     public function storeConsoleLog($name)
     {
-        $console = $this->driver->manage()->getLog('browser');
+        if (in_array($this->driver->getCapabilities()->getBrowserName(), static::$supportsRemoteLogs)) {
+            $console = $this->driver->manage()->getLog('browser');
 
-        if (! empty($console)) {
-            file_put_contents(
-                sprintf('%s/%s.log', rtrim(static::$storeConsoleLogAt, '/'), $name)
-                , json_encode($console, JSON_PRETTY_PRINT)
-            );
+            if (!empty($console)) {
+                file_put_contents(
+                    sprintf('%s/%s.log', rtrim(static::$storeConsoleLogAt, '/'), $name)
+                    , json_encode($console, JSON_PRETTY_PRINT)
+                );
+            }
         }
 
         return $this;
+    }
+
+    /**
+     * Execute a Closure with a scoped browser instance.
+     *
+     * @param  string  $selector
+     * @param  \Closure  $callback
+     * @return $this
+     */
+    public function within($selector, Closure $callback)
+    {
+        return $this->with($selector, $callback);
     }
 
     /**
@@ -258,9 +298,31 @@ class Browser
             $browser->on($this->page);
         }
 
+        if ($selector instanceof Component) {
+            $browser->onComponent($selector, $this->resolver);
+        }
+
         call_user_func($callback, $browser);
 
         return $this;
+    }
+
+    public function onComponent($component, $parentResolver)
+    {
+        $this->component = $component;
+
+        // Here we will set the component elements on the resolver instance, which will allow
+        // the developer to access short-cuts for CSS selectors on the component which can
+        // allow for more expressive navigation and interaction with all the components.
+        $this->resolver->pageElements(
+            $component->elements() + $parentResolver->elements
+        );
+
+        $component->assert($this);
+
+        $this->resolver->prefix = $this->resolver->format(
+            $component->selector()
+        );
     }
 
     /**
@@ -322,6 +384,23 @@ class Browser
     }
 
     /**
+     * Pause execution of test and open Laravel Tinker (PsySH) REPL.
+     *
+     * @return $this
+     */
+    public function tinker()
+    {
+        \Psy\Shell::debug([
+            'browser' => $this,
+            'driver' => $this->driver,
+            'resolver' => $this->resolver,
+            'page' => $this->page,
+        ], $this);
+
+        return $this;
+    }
+
+    /**
      * Stop running tests but leave the browser open.
      *
      * @return void
@@ -342,6 +421,14 @@ class Browser
     {
         if (static::hasMacro($method)) {
             return $this->macroCall($method, $parameters);
+        }
+
+        if ($this->component && method_exists($this->component, $method)) {
+            array_unshift($parameters, $this);
+
+            $this->component->{$method}(...$parameters);
+
+            return $this;
         }
 
         if ($this->page && method_exists($this->page, $method)) {

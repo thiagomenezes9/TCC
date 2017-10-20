@@ -36,7 +36,7 @@
             <li>
                 
 
-                <a href="#">
+                <a href="<?php echo e(route('coordenacoes.index')); ?>">
                     <i class="fa fa-users"></i>
                     <span>Coordenações</span>
                     

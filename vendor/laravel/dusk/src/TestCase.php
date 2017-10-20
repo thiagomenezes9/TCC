@@ -4,6 +4,7 @@ namespace Laravel\Dusk;
 
 use Closure;
 use Exception;
+use Laravel\Dusk\Chrome\SupportsChrome;
 use Throwable;
 use ReflectionFunction;
 use Illuminate\Support\Collection;
@@ -34,7 +35,7 @@ abstract class TestCase extends FoundationTestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
 
