@@ -18,7 +18,6 @@ class CreateCoordenacaosTable extends Migration
             $table->string('nome');
             $table->string('sigla');
             $table->boolean('ativo');
-            $table->integer('resp');
             $table->timestamps();
         });
     }

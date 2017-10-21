@@ -46,12 +46,12 @@
                                     <td align="left">{{ $c->sigla }}</td>
                                     <td align="left">{{$c->ativo}}</td>
                                     <td>
-                                        <a class="btn btn-small btn-info" href="{{route('coordenacoes.show',compact('c'))}}" >
+                                        <a class="btn btn-small btn-info" href="{{route('coordenacoes.show',$c->id)}}" >
                                             <i class="fa fa-search-plus"></i>
                                             Detalhes
                                         </a>
 
-                                        <a class="btn btn-small btn-warning" href="#" >
+                                        <a class="btn btn-small btn-warning" href="{{route('coordenacoes.edit',$c->id)}}" >
                                             <i class="fa fa-pencil-square-o"></i>
                                             Editar
                                         </a>
