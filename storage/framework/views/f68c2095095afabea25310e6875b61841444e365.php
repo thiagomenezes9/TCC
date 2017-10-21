@@ -44,12 +44,12 @@
                                     <td align="left"><?php echo e($c->sigla); ?></td>
                                     <td align="left"><?php echo e($c->ativo); ?></td>
                                     <td>
-                                        <a class="btn btn-small btn-info" href="<?php echo e(route('coordenacoes.show',compact('c'))); ?>" >
+                                        <a class="btn btn-small btn-info" href="<?php echo e(route('coordenacoes.show',$c->id)); ?>" >
                                             <i class="fa fa-search-plus"></i>
                                             Detalhes
                                         </a>
 
-                                        <a class="btn btn-small btn-warning" href="#" >
+                                        <a class="btn btn-small btn-warning" href="<?php echo e(route('coordenacoes.edit',$c->id)); ?>" >
                                             <i class="fa fa-pencil-square-o"></i>
                                             Editar
                                         </a>

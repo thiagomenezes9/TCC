@@ -26,7 +26,7 @@ class CoordenacaoController extends Controller
      */
     public function create()
     {
-        //
+        return view('coordenacao.create');
     }
 
     /**
@@ -37,7 +37,19 @@ class CoordenacaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $coordenacao = new Coordenacao();
+
+        $coordenacao->nome = $request->nome;
+        $coordenacao->sigla = $request->sigla;
+
+        $coordenacao->ativo = 'N';
+
+
+
+        $coordenacao->saveOrFail();
+
+
+        return redirect('estados');
     }
 
     /**
@@ -46,9 +58,11 @@ class CoordenacaoController extends Controller
      * @param  \App\Coordenacao  $coordenacao
      * @return \Illuminate\Http\Response
      */
-    public function show(Coordenacao $coordenacao)
+    public function show($id)
     {
-        //
+        $coordenacao = Coordenacao::findOrFail($id);
+
+        return view('coordenacao.show',compact('coordenacao'));
     }
 
     /**
@@ -57,9 +71,13 @@ class CoordenacaoController extends Controller
      * @param  \App\Coordenacao  $coordenacao
      * @return \Illuminate\Http\Response
      */
-    public function edit(Coordenacao $coordenacao)
+    public function edit($id)
     {
-        //
+        $coordenacao = Coordenacao::findOrFail($id);
+
+
+
+        return view('coordenacao.edit',compact('coordenacao'));
     }
 
     /**
@@ -80,8 +98,17 @@ class CoordenacaoController extends Controller
      * @param  \App\Coordenacao  $coordenacao
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Coordenacao $coordenacao)
+    public function destroy($id)
     {
-        //
+        $coordenacao = Coordenacao::findOrFail($id);
+
+        $coordenacao->ativo = 'N';
+
+        $coordenacao->save();
+
+
+        //  Session::flash('mensagem', 'Contato deletado com sucesso!');
+
+        return redirect('coordenacoes');
     }
 }
