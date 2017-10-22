@@ -28,7 +28,7 @@
 
                     <div class="box-body">
 
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-bordered table-striped" id="tabCoordenacoes">
                             <thead>
                             <tr>
                                 <td class="col-md-5"><strong>Nome</strong></td>
@@ -44,7 +44,7 @@
                                 <tr align="center">
                                     <td align="left">{{ $c->nome }}</td>
                                     <td align="left">{{ $c->sigla }}</td>
-                                    <td align="left">{{$c->ativo}}</td>
+                                    <td align="left">{{$c->ativo ? 'Sim' : 'Não'}}</td>
                                     <td>
                                         <a class="btn btn-small btn-info" href="{{route('coordenacoes.show',$c->id)}}" >
                                             <i class="fa fa-search-plus"></i>
@@ -63,9 +63,9 @@
                             </tbody>
                         </table>
 
-                        <div class="text-center">
-                            {!! $coordenacoes->links() !!}
-                        </div>
+                        {{--<div class="text-center">--}}
+                            {{--{!! $coordenacoes->links() !!}--}}
+                        {{--</div>--}}
 
 
                     </div>
@@ -75,4 +75,29 @@
     </div>
 
 
+@endsection
+
+
+
+
+@section('scriptlocal')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tabCoordenacoes').DataTable( {
+                "language": {
+                    "paginate": {
+                        "previous": "Anterior",
+                        "next": "Próxima"
+                    },
+                    "sSearch": "<span>Pesquisar</span> _INPUT_", //search
+                    "lengthMenu": "Exibir _MENU_ registros por página",
+                    "zeroRecords": "Não há resultados para esta busca",
+                    "info": "Exibindo página _PAGE_ de _PAGES_",
+                    "infoEmpty": "Nenhum registro disponível",
+                    "infoFiltered": "(Filtrado de _MAX_ registros)"
+
+                }
+            } );
+        })
+    </script>
 @endsection

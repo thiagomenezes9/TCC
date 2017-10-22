@@ -32,8 +32,8 @@
 
 
                         <p><strong><h2>Nome : {{$coordenacao->nome}}</h2></strong></p><br>
-                        <p><strong>Sigla : {{$cidade->sigla}}</strong></p><br>
-                        <p><strong>Ativo : {{$cidade->ativo}}</strong></p><br>
+                        <p><strong>Sigla : {{$coordenacao->sigla}}</strong></p><br>
+                        <p><strong>Ativo : {{$coordenacao->ativo ? 'Sim' : 'Não'}}</strong></p><br>
                         <p><strong>Responsavel : {{}}</strong></p><br>
 
 

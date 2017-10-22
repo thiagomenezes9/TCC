@@ -57,7 +57,9 @@ desired effect
 </div>
 <?php $__env->startSection('scripts'); ?>
     <?php echo $__env->make('adminlte::layouts.partials.scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->yieldContent('scriptlocal'); ?>
 <?php echo $__env->yieldSection(); ?>
+
 
 </body>
 </html>

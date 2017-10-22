@@ -85,7 +85,7 @@ return [
     'profile'                 => 'Профиль',
     'signout'                 => 'Выход',
     'landingdescription'      => 'Laravel 5 package that switchs default Laravel scaffolding/boilerplate to AdminLTE template with Bootstrap 3.0 and Pratt Landing page',
-    'landingdescriptionpratt' => 'Acacha AdminLTE Laravel package template Landing page - Using Pratt',
+    'landingdescriptionpratt' => 'IFG News',
     'description'             => 'Описание',
     'showcase'                => 'Витрина',
     'contact'                 => 'Контакт',

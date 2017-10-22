@@ -15,7 +15,7 @@ class CoordenacaoController extends Controller
     public function index()
     {
         //
-        $coordenacoes = Coordenacao::paginate(10);
+        $coordenacoes = Coordenacao::all();
         return view('coordenacao.index',compact('coordenacoes'));
     }
 
@@ -42,14 +42,14 @@ class CoordenacaoController extends Controller
         $coordenacao->nome = $request->nome;
         $coordenacao->sigla = $request->sigla;
 
-        $coordenacao->ativo = 'N';
+        $coordenacao->ativo = 1;
 
 
 
         $coordenacao->saveOrFail();
 
 
-        return redirect('estados');
+        return redirect('coordenacoes');
     }
 
     /**
@@ -87,9 +87,22 @@ class CoordenacaoController extends Controller
      * @param  \App\Coordenacao  $coordenacao
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Coordenacao $coordenacao)
+    public function update(Request $request, $id)
     {
-        //
+        $coordenacao = Coordenacao::findOrFail($id);
+
+
+
+
+
+        $coordenacao->update($request->all());
+
+
+        $coordenacao->save();
+
+
+        return redirect('coordenacoes');
+
     }
 
     /**

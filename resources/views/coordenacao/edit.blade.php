@@ -84,6 +84,20 @@
                             {{--Ativo, Resp--}}
 
 
+
+                            <div class="form-group">
+                                <label for="status" class="col-sm-2 control-label">Status</label>
+                                <div class="col-sm-10">
+                                    <select name="ativo" id="ativo" class="form-control">
+                                        <option value="1" {{$coordenacao->ativo ? 'selected' : ''}}>Ativado</option>
+                                        <option value="0" >Desativado</option>
+
+                                    </select>
+
+                                </div>
+                            </div>
+
+
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-info pull-right btn-lg">
                                     Save</button>

@@ -85,7 +85,7 @@ return [
     'profile'                 => 'Profile',
     'signout'                 => 'Se déconnecter',
     'landingdescription'      => 'Un package Laravel 5 qui permet de remplacer le gabarit scaffolding/boilerplate par AdminLTE avec Bootstrap 3.0 et Pratt Landing page',
-    'landingdescriptionpratt' => 'Acacha AdminLTE Laravel package template Landing page - Using Pratt',
+    'landingdescriptionpratt' => 'IFG News',
     'description'             => 'Description',
     'showcase'                => 'Vitrine',
     'contact'                 => 'Contact',

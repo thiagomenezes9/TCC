@@ -26,7 +26,7 @@
 
                     <div class="box-body">
 
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-bordered table-striped" id="tabCoordenacoes">
                             <thead>
                             <tr>
                                 <td class="col-md-5"><strong>Nome</strong></td>
@@ -42,7 +42,7 @@
                                 <tr align="center">
                                     <td align="left"><?php echo e($c->nome); ?></td>
                                     <td align="left"><?php echo e($c->sigla); ?></td>
-                                    <td align="left"><?php echo e($c->ativo); ?></td>
+                                    <td align="left"><?php echo e($c->ativo ? 'Sim' : 'Não'); ?></td>
                                     <td>
                                         <a class="btn btn-small btn-info" href="<?php echo e(route('coordenacoes.show',$c->id)); ?>" >
                                             <i class="fa fa-search-plus"></i>
@@ -61,10 +61,9 @@
                             </tbody>
                         </table>
 
-                        <div class="text-center">
-                            <?php echo $coordenacoes->links(); ?>
-
-                        </div>
+                        
+                            
+                        
 
 
                     </div>
@@ -74,5 +73,30 @@
     </div>
 
 
+<?php $__env->stopSection(); ?>
+
+
+
+
+<?php $__env->startSection('scriptlocal'); ?>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tabCoordenacoes').DataTable( {
+                "language": {
+                    "paginate": {
+                        "previous": "Anterior",
+                        "next": "Próxima"
+                    },
+                    "sSearch": "<span>Pesquisar</span> _INPUT_", //search
+                    "lengthMenu": "Exibir _MENU_ registros por página",
+                    "zeroRecords": "Não há resultados para esta busca",
+                    "info": "Exibindo página _PAGE_ de _PAGES_",
+                    "infoEmpty": "Nenhum registro disponível",
+                    "infoFiltered": "(Filtrado de _MAX_ registros)"
+
+                }
+            } );
+        })
+    </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('adminlte::layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
