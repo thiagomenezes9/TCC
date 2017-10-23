@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','matricula','coordenacao_id','ativo'
+        'name', 'email', 'password','matricula','coordenacao_id','ativo','resp_coord_id'
     ];
 
     /**
@@ -26,4 +26,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function responsavel(){
+        return $this->hasOne('App\Coordenacao','resp_coord_id');
+    }
+
+    public function membro()
+    {
+        return $this->hasMany('App\Corrdenacao','coordenacao_id');
+    }
+
+
 }

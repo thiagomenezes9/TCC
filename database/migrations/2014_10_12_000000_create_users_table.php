@@ -18,9 +18,30 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('matricula')->nullable();
+            $table->integer('coordenacao_id')->nullable()->unsigned();
+            $table->boolean('ativo')->nullable();
+            $table->integer('resp_coord_id')->nullable()->unsigned();
             $table->rememberToken();
             $table->timestamps();
+
+
+            $table->foreign('coordenacao_id')->references('id')->on('coordenacaos')->onDelete('cascade');
+            $table->foreign('resp_coord_id')->references('id')->on('coordenacaos')->onDelete('cascade');
+
+
+
+
         });
+
+        DB::table('users')->insert(
+            array(
+                'email' => 'thiagomenezes9@gmail.com',
+                'nome' => 'admin',
+                'password' => 'thiagomlhy',
+
+            )
+        );
     }
 
     /**

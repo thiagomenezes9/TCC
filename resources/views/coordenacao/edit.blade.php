@@ -89,8 +89,8 @@
                                 <label for="status" class="col-sm-2 control-label">Status</label>
                                 <div class="col-sm-10">
                                     <select name="ativo" id="ativo" class="form-control">
-                                        <option value="1" {{$coordenacao->ativo ? 'selected' : ''}}>Ativado</option>
-                                        <option value="0" >Desativado</option>
+                                        <option value="1" {{$coordenacao->ativo == '1' ? "selected" : ""}}>Ativado</option>
+                                        <option value="0" {{$coordenacao->ativo == '0' ? "selected" : ""}}>Desativado</option>
 
                                     </select>
 
