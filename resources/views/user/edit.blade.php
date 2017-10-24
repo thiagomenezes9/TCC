@@ -1,7 +1,7 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-    Coordenações
+    Usuário
 @stop
 
 @section('contentheader_title')
@@ -9,7 +9,7 @@
 @stop
 
 @section('contentheader_description')
-    Editando Coordenações
+    Editando Usuário
 @stop
 
 
@@ -52,14 +52,14 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Edição da coordenação</h3>
-                        <div align="right"><a href="{{route('coordenacoes.index')}}" class="btn btn-info">Voltar</a></div>
+                        <h3 class="box-title">Edição do Usuário</h3>
+                        <div align="right"><a href="{{route('usuarios.index')}}" class="btn btn-info">Voltar</a></div>
                         {{--<div align="right"><a href="{{route('pais.create')}}" class="btn btn-success">Novo</a></div>--}}
                     </div>
 
                     <div class="box-body">
 
-                        <form class="form-horizontal" action="{{route('coordenacoes.update',$coordenacao->id)}}" method="post" enctype="multipart/form-data">
+                        <form class="form-horizontal" action="{{route('usuarios.update',$usuario->id)}}" method="post" enctype="multipart/form-data">
 
                             <input type="hidden" name="_method" value="PUT">
 
@@ -70,17 +70,17 @@
                             <div class="form-group">
                                 <label for="nome" class="col-sm-2 control-label" >Nome</label>
                                 <div class="col-sm-10">
-                                    <input name="nome" value="{{ $coordenacao->nome }}" type="text" class="form-control input-lg"
-                                           id="nome" placeholder="Nome da cidade" autofocus>
+                                    <input name="nome" value="{{ $usuario->name }}" type="text" class="form-control input-lg"
+                                           id="nome" placeholder="Nome do Usuário" autofocus>
                                 </div>
                             </div>
 
 
                             <div class="form-group">
-                                <label for="sigla" class="col-sm-2 control-label" >Sigla</label>
+                                <label for="sigla" class="col-sm-2 control-label" >Matricula</label>
                                 <div class="col-sm-10">
-                                    <input name="sigla" value="{{$coordenacao->sigla}}" type="text" class="form-control input-lg"
-                                           id="sigla" placeholder="Sigla da cidade" autofocus>
+                                    <input name="matricula" value="{{$usuario->matricula}}" type="text" class="form-control input-lg"
+                                           id="matricula" placeholder="Matricula do Usuário" autofocus>
                                 </div>
                             </div>
 
@@ -93,8 +93,8 @@
                                 <label for="status" class="col-sm-2 control-label">Status</label>
                                 <div class="col-sm-10">
                                     <select name="ativo" id="ativo" class="form-control">
-                                        <option value="1" {{$coordenacao->ativo == '1' ? "selected" : ""}}>Ativado</option>
-                                        <option value="0" {{$coordenacao->ativo == '0' ? "selected" : ""}}>Desativado</option>
+                                        <option value="1" {{$usuario->ativo == '1' ? "selected" : ""}}>Ativado</option>
+                                        <option value="0" {{$usuario->ativo == '0' ? "selected" : ""}}>Desativado</option>
 
                                     </select>
 
@@ -103,12 +103,13 @@
 
 
                             <div class="form-group">
-                                <label for="responsavel" class="col-sm-2 control-label">Responsavel</label>
+                                <label for="responsavel" class="col-sm-2 control-label">Coordenação</label>
                                 <div class="col-sm-10">
-                                    <select name="responsavel" id="responsavel" class="form-control">
+                                    <select name="coordenacao" id="coordenacao" class="form-control">
 
-                                        @foreach($coordenacao->membros as $membro)
-                                            <option value="{{$membro['id']}}" {{ $membro['id'] === (isset($coordenacao->responsavel) ? $coordenacao->responsavel: '' ) ? 'selected' : '' }}>{{$membro['name']}}</option>
+                                        @foreach($coordenacao as $c)
+{{--                                            <option value="{{$c->id}}" {{ $membro['id'] === (isset($coordenacao->responsavel) ? $coordenacao->responsavel: '' ) ? 'selected' : '' }}>{{$membro['name']}}</option>--}}
+                                            <option value="{{$c->id}}" {{ $usuario->coordenacao_id === (isset($usuario->membro) ? $usuario->id: '' ) ? 'selected' : '' }}>{{$c->nome}}</option>
 
                                         @endforeach
                                     </select>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Coordenacao;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CoordenacaoController extends Controller
 {
@@ -92,13 +93,19 @@ class CoordenacaoController extends Controller
         $coordenacao = Coordenacao::findOrFail($id);
 
 
+        if($request->ativo == '1'){
+            Session::flash('mensagem', 'Coordenação desativado!');
+            $coordenacao->update($request->all());
+
+
+            $coordenacao->save();
+        }elseif ($coordenacao->membros){
+            Session::flash('mensagem', 'Coordenação com membros não e possivel desativar!');
+        }
 
 
 
-        $coordenacao->update($request->all());
 
-
-        $coordenacao->save();
 
 
         return redirect('coordenacoes');
@@ -115,12 +122,20 @@ class CoordenacaoController extends Controller
     {
         $coordenacao = Coordenacao::findOrFail($id);
 
-        $coordenacao->ativo = 'N';
+        if($coordenacao->membros){
+            Session::flash('mensagem', 'Contato deletado com sucesso!');
+        }else{
+            $coordenacao->ativo = 'N';
 
-        $coordenacao->save();
+            $coordenacao->save();
+            Session::flash('mensagem', 'Contato deletado com sucesso!');
+        }
 
 
-        //  Session::flash('mensagem', 'Contato deletado com sucesso!');
+
+
+
+
 
         return redirect('coordenacoes');
     }

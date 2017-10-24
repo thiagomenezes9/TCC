@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Coordenacao;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -45,9 +46,11 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        $usuario = User::findOrFail($id);
+
+        return view('user.show',compact('usuario'));
     }
 
     /**
@@ -56,9 +59,15 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        $usuario = User::findOrFail($id);
+        $coordenacao = Coordenacao::all()->where('ativo','1');
+
+
+
+
+        return view('user.edit',compact('usuario','coordenacao'));
     }
 
     /**
@@ -68,9 +77,42 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+
+//        if($request->ativo == '1'){
+//            Session::flash('mensagem', 'Coordenação desativado!');
+//            $coordenacao->update($request->all());
+//
+//
+//            $coordenacao->save();
+//        }elseif ($coordenacao->membros){
+//            Session::flash('mensagem', 'Coordenação com membros não e possivel desativar!');
+//        }
+//
+
+        $user->name=$request->nome;
+        $user->matricula=$request->matricula;
+        $user->ativo=$request->ativo;
+
+        if($request->coordenacao != $user->coordenacao_id){
+            $coord = Coordenacao::findOrFail($request->coordenacao);
+
+
+            $user->membro()->associate($coord);
+
+
+
+
+        }
+
+        $user->save();
+
+
+
+        return redirect('usuarios');
     }
 
     /**

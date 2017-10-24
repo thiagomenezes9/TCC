@@ -29,12 +29,12 @@ class User extends Authenticatable
 
 
     public function responsavel(){
-        return $this->hasOne('App\Coordenacao','resp_coord_id');
+        return $this->hasOne('App\Coordenacao','id');
     }
 
     public function membro()
     {
-        return $this->belongsTo('App\Coordenacao','coordenacao_id');
+        return $this->belongsTo('App\Coordenacao','id');
     }
 
 
