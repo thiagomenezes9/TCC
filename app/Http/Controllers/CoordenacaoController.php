@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Coordenacao;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -92,18 +93,32 @@ class CoordenacaoController extends Controller
     {
         $coordenacao = Coordenacao::findOrFail($id);
 
+        $user = User::findOrFail($request->responsavel);
+
+
+
+        if($coordenacao->responsavel != $user){
+
+
+            $user->responsavel()->associate($coordenacao);
+        }
+
+
 
         if($request->ativo == '1'){
-            Session::flash('mensagem', 'Coordenação desativado!');
-            $coordenacao->update($request->all());
+
+            $coordenacao->nome = $request->nome;
+            $coordenacao->sigla = $request->sigla;
 
 
             $coordenacao->save();
         }elseif ($coordenacao->membros){
             Session::flash('mensagem', 'Coordenação com membros não e possivel desativar!');
+        }else{
+            $coordenacao->ativo = '0';
+            $coordenacao->save();
+
         }
-
-
 
 
 

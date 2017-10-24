@@ -63,6 +63,7 @@
 
                             <input type="hidden" name="_method" value="PUT">
 
+
                             {{csrf_field()}}
 
 

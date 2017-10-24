@@ -79,8 +79,9 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
 
+
+        $user = User::findOrFail($id);
 
 //        if($request->ativo == '1'){
 //            Session::flash('mensagem', 'Coordenação desativado!');
@@ -103,15 +104,21 @@ class UserController extends Controller
 
             $user->membro()->associate($coord);
 
-
-
-
         }
 
-        $user->save();
+        if($user->resp_coord_id == NULL){
+            $user->save();
+        }elseif ($user->resp_coord_id != $request->coordenacao){
+            Session::flash('mensagem', 'Usuario chefe de coordenação não pode alterar de coordenação!');
+        }else{
+            $user->save();
+        }
 
 
-
+//        $user->save();
+//
+//
+//
         return redirect('usuarios');
     }
 

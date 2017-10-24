@@ -20,7 +20,7 @@ class Coordenacao extends Model
     }
 
     public function responsavel(){
-        return $this->hasOne('App\User','resp_coord_id');
+        return $this->belongsTo('App\User','resp_coord_id','id');
     }
 
 
