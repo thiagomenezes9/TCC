@@ -34,7 +34,7 @@ class User extends Authenticatable
 
     public function membro()
     {
-        return $this->hasMany('App\Corrdenacao','coordenacao_id');
+        return $this->belongsTo('App\Coordenacao','coordenacao_id');
     }
 
 

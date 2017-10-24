@@ -42,37 +42,37 @@
                     {{--<i class="fa fa-angle-left pull-right"></i>--}}
                 </a>
 
-                {{--//--}}
 
-                <a href="#">
-                    <i class="fa fa-flag"></i>
-                    <span>Estados</span>
-                    {{--<i class="fa fa-angle-left pull-right"></i>--}}
-                </a>
-
-                {{--//fsdf--}}
-
-                <a href="#">
-                    <i class="fa fa-map"></i>
-                    <span>Cidades</span>
-                    {{--<i class="fa fa-angle-left pull-right"></i>--}}
-                </a>
+                @if(isset(Auth::user()->membro))
+                    @if(Auth::user()->membro->sigla == 'CCS')
 
 
 
-                <a href="#">
-                    <i class="fa fa-user"></i>
-                    <span>Clientes</span>
-                    {{--<i class="fa fa-angle-left pull-right"></i>--}}
-                </a>
+                    <a href="{{route('usuarios.index')}}">
+                        <i class="fa fa-user"></i>
+                        <span>Usuários</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                        @endif
+
+
+                @endif
 
 
 
 
 
 
-            </li>
-        </ul><!-- /.sidebar-menu -->
-    </section>
-    <!-- /.sidebar -->
+
+
+
+
+
+
+
+
+</li>
+</ul><!-- /.sidebar-menu -->
+</section>
+<!-- /.sidebar -->
 </aside>

@@ -42,37 +42,37 @@
                     
                 </a>
 
-                
 
-                <a href="#">
-                    <i class="fa fa-flag"></i>
-                    <span>Estados</span>
-                    
-                </a>
-
-                
-
-                <a href="#">
-                    <i class="fa fa-map"></i>
-                    <span>Cidades</span>
-                    
-                </a>
+                <?php if(isset(Auth::user()->membro)): ?>
+                    <?php if(Auth::user()->membro->sigla == 'CCS'): ?>
 
 
 
-                <a href="#">
-                    <i class="fa fa-user"></i>
-                    <span>Clientes</span>
-                    
-                </a>
+                    <a href="<?php echo e(route('usuarios.index')); ?>">
+                        <i class="fa fa-user"></i>
+                        <span>Usuários</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                        <?php endif; ?>
+
+
+                <?php endif; ?>
 
 
 
 
 
 
-            </li>
-        </ul><!-- /.sidebar-menu -->
-    </section>
-    <!-- /.sidebar -->
+
+
+
+
+
+
+
+
+</li>
+</ul><!-- /.sidebar-menu -->
+</section>
+<!-- /.sidebar -->
 </aside>
