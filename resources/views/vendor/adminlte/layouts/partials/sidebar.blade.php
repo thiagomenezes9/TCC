@@ -16,63 +16,63 @@
                     <a href="#"><i class="fa fa-circle text-success"></i> {{ trans('adminlte_lang::message.online') }}</a>
                 </div>
             </div>
-        @endif
+    @endif
 
-        {{--<!-- search form (Optional) -->--}}
-        {{--<form action="#" method="get" class="sidebar-form">--}}
-            {{--<div class="input-group">--}}
-                {{--<input type="text" name="q" class="form-control" placeholder="{{ trans('adminlte_lang::message.search') }}..."/>--}}
-              {{--<span class="input-group-btn">--}}
-                {{--<button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>--}}
-              {{--</span>--}}
-            {{--</div>--}}
-        {{--</form>--}}
-        {{--<!-- /.search form -->--}}
+    {{--<!-- search form (Optional) -->--}}
+    {{--<form action="#" method="get" class="sidebar-form">--}}
+    {{--<div class="input-group">--}}
+    {{--<input type="text" name="q" class="form-control" placeholder="{{ trans('adminlte_lang::message.search') }}..."/>--}}
+    {{--<span class="input-group-btn">--}}
+    {{--<button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>--}}
+    {{--</span>--}}
+    {{--</div>--}}
+    {{--</form>--}}
+    {{--<!-- /.search form -->--}}
 
-        <!-- Sidebar Menu -->
+    <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <li class="header">Menu</li>
             <!-- Optionally, you can add icons to the links -->
             <li>
                 {{--MENU AKI DEPOIS--}}
 
-                <a href="{{route('coordenacoes.index')}}">
-                    <i class="fa fa-users"></i>
-                    <span>Coordenações</span>
-                    {{--<i class="fa fa-angle-left pull-right"></i>--}}
-                </a>
+
+                {{--Primeiro verifico se esta ativo--}}
+                {{--Depois verifico se ele e membro de alguma coordenacao--}}
+                {{--Depois verifico se ele e membro do CCS--}}
+                {{--@if((Auth::user()->ativo))--}}
 
 
-                @if(isset(Auth::user()->membro))
-                    @if(Auth::user()->membro->sigla == 'CCS')
-
-
-
-                    <a href="{{route('usuarios.index')}}">
-                        <i class="fa fa-user"></i>
-                        <span>Usuários</span>
-                        <i class="fa fa-angle-left pull-right"></i>
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>Publicações</span>
+                        {{--<i class="fa fa-angle-left pull-right"></i>--}}
                     </a>
-                        @endif
 
 
-                @endif
+                    {{--@if(isset(Auth::user()->membro))--}}
+                        {{--@if(Auth::user()->membro->sigla == 'CCS')--}}
 
 
+                            <a href="{{route('coordenacoes.index')}}">
+                                <i class="fa fa-users"></i>
+                                <span>Coordenações</span>
+                                {{--<i class="fa fa-angle-left pull-right"></i>--}}
+                            </a>
+
+                            <a href="{{route('usuarios.index')}}">
+                                <i class="fa fa-user"></i>
+                                <span>Usuários</span>
+                                {{--<i class="fa fa-angle-left pull-right"></i>--}}
+                            </a>
+                        {{--@endif--}}
 
 
+                    {{--@endif--}}
+                {{--@endif--}}
 
-
-
-
-
-
-
-
-
-
-</li>
-</ul><!-- /.sidebar-menu -->
-</section>
-<!-- /.sidebar -->
+            </li>
+        </ul><!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
 </aside>

@@ -20,6 +20,18 @@ class CreateCoordenacaosTable extends Migration
             $table->boolean('ativo');
             $table->timestamps();
         });
+
+
+        DB::table('coordenacaos')->insert(
+            array(
+                'nome' => 'Coordenação de Comunicação Social',
+                'sigla' => 'CCS',
+                'ativo' => '1',
+
+            )
+        );
+
+
     }
 
     /**

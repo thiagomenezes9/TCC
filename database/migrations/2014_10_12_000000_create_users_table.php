@@ -39,6 +39,9 @@ class CreateUsersTable extends Migration
                 'email' => 'thiagomenezes9@gmail.com',
                 'nome' => 'admin',
                 'password' => 'thiagomlhy',
+                'coordenacao_id' => '1',
+                'resp_coord_id' => '1',
+                'ativo' => '1'
 
             )
         );

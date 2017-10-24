@@ -9,10 +9,15 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 
+				<?php if((Auth::user()->ativo)): ?>
 
+					<h1>Bem Vindo</h1>
 
-				<h1>Bem Vindo</h1>
+				<?php else: ?>
 
+				   <h1>Usuario desativado</h1>
+
+					<?php endif; ?>
 			</div>
 		</div>
 	</div>

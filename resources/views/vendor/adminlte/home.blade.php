@@ -10,10 +10,15 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 
+				@if((Auth::user()->ativo))
 
+					<h1>Bem Vindo</h1>
 
-				<h1>Bem Vindo</h1>
+				@else
 
+				   <h1>Usuario desativado</h1>
+
+					@endif
 			</div>
 		</div>
 	</div>

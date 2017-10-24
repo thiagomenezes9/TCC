@@ -16,63 +16,63 @@
                     <a href="#"><i class="fa fa-circle text-success"></i> <?php echo e(trans('adminlte_lang::message.online')); ?></a>
                 </div>
             </div>
-        <?php endif; ?>
+    <?php endif; ?>
 
-        
-        
-            
-                
-              
-                
-              
-            
-        
-        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-        <!-- Sidebar Menu -->
+    <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <li class="header">Menu</li>
             <!-- Optionally, you can add icons to the links -->
             <li>
                 
 
-                <a href="<?php echo e(route('coordenacoes.index')); ?>">
-                    <i class="fa fa-users"></i>
-                    <span>Coordenações</span>
-                    
-                </a>
+
+                
+                
+                
+                
 
 
-                <?php if(isset(Auth::user()->membro)): ?>
-                    <?php if(Auth::user()->membro->sigla == 'CCS'): ?>
-
-
-
-                    <a href="<?php echo e(route('usuarios.index')); ?>">
-                        <i class="fa fa-user"></i>
-                        <span>Usuários</span>
-                        <i class="fa fa-angle-left pull-right"></i>
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>Publicações</span>
+                        
                     </a>
-                        <?php endif; ?>
 
 
-                <?php endif; ?>
+                    
+                        
 
 
+                            <a href="<?php echo e(route('coordenacoes.index')); ?>">
+                                <i class="fa fa-users"></i>
+                                <span>Coordenações</span>
+                                
+                            </a>
+
+                            <a href="<?php echo e(route('usuarios.index')); ?>">
+                                <i class="fa fa-user"></i>
+                                <span>Usuários</span>
+                                
+                            </a>
+                        
 
 
+                    
+                
 
-
-
-
-
-
-
-
-
-
-</li>
-</ul><!-- /.sidebar-menu -->
-</section>
-<!-- /.sidebar -->
+            </li>
+        </ul><!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
 </aside>

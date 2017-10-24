@@ -16,7 +16,7 @@ class Coordenacao extends Model
 
     public function membros()
     {
-        return $this->hasMany('App\User','coordenacoes_id');
+        return $this->hasMany('App\User','coordenacao_id');
     }
 
     public function responsavel(){

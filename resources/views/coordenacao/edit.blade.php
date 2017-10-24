@@ -98,6 +98,20 @@
                             </div>
 
 
+                            <div class="form-group">
+                                <label for="responsavel" class="col-sm-2 control-label">Responsavel</label>
+                                <div class="col-sm-10">
+                                    <select name="responsavel" id="responsavel" class="form-control">
+                                        @foreach($coordenacao->membros as $membro)
+                                            <option value="{{membro['id']}}" {{ $membro['id'] === (isset($coordenacao->responsavel) ? $coordenacao->responsavel: '' ) ? 'selected' : '' }}>{{$membro['name']}}</option>
+
+                                        @endforeach
+                                    </select>
+
+                                </div>
+                            </div>
+
+
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-info pull-right btn-lg">
                                     Save</button>
