@@ -15,10 +15,14 @@
 
 @section('main-content')
 
-    @if(\Illuminate\Support\Facades\Session::has('mensagem'))
-        <div class="alert alert-success">{{\Illuminate\Support\Facades\Session::get('mensagem')}}</div>
-    @endif
+    {{--@if(\Illuminate\Support\Facades\Session::has('mensagem'))--}}
+        {{--<div class="alert alert-success">{{\Illuminate\Support\Facades\Session::get('mensagem')}}</div>--}}
+    {{--@endif--}}
 
+
+    @if (Session::has('mensagem'))
+        <div class="alert alert-info">{{ Session::get('mensagem') }}</div>
+    @endif
 
     @if($errors->any())
         <div class="box alert alert-danger">
