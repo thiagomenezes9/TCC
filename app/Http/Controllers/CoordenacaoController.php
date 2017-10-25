@@ -100,7 +100,9 @@ class CoordenacaoController extends Controller
         if($coordenacao->responsavel != $user){
 
 
+//            $coordenacao->responsavel()->associate($user);
             $user->responsavel()->associate($coordenacao);
+            $user->save();
         }
 
 
@@ -114,6 +116,7 @@ class CoordenacaoController extends Controller
             $coordenacao->save();
         }elseif ($coordenacao->membros){
             Session::flash('mensagem', 'Coordenação com membros não e possivel desativar!');
+            echo "entrou";
         }else{
             $coordenacao->ativo = '0';
             $coordenacao->save();
