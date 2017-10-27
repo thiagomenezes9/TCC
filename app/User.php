@@ -38,4 +38,10 @@ class User extends Authenticatable
     }
 
 
+    public function publicacao(){
+        $this->hasMany('App\Publicacao');
+    }
+
+
+
 }

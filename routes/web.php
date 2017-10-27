@@ -26,6 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('coordenacoes','CoordenacaoController');
     Route::resource('usuarios','UserController');
+    Route::resource('publicacoes','PublicacaoController');
 
 
 });
