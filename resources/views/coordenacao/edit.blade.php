@@ -1,5 +1,7 @@
 @extends('adminlte::layouts.app')
 
+
+
 @section('htmlheader_title')
     Coordenações
 @stop
@@ -21,6 +23,13 @@
 
     @if (Session::has('mensagem'))
         <div class="alert alert-info">{{ Session::get('mensagem') }}</div>
+    @endif
+
+
+    @if (session('alert'))
+        <div class="alert alert-success">
+            {{ session('alert') }}
+        </div>
     @endif
 
 
@@ -140,3 +149,4 @@
 
 
 @endsection
+

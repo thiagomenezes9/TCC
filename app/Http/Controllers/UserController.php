@@ -109,7 +109,7 @@ class UserController extends Controller
         if($user->resp_coord_id == NULL){
             $user->save();
         }elseif ($user->resp_coord_id != $request->coordenacao){
-            Session::flash('mensagem', 'Usuario chefe de coordenação não pode alterar de coordenação!');
+            Session:flash('mensagem', 'Usuario chefe de coordenação não pode alterar de coordenação!');
         }else{
             $user->save();
         }

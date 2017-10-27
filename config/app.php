@@ -232,6 +232,8 @@ return [
 
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
 
+
+
     ],
 
 ];

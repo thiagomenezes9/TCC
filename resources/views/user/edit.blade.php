@@ -114,7 +114,7 @@
 
                                         @foreach($coordenacao as $c)
 {{--                                            <option value="{{$c->id}}" {{ $membro['id'] === (isset($coordenacao->responsavel) ? $coordenacao->responsavel: '' ) ? 'selected' : '' }}>{{$membro['name']}}</option>--}}
-                                            <option value="{{$c->id}}" {{ $usuario->coordenacao_id === (isset($usuario->membro) ? $usuario->id: '' ) ? 'selected' : '' }}>{{$c->nome}}</option>
+                                            <option value="{{$c->id}}" {{ $usuario->coordenacao_id === $c->id ? 'selected' : '' }}>{{$c->nome}}</option>
 
                                         @endforeach
                                     </select>

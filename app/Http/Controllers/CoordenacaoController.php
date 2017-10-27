@@ -91,42 +91,63 @@ class CoordenacaoController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+
         $coordenacao = Coordenacao::findOrFail($id);
 
-        $user = User::findOrFail($request->responsavel);
+        $user = null;
 
 
-
-        if($coordenacao->responsavel != $user){
-
-
-//            $coordenacao->responsavel()->associate($user);
-            $user->responsavel()->associate($coordenacao);
-            $user->save();
+        if(isset($request->responsavel)){
+            $user = User::findOrFail($request->responsavel);
         }
+
+
+
+
+        if($user!=null) {
+            if ($coordenacao->responsavel != $user) {
+
+                $user->responsavel()->associate($coordenacao);
+                $user->save();
+            }
+        }
+
+
+        $aux = 0;
+
+        foreach ($coordenacao->membros as $membro) {
+            $aux = $aux + $membro->id;
+        }
+
 
 
 
         if($request->ativo == '1'){
 
+
+
             $coordenacao->nome = $request->nome;
             $coordenacao->sigla = $request->sigla;
+            $coordenacao->ativo = '1';
 
 
             $coordenacao->save();
-        }elseif ($coordenacao->membros){
+
+
+        }elseif ($aux!=0){
+//            echo "com membros";
             Session::flash('mensagem', 'Coordenação com membros não e possivel desativar!');
-            echo "entrou";
         }else{
+//            echo "sem mebros";
             $coordenacao->ativo = '0';
             $coordenacao->save();
 
         }
 
-
-
-
         return redirect('coordenacoes');
+
+//
 
     }
 
