@@ -21,9 +21,13 @@
         {{--<div class="alert alert-success">{{\Illuminate\Support\Facades\Session::get('mensagem')}}</div>--}}
     {{--@endif--}}
 
-    @if (Session::has('mensagem'))
-        <div class="alert alert-info">{{ Session::get('mensagem') }}</div>
+    @if (Session::get('fail'))
+        <div class="alert alert-info">{{ Session::get('fail') }}</div>
     @endif
+
+    {{--@if(Session::get('fail'))--}}
+        {{--{{Session::get('fail')}}--}}
+    {{--@endif--}}
 
 
     @if (session('alert'))

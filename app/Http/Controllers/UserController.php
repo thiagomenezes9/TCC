@@ -109,7 +109,9 @@ class UserController extends Controller
         if($user->resp_coord_id == NULL){
             $user->save();
         }elseif ($user->resp_coord_id != $request->coordenacao){
-            Session:flash('mensagem', 'Usuario chefe de coordenação não pode alterar de coordenação!');
+//            return redirect()->back()->with('fail','Coordenação não pode ser desativada')->withInput();
+//            Session:flash('mensagem', 'Usuario chefe de coordenação não pode alterar de coordenação!');
+            return redirect('usuarios')->with('fail','Coordenação com membros não pode ser desativada!')->withInput();
         }else{
             $user->save();
         }

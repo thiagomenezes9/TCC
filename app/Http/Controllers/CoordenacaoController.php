@@ -137,7 +137,8 @@ class CoordenacaoController extends Controller
 
         }elseif ($aux!=0){
 //            echo "com membros";
-            Session::flash('mensagem', 'Coordenação com membros não e possivel desativar!');
+//            return redirect()->back()->with('fail','Coordenação não pode ser desativada')->withInput();
+            return redirect('coordenacoes')->with('fail','Coordenação com membros não pode ser desativada!')->withInput();
         }else{
 //            echo "sem mebros";
             $coordenacao->ativo = '0';
