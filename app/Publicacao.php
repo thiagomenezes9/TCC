@@ -9,13 +9,18 @@ class Publicacao extends Model
 
 
     protected $fillable = [
-        'assunto','data_expiracao','imagem','texto','ativo','publicado'
+        'titulo','data_expiracao','imagem','texto','ativo','publicado'
     ];
 
 
 
     public function user(){
         $this->belongsTo('App\User');
+    }
+
+
+    public function log(){
+        $this->hasMany('App\Log');
     }
 
 }
