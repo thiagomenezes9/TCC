@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Publicacao;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PublicacaoController extends Controller
 {
@@ -16,19 +17,19 @@ class PublicacaoController extends Controller
     {
 
         if(Auth::user()->membro->sigla == 'CCS'){
-            $publicacoes = Publicacao::all()->orderBy('created_at');
+            $publicacoes = Publicacao::all()->where('ativo','=','1')->orderBy('created_at');
         }elseif(isset(Auth::user()->responsavel)){
 //            $publicacoes = Publicacao::all()->where('');
 
             $publicacoes = DB::table('publicacaos')
                 ->join('users', 'users.id', '=', 'publicacaos.user_id')
                 ->join('coordenacaos', 'users.coordenacao_id', '=', 'coordenacaos.id')
-                ->select('publicacaos.*')
+                ->select('publicacaos.*')->where('ativo','=','1')
                 ->get();
 
 
         }else{
-            $publicacoes = Publicacao::all()->where('user_id',Auth::user()->id);
+            $publicacoes = Publicacao::all()->where([['user_id','=',Auth::user()->id],['ativo','=','1']]);
         }
 
         return view('publicacao.index',compact('publicacoes'));

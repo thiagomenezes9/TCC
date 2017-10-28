@@ -28,6 +28,12 @@
                         @if(Auth::user()->membro->sigla == 'CCS'){
                              <div align="right"><a href="#" class="btn btn-info">Publicar</a></div>
                         }@endif
+                        @if(!$publicacao->publicado){
+                            @if($publicacao->user_id == Auth::user()->id){
+                                <div align="right"><a href="#" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i>Editar</a></div>
+                                <div align="right"><a href="#" class="btn btn-danger">Desativar</a></div>
+                            }@endif
+                        }@endif
                     </div>
 
                     <div class="box-body">

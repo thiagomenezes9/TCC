@@ -73,10 +73,10 @@
                                             Detalhes
                                         </a>
 
-                                        <a class="btn btn-small btn-warning" href="{{route('publicacoes.edit',$p->id)}}" >
-                                            <i class="fa fa-pencil-square-o"></i>
-                                            Editar
-                                        </a>
+                                        {{--<a class="btn btn-small btn-warning" href="{{route('publicacoes.edit',$p->id)}}" >--}}
+                                            {{--<i class="fa fa-pencil-square-o"></i>--}}
+                                            {{--Editar--}}
+                                        {{--</a>--}}
 
                                     </td>
                                 </tr>
