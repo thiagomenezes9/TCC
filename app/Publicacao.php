@@ -9,7 +9,7 @@ class Publicacao extends Model
 
 
     protected $fillable = [
-        'titulo','data_expiracao','imagem','texto','ativo','publicado'
+        'titulo','data_expiracao','imagem','texto','ativo','publicado','data_publicacao'
     ];
 
 

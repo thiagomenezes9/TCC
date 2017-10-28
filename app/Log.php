@@ -15,5 +15,9 @@ class Log extends Model
         $this->belongsTo('App\Publicacao');
     }
 
+    public function user(){
+        $this->belongsTo('App\User');
+    }
+
 
 }

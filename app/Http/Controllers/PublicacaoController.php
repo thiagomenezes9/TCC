@@ -14,7 +14,24 @@ class PublicacaoController extends Controller
      */
     public function index()
     {
-        //
+
+        if(Auth::user()->membro->sigla == 'CCS'){
+            $publicacoes = Publicacao::all()->orderBy('created_at');
+        }elseif(isset(Auth::user()->responsavel)){
+//            $publicacoes = Publicacao::all()->where('');
+
+            $publicacoes = DB::table('publicacaos')
+                ->join('users', 'users.id', '=', 'publicacaos.user_id')
+                ->join('coordenacaos', 'users.coordenacao_id', '=', 'coordenacaos.id')
+                ->select('publicacaos.*')
+                ->get();
+
+
+        }else{
+            $publicacoes = Publicacao::all()->where('user_id',Auth::user()->id);
+        }
+
+        return view('publicacao.index',compact('publicacoes'));
     }
 
     /**
