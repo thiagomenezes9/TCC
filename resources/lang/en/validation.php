@@ -65,10 +65,10 @@ return [
         'array'   => 'O :attribute must have at least :min items.',
     ],
     'not_in'               => 'O selected :attribute is invalid.',
-    'numeric'              => 'O :attribute deve ser a number.',
+    'numeric'              => 'O :attribute deve ser um numero.',
     'present'              => 'O :attribute field deve ser present.',
     'regex'                => 'O :attribute format is invalid.',
-    'required'             => 'O :attribute field is required.',
+    'required'             => 'O :attribute e um atributo obrigatorio.',
     'required_if'          => 'O :attribute field is required when :oOr is :value.',
     'required_unless'      => 'O :attribute field is required unless :oOr is in :values.',
     'required_with'        => 'O :attribute field is required when :values is present.',
@@ -84,9 +84,9 @@ return [
     ],
     'string'               => 'O :attribute deve ser a string.',
     'timezone'             => 'O :attribute deve ser a valid zone.',
-    'unique'               => 'O :attribute has already been taken.',
-    'uploaded'             => 'O :attribute failed to upload.',
-    'url'                  => 'O :attribute format is invalid.',
+    'unique'               => 'O :attribute já existe.',
+    'uploaded'             => 'O :attribute falhou ao fazer upload.',
+    'url'                  => 'O :attribute formato invalida.',
 
     /*
     |--------------------------------------------------------------------------

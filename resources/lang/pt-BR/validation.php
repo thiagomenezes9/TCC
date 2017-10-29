@@ -38,7 +38,7 @@ return [
     'digits_between'       => 'O :attribute deve ser between :min and :max digits.',
     'dimensions'           => 'O :attribute has invalid image dimensions.',
     'distinct'             => 'O :attribute field has a duplicate value.',
-    'email'                => 'O :attribute deve ser a valid email address.',
+    'email'                => 'O :attribute deve ser um endereço de email valido.',
     'exists'               => 'O selected :attribute is invalid.',
     'file'                 => 'O :attribute deve ser a file.',
     'filled'               => 'O :attribute field must have a value.',
@@ -84,9 +84,9 @@ return [
     ],
     'string'               => 'O :attribute deve ser a string.',
     'timezone'             => 'O :attribute deve ser a valid zone.',
-    'unique'               => 'O :attribute has already been taken.',
-    'uploaded'             => 'O :attribute failed to upload.',
-    'url'                  => 'O :attribute format is invalid.',
+    'unique'               => 'O :attribute já existe.',
+    'uploaded'             => 'O :attribute falhou ao fazer upload.',
+    'url'                  => 'O :attribute formato invalida.',
 
     /*
     |--------------------------------------------------------------------------
