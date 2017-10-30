@@ -40,7 +40,7 @@
                 {{--Primeiro verifico se esta ativo--}}
                 {{--Depois verifico se ele e membro de alguma coordenacao--}}
                 {{--Depois verifico se ele e membro do CCS--}}
-                {{--@if((Auth::user()->ativo))--}}
+                @if((Auth::user()->ativo))
 
 
                     <a href="{{route('publicacoes.index')}}">
@@ -50,8 +50,8 @@
                     </a>
 
 
-                    {{--@if(isset(Auth::user()->membro))--}}
-                        {{--@if(Auth::user()->membro->sigla == 'CCS')--}}
+                    @if(isset(Auth::user()->membro))
+                        @if(Auth::user()->membro->sigla == 'CCS')
 
 
                             <a href="{{route('coordenacoes.index')}}">
@@ -65,11 +65,11 @@
                                 <span>Usuários</span>
                                 {{--<i class="fa fa-angle-left pull-right"></i>--}}
                             </a>
-                        {{--@endif--}}
+                        @endif
 
 
-                    {{--@endif--}}
-                {{--@endif--}}
+                    @endif
+                @endif
 
             </li>
         </ul><!-- /.sidebar-menu -->

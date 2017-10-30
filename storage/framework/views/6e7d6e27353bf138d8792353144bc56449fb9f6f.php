@@ -43,7 +43,7 @@
                 
 
 
-                    <a href="#">
+                    <a href="<?php echo e(route('publicacoes.index')); ?>">
                         <i class="fa fa-users"></i>
                         <span>Publicações</span>
                         

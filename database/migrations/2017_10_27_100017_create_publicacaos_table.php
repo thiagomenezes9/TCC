@@ -20,7 +20,7 @@ class CreatePublicacaosTable extends Migration
             $table->increments('id');
             $table->string('titulo');
             $table->date('data_expiracao');
-            $table->date('data_publicacao');
+            $table->date('data_publicacao')->nullable();
             $table->binary('imagem');
             $table->string('texto');
             $table->boolean('ativo');

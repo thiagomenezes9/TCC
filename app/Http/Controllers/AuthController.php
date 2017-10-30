@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -35,7 +37,7 @@ class AuthController extends Controller
         $credentials = $request->only('email','password');
 
         if(!Auth::attempt($credentials)){
-            return redirect()->back()->with('fail','Usuário ou senha invalidos SEU BURRO!!')->withInput();
+            return redirect()->back()->with('fail','Usuário ou senha inválidos')->withInput();
         }
 
         return redirect('dashboard');
@@ -50,7 +52,7 @@ class AuthController extends Controller
             'email' => ['required','max:255','email','unique:users'],
             'password'=>['required','min:6','max:255','confirmed'],
             'name'=>['required','max:255'],
-            'matricula'=>['required','max:20','numeric']
+            'matricula'=>['required','numeric']
 
         ]);
 
