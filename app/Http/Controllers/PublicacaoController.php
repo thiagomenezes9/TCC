@@ -23,10 +23,10 @@ class PublicacaoController extends Controller
 
         $user = Auth::user();
 
-        if(isset($user->membro)) {
+        //if(isset($user->membro)) {
 
             if ($user->membro->sigla == 'CCS') {
-                $publicacoes = Publicacao::all()->where('ativo', '=', '1')->orderBy('created_at');
+                $publicacoes = Publicacao::all()->where('ativo', '=', '1');
             } elseif (isset($user->responsavel)) {
 //            $publicacoes = Publicacao::all()->where('');
 
@@ -41,9 +41,9 @@ class PublicacaoController extends Controller
                 $publicacoes = Publicacao::all()->where([['user_id', '=', $user->id], ['ativo', '=', '1']]);
             }
 
-        }
+        //}
 
-        $publicacoes = Publicacao::all();
+      //  $publicacoes = Publicacao::all();
 
 
         return view('publicacao.index',compact('publicacoes'));

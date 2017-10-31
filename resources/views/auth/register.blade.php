@@ -121,6 +121,8 @@
 
                                     {!! csrf_field() !!}
 
+                                    <input type="hidden" value="1" name="ativo">
+
                                     <div class="card-content">
                                         <div class="input-group">
                                                 <span class="input-group-addon">
@@ -156,8 +158,7 @@
                                         <!-- If you want to add a checkbox to this form, uncomment this code -->
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" name="optionsCheckboxes" checked> Eu aceito os
-                                                <a href="#">termos e condições</a>.
+                                                <input type="checkbox" name="optionsCheckboxes" checked> Eu aceito os termos e condições.
                                             </label>
                                         </div>
                                     </div>

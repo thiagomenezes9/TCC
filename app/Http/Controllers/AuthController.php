@@ -70,6 +70,14 @@ class AuthController extends Controller
     public function logout(){
         Auth::logout();
 
-        return redirect('/dashboard');
+        return redirect('auth/login');
     }
+
+
+
+//    public function perfil(){
+//        $usuario = Auth::user();
+//        return view('auth.perfil',compact('usuario'));
+//    }
+
 }

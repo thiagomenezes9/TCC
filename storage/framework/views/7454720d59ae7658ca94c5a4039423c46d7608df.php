@@ -15,7 +15,21 @@
 
 				<?php else: ?>
 
-				   <h1>Usuario desativado</h1>
+				  <div class="row">
+					  
+					  <div class="col-md-4">
+						  <div class="panel panel-default">
+							  <div class="panel-body">
+								  imagem
+							  </div>
+							  <div class="panel-footer">
+								  titulo da noticia
+							  </div>
+						  </div>
+					  </div>
+				  </div>
+
+					VC TA DESATIVADO
 
 					<?php endif; ?>
 			</div>

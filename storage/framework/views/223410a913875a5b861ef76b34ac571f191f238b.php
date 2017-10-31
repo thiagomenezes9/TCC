@@ -149,14 +149,14 @@
                                     
                                 
                                 <div class="pull-right">
-                                    <a href="<?php echo e(url('/logout')); ?>" class="btn btn-default btn-flat" id="logout"
+                                    <a href="<?php echo e(route('auth.logout')); ?>" class="btn btn-default btn-flat" id="logout"
                                        onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                         <?php echo e(trans('adminlte_lang::message.signout')); ?>
 
                                     </a>
 
-                                    <form id="logout-form" action="<?php echo e(url('/logout')); ?>" method="POST" style="display: none;">
+                                    <form id="logout-form" action="<?php echo e(route('auth.logout')); ?>" method="POST" style="display: none;">
                                         <?php echo e(csrf_field()); ?>
 
                                         <input type="submit" value="logout" style="display: none;">

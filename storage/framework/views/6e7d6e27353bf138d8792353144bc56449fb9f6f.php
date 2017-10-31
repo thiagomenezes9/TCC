@@ -40,18 +40,18 @@
                 
                 
                 
-                
+                <?php if((Auth::user()->ativo)): ?>
 
 
                     <a href="<?php echo e(route('publicacoes.index')); ?>">
-                        <i class="fa fa-users"></i>
+                        <i class="fa fa-newspaper-o"></i>
                         <span>Publicações</span>
                         
                     </a>
 
 
-                    
-                        
+                    <?php if(isset(Auth::user()->membro)): ?>
+                        <?php if(Auth::user()->membro->sigla == 'CCS'): ?>
 
 
                             <a href="<?php echo e(route('coordenacoes.index')); ?>">
@@ -65,11 +65,11 @@
                                 <span>Usuários</span>
                                 
                             </a>
-                        
+                        <?php endif; ?>
 
 
-                    
-                
+                    <?php endif; ?>
+                <?php endif; ?>
 
             </li>
         </ul><!-- /.sidebar-menu -->

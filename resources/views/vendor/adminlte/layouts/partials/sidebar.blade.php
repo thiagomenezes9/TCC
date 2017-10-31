@@ -44,7 +44,7 @@
 
 
                     <a href="{{route('publicacoes.index')}}">
-                        <i class="fa fa-users"></i>
+                        <i class="fa fa-newspaper-o"></i>
                         <span>Publicações</span>
                         {{--<i class="fa fa-angle-left pull-right"></i>--}}
                     </a>

@@ -44,7 +44,10 @@ Route::group(['middleware'=>['web']],function(){
         Route::post('register',array('as' => 'register.create', 'uses' => 'AuthController@create'));
 
 
-        Route::get('logout',array('as'=>'auth.logout', 'uses'=>'AuthController@logout'));
+//        Route::get('logout',array('as'=>'auth.logout', 'uses'=>'AuthController@logout'));
+        Route::post('logout',array('as'=>'auth.logout', 'uses'=>'AuthController@logout'));
+
+
 
 
 
@@ -53,12 +56,20 @@ Route::group(['middleware'=>['web']],function(){
 
     Route::group(['prefix' => 'dashboard','middleware'=>'auth'],function (){
         Route::get('/',array('as' => 'dashboard', 'uses' => 'DashboardController@index'));
+
+
+
     });
+
+
 
 
     Route::resource('coordenacoes','CoordenacaoController');
     Route::resource('usuarios','UserController');
     Route::resource('publicacoes','PublicacaoController');
+
+//    Route::get('perfil',array('as'=>'perfil', 'uses'=>'AuthController@perfil'));
+
 
 
 
