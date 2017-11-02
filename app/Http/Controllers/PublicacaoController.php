@@ -30,6 +30,7 @@ class PublicacaoController extends Controller
 
             if ($user->membro->sigla == 'CCS') {
                 $publicacoes = Publicacao::all()->where('ativo', '=', '1');
+//                $publicacoes = Publicacao::all();
             } elseif (isset($user->responsavel)) {
 //            $publicacoes = Publicacao::all()->where('');
 
@@ -37,11 +38,13 @@ class PublicacaoController extends Controller
                     ->join('users', 'users.id', '=', 'publicacaos.user_id')
                     ->join('coordenacaos', 'users.coordenacao_id', '=', 'coordenacaos.id')
                     ->select('publicacaos.*')->where('ativo', '=', '1')
+//                    ->select('publicacaos.*')
                     ->get();
 
 
             } else {
                 $publicacoes = Publicacao::all()->where([['user_id', '=', $user->id], ['ativo', '=', '1']]);
+//                $publicacoes = Publicacao::all()->where('user_id', '=', $user->id);
             }
 
         }

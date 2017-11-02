@@ -53,9 +53,10 @@
                         <table class="table table-bordered table-striped" id="tabCoordenacoes">
                             <thead>
                             <tr>
-                                <td class="col-md-5"><strong>Titulo</strong></td>
+                                <td class="col-md-4"><strong>Titulo</strong></td>
                                 <td class="col-md-2"><strong>Criador</strong></td>
                                 <td class="col-md-2"><strong>Publicada</strong></td>
+                                <td class="col-md-2"><strong>Ativa</strong></td>
                                 <td class="col-mb-4" align="center"><strong>Ações</strong></td>
                             </tr>
                             </thead>
@@ -67,6 +68,7 @@
                                     <td align="left">{{ $p->titulo }}</td>
                                     <td align="left">{{ $p->user->name }}</td>
                                     <td align="left">{{$p->publicado ? 'Sim' : 'Não'}}</td>
+                                    <td align="left">{{$p->ativo ? 'Sim' : 'Não'}}</td>
                                     <td>
                                         <a class="btn btn-small btn-info" href="{{route('publicacoes.show',$p->id)}}" >
                                             <i class="fa fa-search-plus"></i>
