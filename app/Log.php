@@ -12,11 +12,11 @@ class Log extends Model
 
 
     public function publicacao(){
-        $this->belongsTo('App\Publicacao');
+       return $this->belongsTo('App\Publicacao');
     }
 
     public function user(){
-        $this->belongsTo('App\User');
+        return $this->belongsTo('App\User');
     }
 
 

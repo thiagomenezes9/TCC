@@ -121,7 +121,7 @@
 
                                     {!! csrf_field() !!}
 
-                                    <input type="hidden" value="1" name="ativo">
+                                    <input type="hidden" value="0" name="ativo">
 
                                     <div class="card-content">
                                         <div class="input-group">

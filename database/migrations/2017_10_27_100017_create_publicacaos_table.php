@@ -21,12 +21,11 @@ class CreatePublicacaosTable extends Migration
             $table->string('titulo');
             $table->date('data_expiracao');
             $table->date('data_publicacao')->nullable();
-            $table->binary('imagem');
+            $table->binary('imagem')->nullable();
             $table->string('texto');
             $table->boolean('ativo');
             $table->boolean('publicado');
             $table->integer('user_id')->unsigned();
-//            $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
 
 

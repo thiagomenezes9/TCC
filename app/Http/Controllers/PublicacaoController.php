@@ -23,7 +23,10 @@ class PublicacaoController extends Controller
 
         $user = Auth::user();
 
-        //if(isset($user->membro)) {
+        $publicacoes = Publicacao::all();
+
+
+        if(isset($user->membro)) {
 
             if ($user->membro->sigla == 'CCS') {
                 $publicacoes = Publicacao::all()->where('ativo', '=', '1');
@@ -41,9 +44,7 @@ class PublicacaoController extends Controller
                 $publicacoes = Publicacao::all()->where([['user_id', '=', $user->id], ['ativo', '=', '1']]);
             }
 
-        //}
-
-      //  $publicacoes = Publicacao::all();
+        }
 
 
         return view('publicacao.index',compact('publicacoes'));
@@ -68,33 +69,36 @@ class PublicacaoController extends Controller
     public function store(Request $request)
     {
 
-//        titulo, texto, imagem, data_final, data_publicacao, ativo, publicado, user_id
 
+        $user = Auth::user();
         $publicacao = new Publicacao;
 
-        $arquivo = Input::file('bandeira');
+
+
+        $arquivo = Input::file('imagem');
         $form = $request->all();
         $form['imagem'] = (string) Image::make($arquivo)->encode('data-url');
 
-       $publicacao->texto = $form->texto;
-       $publicacao->titulo = $form->titulo;
+       $publicacao->texto = $request->texto;
+       $publicacao->titulo = $request->titulo;
        $publicacao->ativo = 1;
        $publicacao->publicado = 0;
        $publicacao->imagem = $form['imagem'];
-       $publicacao->data_expiracao = Carbon::createFromFormat('d/m/Y',$request->data_expiracao);
-       $publicacao->user()->associate(Auth::user());
+       $publicacao->data_expiracao = $request->data_expiracao;
+       $publicacao->user()->associate($user);
 
-       $publicacao->saveOrFail();
 
-       $publicacao = Publicacao::created($publicacao);
+        $publicacao->save();
+
 
        $log = new Log;
 
 
-
-       $log->publicacao()->assossiate($publicacao);
-       $log->user()->associate(Auth::user());
+       $log->publicacao()->associate($publicacao);
+       $log->user()->associate($user);
        $log->desc = "Criou";
+
+
 
        $log->save();
 

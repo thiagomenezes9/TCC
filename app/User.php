@@ -39,11 +39,11 @@ class User extends Authenticatable
 
 
     public function publicacao(){
-        $this->hasMany('App\Publicacao');
+        return $this->hasMany('App\Publicacao','user_id');
     }
 
     public function log(){
-        $this->hasMany('App\Log');
+        return $this->hasMany('App\Log','user_id');
     }
 
 

@@ -22,26 +22,31 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Detalhes da Publicação</h3>
+                        <h3 class="box-title">Detalhes da Publicação</h3><br><br>
 
-                        <div align="right"><a href="{{route('publicacoes.index')}}" class="btn btn-info">Voltar</a></div>
-                        @if(Auth::user()->membro->sigla == 'CCS'){
-                             <div align="right"><a href="#" class="btn btn-info">Publicar</a></div>
-                        }@endif
-                        @if(!$publicacao->publicado){
-                            @if($publicacao->user_id == Auth::user()->id){
-                                <div align="right"><a href="#" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i>Editar</a></div>
-                                <div align="right"><a href="#" class="btn btn-danger">Desativar</a></div>
-                            }@endif
-                        }@endif
+                        <div class="row">
+
+                            <div align="left" class="col col-lg-2"><a href="{{route('publicacoes.index')}}" class="btn btn-info">Voltar</a></div>
+                            <div align="right" class="col-12 col-md-auto">
+                                @if(Auth::user()->membro->sigla == 'CCS')
+                                     <a href="#" class="btn btn-info">Publicar</a>
+                                @endif
+                                @if(!$publicacao->publicado)
+                                    @if($publicacao->user_id == Auth::user()->id)
+                                       <a href="#" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i>Editar</a>
+                                        <a href="#" class="btn btn-danger">Desativar</a>
+                                    @endif
+                                @endif
+                            </div>
+                        </div>
                     </div>
 
                     <div class="box-body">
 
 
-                        <p><strong><h2>Titulo : {{$publicacao->nome}}</h2></strong></p><br>
+                        <p><strong><h2>Titulo : {{$publicacao->titulo}}</h2></strong></p><br>
                         <p><strong>Data Criação : </strong> {{$publicacao->created_at->format('d/m/Y')}}</p><br>
-                        <p><strong>Data Final : </strong> {{$publicacao->data_expiracao->format('d/m/Y')}}</p><br>
+                        <p><strong>Data Final : </strong> {{$publicacao->data_expiracao}}</p><br>
                         <p><strong>Usuário : </strong> {{$publicacao->user->name}}</p><br>
                         <p><strong>Ativo : </strong> {{$publicacao->ativo ? 'Sim' : 'Não'}}</p><br>
                         <p><strong>Publicado : </strong> {{$publicacao->publicado ? 'Sim' : 'Não'}}</p><br>
@@ -52,7 +57,7 @@
 
                         <img src="{{$publicacao->imagem}}">
 
-                        <p><strong>LOG</strong></p>
+                        <br><br><p><strong>LOG</strong></p>
 
 
                         <table class="table table-bordered table-striped">

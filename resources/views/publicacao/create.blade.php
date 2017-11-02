@@ -81,6 +81,15 @@
 
 
                             <div class="form-group">
+                                <label for="inputDataNasc" class="col-sm-2 control-label">Data Expiração</label>
+                                <div class="col-sm-10">
+                                    <input type="date" class="form-control input-lg" id="data_expiracao" name="data_expiracao"
+                                           value="{{old('data_expiracao')}}" placeholder="Data de Expiração">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
                                 <label for="imagem" class="col-sm-2 control-label">Imagem</label>
                                 <input name="imagem" type="file" class="form-control-file"
                                        id="imagem" autofocus>
