@@ -38,7 +38,7 @@ class CreateUsersTable extends Migration
             array(
                 'email' => 'thiagomenezes9@gmail.com',
                 'name' => 'admin',
-                'password' => 'thiagomlhy',
+                'password' => '$2y$10$GGYmnhv6.JtHUuDseuYlq.z1TlzMCymB1TVwjlifN4CtlrwG861sK',
                 'coordenacao_id' => '1',
                 'resp_coord_id' => '1',
                 'ativo' => '1'

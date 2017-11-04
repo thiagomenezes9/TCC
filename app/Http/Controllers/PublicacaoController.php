@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Coordenacao;
 use App\Log;
+use App\Mail\EmailNotificacao;
 use App\Publicacao;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 use Intervention\Image\Facades\Image;
 
 class PublicacaoController extends Controller
@@ -107,6 +110,22 @@ class PublicacaoController extends Controller
 
 
 
+//        Mail::send('emails.recuperar-senha',$dados, function ($message)use($request){
+//            $message->from(\Config::get('mail.from.teste'))
+//                ->to('seuemailpessoal@gmail.com')
+//                ->subject('Assunto do e-mail');
+//        });
+
+
+        foreach (Coordenacao::find(1)->membros as $membro){
+            Mail::to($membro->email)->send(new EmailNotificacao($publicacao));
+        }
+
+        $resp = $user->membro->responsavel;
+        Mail::to($resp)->send(new EmailNotificacao($publicacao));
+
+
+
 
        return redirect('publicacoes');
 
@@ -124,6 +143,10 @@ class PublicacaoController extends Controller
     {
         $publicacao = Publicacao::findOrFail($id);
 
+
+
+
+//        dd($publicacao);
 
         return view('publicacao.show',compact('publicacao'));
     }

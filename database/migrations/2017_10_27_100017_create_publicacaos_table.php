@@ -32,6 +32,11 @@ class CreatePublicacaosTable extends Migration
 
             $table->timestamps();
         });
+
+
+
+
+
     }
 
     /**
