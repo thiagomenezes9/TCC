@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0dcd0b9009b1c5eb90ad4c6f8c6b5e61",
+    "hash": "979e7d50b8eca512f069a31cf720340b",
     "content-hash": "cbe8fac9dfa884c734b02cc78c5e734c",
     "packages": [
         {
@@ -1984,16 +1984,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v3.1.1",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "a1e8e1a30e1352f118feff1a8481066ddc2f234a"
+                "reference": "08131e7ff29de6bb9f12275c7d35df71f25f4d89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/a1e8e1a30e1352f118feff1a8481066ddc2f234a",
-                "reference": "a1e8e1a30e1352f118feff1a8481066ddc2f234a",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/08131e7ff29de6bb9f12275c7d35df71f25f4d89",
+                "reference": "08131e7ff29de6bb9f12275c7d35df71f25f4d89",
                 "shasum": ""
             },
             "require": {
@@ -2031,7 +2031,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2017-09-02 17:10:46"
+            "time": "2017-11-04 11:48:34"
         },
         {
             "name": "paragonie/random_compat",
@@ -2394,16 +2394,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "5.2.2",
+            "version": "5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "8ed1902a57849e117b5651fc1a5c48110946c06b"
+                "reference": "8e1d2397d8adf59a3f12b2878a3aaa66d1ab189d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/8ed1902a57849e117b5651fc1a5c48110946c06b",
-                "reference": "8ed1902a57849e117b5651fc1a5c48110946c06b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/8e1d2397d8adf59a3f12b2878a3aaa66d1ab189d",
+                "reference": "8e1d2397d8adf59a3f12b2878a3aaa66d1ab189d",
                 "shasum": ""
             },
             "require": {
@@ -2412,7 +2412,7 @@
                 "php": "^7.0",
                 "phpunit/php-file-iterator": "^1.4.2",
                 "phpunit/php-text-template": "^1.2.1",
-                "phpunit/php-token-stream": "^1.4.11 || ^2.0",
+                "phpunit/php-token-stream": "^2.0",
                 "sebastian/code-unit-reverse-lookup": "^1.0.1",
                 "sebastian/environment": "^3.0",
                 "sebastian/version": "^2.0.1",
@@ -2454,7 +2454,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-03 12:40:43"
+            "time": "2017-11-03 13:47:33"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2981,16 +2981,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.8.13",
+            "version": "v0.8.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "cdb5593c3684bab74e10fcfffe4a0c8d1c39695d"
+                "reference": "91e53c16560bdb8b9592544bb38429ae00d6baee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/cdb5593c3684bab74e10fcfffe4a0c8d1c39695d",
-                "reference": "cdb5593c3684bab74e10fcfffe4a0c8d1c39695d",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/91e53c16560bdb8b9592544bb38429ae00d6baee",
+                "reference": "91e53c16560bdb8b9592544bb38429ae00d6baee",
                 "shasum": ""
             },
             "require": {
@@ -3050,7 +3050,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2017-10-19 06:13:20"
+            "time": "2017-11-04 16:06:49"
         },
         {
             "name": "ramsey/uuid",

@@ -61,6 +61,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+
+
+
         $usuario = User::findOrFail($id);
         $coordenacao = Coordenacao::all()->where('ativo','1');
 
@@ -81,18 +84,13 @@ class UserController extends Controller
     {
 
 
+        $this->validate($request, [
+            'nome' => 'required',
+            'matricula' => 'required',
+        ]);
+
         $user = User::findOrFail($id);
 
-//        if($request->ativo == '1'){
-//            Session::flash('mensagem', 'Coordenação desativado!');
-//            $coordenacao->update($request->all());
-//
-//
-//            $coordenacao->save();
-//        }elseif ($coordenacao->membros){
-//            Session::flash('mensagem', 'Coordenação com membros não e possivel desativar!');
-//        }
-//
 
         $user->name=$request->nome;
         $user->matricula=$request->matricula;
@@ -109,18 +107,12 @@ class UserController extends Controller
         if($user->resp_coord_id == NULL){
             $user->save();
         }elseif ($user->resp_coord_id != $request->coordenacao){
-//            return redirect()->back()->with('fail','Coordenação não pode ser desativada')->withInput();
-//            Session:flash('mensagem', 'Usuario chefe de coordenação não pode alterar de coordenação!');
-            return redirect('usuarios')->with('fail','Coordenação com membros não pode ser desativada!')->withInput();
+
+            return redirect('usuarios')->with('fail','Usuário Responsavel por coordenação não pode mudar de coordenação, escolha outro responsavel pela coordenação!')->withInput();
         }else{
             $user->save();
         }
 
-
-//        $user->save();
-//
-//
-//
         return redirect('usuarios');
     }
 

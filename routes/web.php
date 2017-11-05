@@ -68,6 +68,10 @@ Route::group(['middleware'=>['web']],function(){
     Route::resource('usuarios','UserController');
     Route::resource('publicacoes','PublicacaoController');
 
+
+    Route::get('publicacoes/desativar/{id}','PublicacaoController@desativar')->name('PublicacaoDesativar');
+    Route::get('publicacoes/publicar/{id}','PublicacaoController@publicar')->name('PublicacaoPublicar');
+
 //    Route::get('perfil',array('as'=>'perfil', 'uses'=>'AuthController@perfil'));
 
 

@@ -19,8 +19,8 @@ class CreatePublicacaosTable extends Migration
         Schema::create('publicacaos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('titulo');
-            $table->date('data_expiracao');
-            $table->date('data_publicacao')->nullable();
+            $table->dateTime('data_expiracao');
+            $table->dateTime('data_publicacao')->nullable();
             $table->binary('imagem')->nullable();
             $table->string('texto');
             $table->boolean('ativo');

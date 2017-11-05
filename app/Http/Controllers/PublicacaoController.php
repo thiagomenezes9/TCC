@@ -75,6 +75,12 @@ class PublicacaoController extends Controller
     public function store(Request $request)
     {
 
+        $this->validate($request,[
+           'titulo'=>'required',
+
+        ]);
+
+
 
         $user = Auth::user();
         $publicacao = new Publicacao;
@@ -117,12 +123,12 @@ class PublicacaoController extends Controller
 //        });
 
 
-        foreach (Coordenacao::find(1)->membros as $membro){
-            Mail::to($membro->email)->send(new EmailNotificacao($publicacao));
-        }
-
-        $resp = $user->membro->responsavel;
-        Mail::to($resp)->send(new EmailNotificacao($publicacao));
+//        foreach (Coordenacao::find(1)->membros as $membro){
+//            Mail::to($membro->email)->send(new EmailNotificacao($publicacao));
+//        }
+//
+//        $resp = $user->membro->responsavel;
+//        Mail::to($resp)->send(new EmailNotificacao($publicacao));
 
 
 
@@ -157,9 +163,9 @@ class PublicacaoController extends Controller
      * @param  \App\Publicacao  $publicacao
      * @return \Illuminate\Http\Response
      */
-    public function edit(Publicacao $publicacao)
+    public function edit($id)
     {
-        //
+        dd($id);
     }
 
     /**
@@ -180,8 +186,39 @@ class PublicacaoController extends Controller
      * @param  \App\Publicacao  $publicacao
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Publicacao $publicacao)
+    public function destroy($id)
     {
-        //
+
+
+    }
+
+
+
+    public function desativar($id){
+        $publicacao = Publicacao::find($id);
+
+        if($publicacao->publicado == 0){
+            $publicacao->ativo = 0;
+            $publicacao->save();
+        }else{
+            return redirect()->route('publivcacoes.show',$id)->with('fail','Publicação foi publicada não e possivel desativar!')->withInput();
+        }
+
+        return redirect('publicacoes');
+    }
+
+
+
+    public function publicar($id){
+        $publicacao = Publicacao::find($id);
+
+        $publicacao->publicado = 1;
+        $publicacao->data_publicacao = Carbon::now();
+
+        $publicacao->save();
+
+        return redirect()->route('publicacoes.index')->with('success','Publicação foi publicada!')->withInput();
+
+
     }
 }

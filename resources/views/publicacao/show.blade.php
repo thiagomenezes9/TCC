@@ -15,6 +15,27 @@
 
 @section('main-content')
 
+
+
+    @if (Session::get('fail'))
+        <div class="box alert alert-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title text-gray">Atenção</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool"
+                            data-widget="remove" data-toggle="tooltip" title="Fechar">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="alert alert-danger">{{ Session::get('fail') }}</div>
+            </div>
+        </div>
+    @endif
+
+
+
     <div class="container-fluid spark-screen">
         <div class="row">
 
@@ -28,13 +49,13 @@
 
                             <div align="left" class="col col-lg-2"><a href="{{route('publicacoes.index')}}" class="btn btn-info">Voltar</a></div>
                             <div align="right" class="col-12 col-md-auto">
-                                @if(Auth::user()->membro->sigla == 'CCS')
-                                     <a href="#" class="btn btn-info">Publicar</a>
+                                @if(Auth::user()->membro->sigla == 'CCS' && $publicacao->publicado==0)
+                                     <a href="{{route('PublicacaoPublicar',$publicacao->id)}}" class="btn btn-success">Publicar</a>
                                 @endif
                                 @if(!$publicacao->publicado)
                                     @if($publicacao->user_id == Auth::user()->id)
-                                       <a href="#" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i>Editar</a>
-                                        <a href="#" class="btn btn-danger">Desativar</a>
+                                       <a href="{{route('publicacoes.edit',$publicacao->id)}}" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i>Editar</a>
+                                        <a href="{{route('PublicacaoDesativar',$publicacao->id)}}" class="btn btn-danger">Desativar</a>
                                     @endif
                                 @endif
                             </div>
@@ -46,13 +67,13 @@
 
                         <p><strong><h2>Titulo : {{$publicacao->titulo}}</h2></strong></p><br>
                         <p><strong>Data Criação : </strong> {{$publicacao->created_at->format('d/m/Y')}}</p><br>
-                        <p><strong>Data Final : </strong> {{$publicacao->data_expiracao}}</p><br>
+                        <p><strong>Data Final : </strong> {{\Carbon\Carbon::parse($publicacao->data_expiracao)->format('d/m/Y')}}</p><br>
                         <p><strong>Usuário : </strong> {{$publicacao->user->name}}</p><br>
                         <p><strong>Ativo : </strong> {{$publicacao->ativo ? 'Sim' : 'Não'}}</p><br>
                         <p><strong>Publicado : </strong> {{$publicacao->publicado ? 'Sim' : 'Não'}}</p><br>
-                        @if($publicacao->publicado){
-                            <p><strong>Data da Publicação : </strong> {{$publicacao->data_publicacao->format('d/m/Y')}}</p><br>
-                        }@endif
+                        @if($publicacao->publicado)
+                            <p><strong>Data da Publicação : </strong> {{\Carbon\Carbon::parse($publicacao->data_publicacao)->format('d/m/Y')}}</p><br>
+                        @endif
                         <p><strong>Imagem : </strong></p><br>
 
                         <img src="{{$publicacao->imagem}}">

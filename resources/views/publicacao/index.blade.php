@@ -33,6 +33,23 @@
         </div>
     @endif
 
+    @if (Session::get('success'))
+        <div class="box success alert-success">
+            <div class="box-header with-border">
+                <h3 class="box-title text-gray">Sucesso</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool"
+                            data-widget="remove" data-toggle="tooltip" title="Fechar">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="alert alert-seccess">{{ Session::get('success') }}</div>
+            </div>
+        </div>
+    @endif
+
 
 
 

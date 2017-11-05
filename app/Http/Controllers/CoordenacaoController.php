@@ -39,6 +39,11 @@ class CoordenacaoController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'nome' => 'required',
+            'sigla' => 'required',
+        ]);
+
         $coordenacao = new Coordenacao();
 
         $coordenacao->nome = $request->nome;
@@ -92,6 +97,11 @@ class CoordenacaoController extends Controller
     public function update(Request $request, $id)
     {
 
+        $this->validate($request, [
+            'nome' => 'required',
+            'sigla' => 'required',
+        ]);
+
 
         $coordenacao = Coordenacao::findOrFail($id);
 
@@ -107,6 +117,13 @@ class CoordenacaoController extends Controller
 
         if($user!=null) {
             if ($coordenacao->responsavel != $user) {
+
+
+
+                $userold = $coordenacao->responsavel;
+                $userold->responsavel()->dissociate();
+                $userold->save();
+
 
                 $user->responsavel()->associate($coordenacao);
                 $user->save();
@@ -124,8 +141,6 @@ class CoordenacaoController extends Controller
 
 
         if($request->ativo == '1'){
-
-
 
             $coordenacao->nome = $request->nome;
             $coordenacao->sigla = $request->sigla;
