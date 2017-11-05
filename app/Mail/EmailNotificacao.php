@@ -31,6 +31,6 @@ class EmailNotificacao extends Mailable
      */
     public function build()
     {
-        return $this->view('notificacao.email',compact('publicacao'));
+        return $this->view('notificacao.email')->with(['publicacao'=>$this->publicacao]);
     }
 }
