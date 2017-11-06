@@ -76,7 +76,7 @@
                         @endif
                         <p><strong>Imagem : </strong></p><br>
 
-                        <img src="{{$publicacao->imagem}}">
+                        <img src="{{$publicacao->imagem}}" width="450" height="450" id="imagem">
 
                         <br><br><p><strong>LOG</strong></p>
 
@@ -112,5 +112,25 @@
         </div>
     </div>
 
+
+@endsection
+
+@section('scriptlocal')
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#imagem").bind('mouseover', function () {
+
+                $(this).animate({height: "900px", width: "1200px"});
+
+            })
+            $("#imagem").bind('mouseout', function () {
+
+                $(this).animate({height: "450px", width: "450px"});
+
+            })
+        })
+    </script>
 
 @endsection
