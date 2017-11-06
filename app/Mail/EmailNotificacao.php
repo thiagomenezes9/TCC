@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Publicacao;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -19,9 +20,9 @@ class EmailNotificacao extends Mailable
      *
      * @return void
      */
-    public function __construct($publicacao)
+    public function __construct($id)
     {
-        $this->$publicacao = $publicacao;
+        $this->publicacao = Publicacao::find($id);
     }
 
     /**
@@ -31,6 +32,11 @@ class EmailNotificacao extends Mailable
      */
     public function build()
     {
-        return $this->view('notificacao.email')->with(['publicacao'=>$this->publicacao]);
+//        dd($this->publicacao);
+
+//
+//
+        return $this->view('notificacao.email')->with(['publicacao'=>$this->publicacao])
+                ->subject('Nova Publicação');
     }
 }

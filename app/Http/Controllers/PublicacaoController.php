@@ -124,7 +124,7 @@ class PublicacaoController extends Controller
 
 
         foreach (Coordenacao::find(1)->membros as $membro){
-            Mail::to($membro)->send(new EmailNotificacao($publicacao));
+            Mail::to($membro)->send(new EmailNotificacao($publicacao->id));
         }
 //
 //        $resp = $user->membro->responsavel;
