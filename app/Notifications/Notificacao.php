@@ -42,11 +42,21 @@ class Notificacao extends Notification
      */
     public function toMail($notifiable)
     {
+//        return (new MailMessage)
+//                     ->subject('Nova Publicação')
+//                    ->line('Olá')
+////                    ->action('Notification Action', url('/'))
+//                    ->line('Uma nova publicação foi cadastrada!');
+
+
+
+        $url = '127.0.0.1:8000/auth/login'.$this->token;
         return (new MailMessage)
-                     ->subject('Nova Publicação')
-                    ->line('Olá')
-//                    ->action('Notification Action', url('/'))
-                    ->line('Uma nova publicação foi cadastrada!');
+            ->greeting('Olá')
+            ->line('Texto antes da ação, quantas linhas quiser')
+            ->action('Redefinir senha', $url)
+            ->line('Texto depois da ação quantas linhas quiser');
+
     }
 
     /**

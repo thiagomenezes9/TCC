@@ -50,7 +50,10 @@ Route::group(['middleware'=>['web']],function(){
 
 
 
-
+//        Route::get('password/reset', 'Admin\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
+//        Route::post('password/email', 'Admin\ForgotPasswordController@sendResetLinkEmail');
+//        Route::get('password/reset/{token}', 'Admin\ResetPasswordController@showResetForm')->name('password.token');
+//        Route::post('password/reset', 'Admin\ResetPasswordController@reset');
 
     });
 

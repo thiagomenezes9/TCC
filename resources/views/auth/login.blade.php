@@ -149,6 +149,7 @@
                                 </div>
                                 <div class="footer text-center">
                                     <button type="submit" class="btn btn-rose btn-simple btn-wd btn-lg">Vamos La</button>
+                                    {{--<a href="{{route('password.reset')}}">Eu esqueci minha senha!</a><br>--}}
                                 </div>
                             </div>
                         </form>
