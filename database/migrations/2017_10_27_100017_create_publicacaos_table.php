@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreatePublicacaosTable extends Migration
 {
@@ -34,6 +35,13 @@ class CreatePublicacaosTable extends Migration
         });
 
 
+        Schema::table('publicacaos', function(Blueprint $table){
+            DB::statement('ALTER TABLE publicacaos MODIFY imagem LONGBLOB');
+        });
+
+//        DB::statement('ALTER TABLE publicacaos MODIFY imagem LONGBLOB');
+
+
 
 
 
@@ -47,5 +55,6 @@ class CreatePublicacaosTable extends Migration
     public function down()
     {
         Schema::dropIfExists('publicacaos');
+//        DB::statement('ALTER TABLE publicacaos CHANGE imagem imagem LONGBLOB NULL DEFAULT NULL');
     }
 }

@@ -32,8 +32,8 @@ class PublicacaoController extends Controller
         if(isset($user->membro)) {
 
             if ($user->membro->sigla == 'CCS') {
-                $publicacoes = Publicacao::all()->where('ativo', '=', '1');
-//                $publicacoes = Publicacao::all();
+//                $publicacoes = Publicacao::all()->where('ativo', '=', '1');
+                $publicacoes = Publicacao::all();
             } elseif (isset($user->responsavel)) {
 //            $publicacoes = Publicacao::all()->where('');
 
@@ -200,6 +200,18 @@ class PublicacaoController extends Controller
         if($publicacao->publicado == 0){
             $publicacao->ativo = 0;
             $publicacao->save();
+
+
+            $log = new Log;
+
+
+            $log->publicacao()->associate($publicacao);
+            $log->user()->associate(Auth::user());
+            $log->desc = "Desativou";
+
+            $log->save();
+
+
         }else{
             return redirect()->route('publivcacoes.show',$id)->with('fail','Publicação foi publicada não e possivel desativar!')->withInput();
         }
@@ -216,6 +228,17 @@ class PublicacaoController extends Controller
         $publicacao->data_publicacao = Carbon::now();
 
         $publicacao->save();
+
+
+        $log = new Log;
+
+
+        $log->publicacao()->associate($publicacao);
+        $log->user()->associate(Auth::user());
+        $log->desc = "Publicou";
+
+        $log->save();
+
 
         return redirect()->route('publicacoes.index')->with('success','Publicação foi publicada!')->withInput();
 
