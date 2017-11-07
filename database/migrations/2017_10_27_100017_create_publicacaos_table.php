@@ -20,12 +20,13 @@ class CreatePublicacaosTable extends Migration
         Schema::create('publicacaos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('titulo');
-            $table->dateTime('data_expiracao');
+            $table->dateTime('data_expiracao')->nullable();
             $table->dateTime('data_publicacao')->nullable();
             $table->binary('imagem')->nullable();
-            $table->string('texto');
+            $table->string('texto')->nullable();
             $table->boolean('ativo');
             $table->boolean('publicado');
+            $table->string('tipo');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
 

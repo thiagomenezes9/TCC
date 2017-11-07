@@ -75,60 +75,83 @@ class PublicacaoController extends Controller
     public function store(Request $request)
     {
 
-        $this->validate($request,[
-           'titulo'=>'required',
-
-        ]);
 
 
 
         $user = Auth::user();
         $publicacao = new Publicacao;
 
+        if($request->tipo == 'tv'){
 
 
-        $arquivo = Input::file('imagem');
-        $form = $request->all();
-        $form['imagem'] = (string) Image::make($arquivo)->encode('data-url');
+            $publicacao->tipo = 'tv';
 
-       $publicacao->texto = $request->texto;
-       $publicacao->titulo = $request->titulo;
-       $publicacao->ativo = 1;
-       $publicacao->publicado = 0;
-       $publicacao->imagem = $form['imagem'];
-       $publicacao->data_expiracao = $request->data_expiracao;
-       $publicacao->user()->associate($user);
+            $this->validate($request,[
+                'titulo'=>'required'
+
+            ]);
+
+
+        }else{
+
+            $this->validate($request,[
+                'texto'=>'required',
+                'titulo' => 'required'
+
+            ]);
+
+            $publicacao->tipo = 'site';
+
+        }
+
+
+        if(isset($request->imagem)){
+
+            $arquivo = Input::file('imagem');
+            $form = $request->all();
+            $form['imagem'] = (string) Image::make($arquivo)->encode('data-url');
+            $publicacao->imagem = $form['imagem'];
+
+        }else{
+            $publicacao->texto = $request->texto;
+        }
+
+
+
+
+
+        $publicacao->titulo = $request->titulo;
+        $publicacao->ativo = 1;
+        $publicacao->publicado = 0;
+
+        $publicacao->data_expiracao = $request->data_expiracao;
+        $publicacao->user()->associate($user);
 
 
         $publicacao->save();
 
 
-       $log = new Log;
+
+        $log = new Log;
 
 
-       $log->publicacao()->associate($publicacao);
-       $log->user()->associate($user);
-       $log->desc = "Criou";
-
-
-
-       $log->save();
+        $log->publicacao()->associate($publicacao);
+        $log->user()->associate($user);
+        $log->desc = "Criou";
 
 
 
-//        Mail::send('emails.recuperar-senha',$dados, function ($message)use($request){
-//            $message->from(\Config::get('mail.from.teste'))
-//                ->to('seuemailpessoal@gmail.com')
-//                ->subject('Assunto do e-mail');
-//        });
+        $log->save();
+
 
 
         foreach (Coordenacao::find(1)->membros as $membro){
             Mail::to($membro)->send(new EmailNotificacao($publicacao->id));
         }
-//
-//        $resp = $user->membro->responsavel;
-//        Mail::to($resp)->send(new EmailNotificacao($publicacao));
+
+
+        $resp = $user->membro->responsavel;
+        Mail::to($resp)->send(new EmailNotificacao($publicacao->id));
 
 
 
@@ -244,4 +267,17 @@ class PublicacaoController extends Controller
 
 
     }
+
+
+
+    public function createTV()
+    {
+        return view('publicacao.createTv');
+    }
+
+    public function createSite()
+    {
+        return view('publicacao.createSite');
+    }
+
 }
