@@ -119,10 +119,12 @@ class CoordenacaoController extends Controller
             if ($coordenacao->responsavel != $user) {
 
 
+                if($coordenacao->responsavel != null){
+                    $userold = $coordenacao->responsavel;
+                    $userold->responsavel()->dissociate();
+                    $userold->save();
+                }
 
-                $userold = $coordenacao->responsavel;
-                $userold->responsavel()->dissociate();
-                $userold->save();
 
 
                 $user->responsavel()->associate($coordenacao);
