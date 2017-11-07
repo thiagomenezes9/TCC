@@ -11,9 +11,8 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', array('as' => 'auth.login', 'uses' => 'AuthController@login'));
+
 //
 //Route::group(['middleware' => 'auth'], function () {
 //    //    Route::get('/link1', function ()    {
