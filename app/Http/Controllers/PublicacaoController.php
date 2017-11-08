@@ -189,7 +189,13 @@ class PublicacaoController extends Controller
      */
     public function edit($id)
     {
-        dd($id);
+        $publicacao = Publicacao::find($id);
+
+        if($publicacao->tipo == 'TV'){
+            return view('publicacao.editTv',compact('publicacao'));
+        }
+
+        return view('publicacao.editSite',compact('publicacao'));
     }
 
     /**
