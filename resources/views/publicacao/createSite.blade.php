@@ -59,7 +59,7 @@
                                 'ativo' -->
 
                             <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>
-                            <input type="hidden" name="tipo" value="tv"/>
+                            <input type="hidden" name="tipo" value="site"/>
 
 
 
@@ -77,7 +77,7 @@
                                 <label for="texto" class="col-sm-2 control-label" >Texto</label>
                                 <div class="col-sm-10">
                                     <textarea name="texto" value="{{ old('texto') }}" type="text" class="form-control input-lg"
-                                              id="texto" placeholder="Texto da publicação" autofocus disabled></textarea>
+                                              id="texto" placeholder="Texto da publicação" autofocus ></textarea>
                                 </div>
                             </div>
 

@@ -66,18 +66,23 @@
 
 
                         <p><strong><h2>Titulo : {{$publicacao->titulo}}</h2></strong></p><br>
+                        <p><strong>Destinado : </strong> {{$publicacao->tipo}}</p><br>
                         <p><strong>Data Criação : </strong> {{$publicacao->created_at->format('d/m/Y')}}</p><br>
                         <p><strong>Data Final : </strong> {{\Carbon\Carbon::parse($publicacao->data_expiracao)->format('d/m/Y')}}</p><br>
                         <p><strong>Usuário : </strong> {{$publicacao->user->name}}</p><br>
+
                         <p><strong>Ativo : </strong> {{$publicacao->ativo ? 'Sim' : 'Não'}}</p><br>
                         <p><strong>Publicado : </strong> {{$publicacao->publicado ? 'Sim' : 'Não'}}</p><br>
                         @if($publicacao->publicado)
                             <p><strong>Data da Publicação : </strong> {{\Carbon\Carbon::parse($publicacao->data_publicacao)->format('d/m/Y')}}</p><br>
                         @endif
-                        <p><strong>Imagem : </strong></p><br>
+                        @if(isset($publicacao->imagem))
 
-                        <img src="{{$publicacao->imagem}}" width="450" height="450" id="imagem">
+                            <p><strong>Imagem : </strong></p><br>
 
+                            <img src="{{$publicacao->imagem}}" width="450" height="450" id="imagem">
+
+                        @endif
                         <br><br><p><strong>LOG</strong></p>
 
 

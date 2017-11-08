@@ -84,10 +84,11 @@ class PublicacaoController extends Controller
         if($request->tipo == 'tv'){
 
 
-            $publicacao->tipo = 'tv';
+            $publicacao->tipo = 'TV';
 
             $this->validate($request,[
-                'titulo'=>'required'
+                'titulo'=>'required',
+                'data_expiracao' => 'required'
 
             ]);
 
@@ -100,7 +101,7 @@ class PublicacaoController extends Controller
 
             ]);
 
-            $publicacao->tipo = 'site';
+            $publicacao->tipo = 'SITE';
 
         }
 
