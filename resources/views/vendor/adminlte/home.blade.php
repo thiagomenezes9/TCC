@@ -16,21 +16,24 @@
 
 				@else
 
-				  <div class="row">
-					  {{--@foreach(imagens)--}}
-					  <div class="col-md-4">
-						  <div class="panel panel-default">
-							  <div class="panel-body">
-								  imagem
-							  </div>
-							  <div class="panel-footer">
-								  titulo da noticia
-							  </div>
-						  </div>
-					  </div>
-				  </div>
 
-					VC TA DESATIVADO
+					<h1>Sem Ativar
+
+				  {{--<div class="row">--}}
+					  {{--@foreach(imagens)--}}
+					  {{--<div class="col-md-4">--}}
+						  {{--<div class="panel panel-default">--}}
+							  {{--<div class="panel-body">--}}
+								  {{--imagem--}}
+							  {{--</div>--}}
+							  {{--<div class="panel-footer">--}}
+								  {{--titulo da noticia--}}
+							  {{--</div>--}}
+						  {{--</div>--}}
+					  {{--</div>--}}
+				  {{--</div>--}}
+
+					{{--VC TA DESATIVADO--}}
 
 					@endif
 			</div>

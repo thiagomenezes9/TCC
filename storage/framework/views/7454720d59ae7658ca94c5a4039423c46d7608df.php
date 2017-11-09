@@ -15,21 +15,24 @@
 
 				<?php else: ?>
 
-				  <div class="row">
-					  
-					  <div class="col-md-4">
-						  <div class="panel panel-default">
-							  <div class="panel-body">
-								  imagem
-							  </div>
-							  <div class="panel-footer">
-								  titulo da noticia
-							  </div>
-						  </div>
-					  </div>
-				  </div>
 
-					VC TA DESATIVADO
+					<h1>Sem Ativar
+
+				  
+					  
+					  
+						  
+							  
+								  
+							  
+							  
+								  
+							  
+						  
+					  
+				  
+
+					
 
 					<?php endif; ?>
 			</div>

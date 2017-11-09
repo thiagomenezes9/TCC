@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Publicacao;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use function Sodium\compare;
 
 class AuthController extends Controller
 {
@@ -39,6 +41,8 @@ class AuthController extends Controller
         if(!Auth::attempt($credentials)){
             return redirect()->back()->with('fail','Usuário ou senha inválidos')->withInput();
         }
+
+
 
         return redirect('dashboard');
 

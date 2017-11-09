@@ -83,7 +83,7 @@
                             <div class="form-group">
                                 <label for="inputDataNasc" class="col-sm-2 control-label">Data Expiração</label>
                                 <div class="col-sm-10">
-                                    <input type="date" class="form-control input-lg" id="data_expiracao" name="data_expiracao"
+                                    <input type="date-time" class="form-control input-lg" id="data_expiracao" name="data_expiracao"
                                            value="{{old('data_expiracao')}}" placeholder="Data de Expiração">
                                 </div>
                             </div>
