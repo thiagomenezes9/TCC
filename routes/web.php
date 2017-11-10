@@ -13,22 +13,6 @@
 
 Route::get('/', array('as' => 'auth.login', 'uses' => 'AuthController@login'));
 
-//
-//Route::group(['middleware' => 'auth'], function () {
-//    //    Route::get('/link1', function ()    {
-////        // Uses Auth Middleware
-////    });
-//
-//    //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
-//    #adminlte_routes
-//
-//
-//    Route::resource('coordenacoes','CoordenacaoController');
-//    Route::resource('usuarios','UserController');
-//    Route::resource('publicacoes','PublicacaoController');
-//
-//
-//});
 
 
 
@@ -83,6 +67,9 @@ Route::group(['middleware'=>['web']],function(){
 
 //    Route::get('perfil',array('as'=>'perfil', 'uses'=>'AuthController@perfil'));
 
+
+
+    Route::get('/tv',array('as' => 'dashboard', 'uses' => 'DashboardController@tv'));
 
 
 

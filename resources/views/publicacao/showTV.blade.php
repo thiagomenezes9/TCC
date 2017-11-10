@@ -1,41 +1,113 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
 
-    <div class="container-fluid spark-screen">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+@section('htmlheader')
+    @include('adminlte::layouts.partials.htmlheader')
+@show
+
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="skin-green sidebar-mini">
+{{--<div id="app" v-cloak>--}}
+    {{--<div class="wrapper">--}}
+
+    {{--@include('adminlte::layouts.partials.mainheader')--}}
+
+    {{--@include('adminlte::layouts.partials.sidebar')--}}
+
+    <!-- Content Wrapper. Contains page content -->
+        {{--<div class="content-wrapper">--}}
+
+        {{--@include('adminlte::layouts.partials.contentheader')--}}
+
+        <!-- Main content -->
+            <section class="content">
+                <!-- Your Page Content Here -->
+                {{--@yield('main-content')--}}
+
+                <div class="container-fluid spark-screen">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
 
 
 
-                <div class="row">
+                            <div class="row">
 
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-
-
-                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
 
 
-                                <div class="carousel-inner" role="listbox">
-                                    @for($i=0;$i<count($publicacoes);$i++)
-                                        <div class="item {{ $i==0 ? 'active': '' }} ">
+                                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
-                                            <img src="{{$publicacoes[$i]->imagem}} " title="{{$publicacoes[$i]->titulo}}"/>
 
-                                            <h3 style="color:black; text-align: center">{{$publicacoes[$i]->titulo}}</h3>
+
+
+                                            <div class="carousel-inner" role="listbox">
+                                                @for($i=0;$i<count($publicacoes);$i++)
+                                                    <div class="item {{ $i==0 ? 'active': '' }} ">
+
+                                                        <img src="{{$publicacoes[$i]->imagem}} " title="{{$publicacoes[$i]->titulo}}"/>
+
+                                                        <h3 style="color:black; text-align: center">{{$publicacoes[$i]->titulo}}</h3>
+
+                                                    </div>
+
+
+
+                                                @endfor
+
+
+                                            </div>
 
                                         </div>
-
-
-
-                                    @endfor
+                                        {{--</div>--}}
+                                    </div>
 
 
                                 </div>
-
                             </div>
-
                         </div>
 
+            </section><!-- /.content -->
 
-                    </div>
-                </div>
-            </div>
+
+
+
+        </div><!-- /.content-wrapper -->
+
+        {{--@include('adminlte::layouts.partials.controlsidebar')--}}
+
+        {{--@include('adminlte::layouts.partials.footer')--}}
+
+    </div><!-- ./wrapper -->
+</div>
+@section('scripts')
+    @include('adminlte::layouts.partials.scripts')
+    @yield('scriptlocal')
+@show
+
+
+</body>
+</html>

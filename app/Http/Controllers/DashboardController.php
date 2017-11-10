@@ -23,4 +23,20 @@ class DashboardController extends Controller
 
         return view('dashboard',compact('publicacoes'));
     }
+
+
+    public function tv(){
+
+        $publicacoes = DB::table('publicacaos')->where([
+            ['tipo', '=', 'TV'],
+            ['publicado', '=', '1']
+        ])
+//                       ->select('publicacaos.*')->where('ativo', '=', '1')
+//                    ->select('publicacaos.*')
+            ->get();
+
+//        dd($publicacoes);
+
+        return view('publicacao/showTV',compact('publicacoes'));
+    }
 }

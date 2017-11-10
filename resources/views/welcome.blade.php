@@ -10,11 +10,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
 
-                {{--@if((Auth::user()->ativo))--}}
 
-                {{--<h1>Bem Vindo</h1>--}}
-
-                {{--@else--}}
 
                 <div class="row">
 
@@ -23,11 +19,7 @@
 
 
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                {{--<ol class="carousel-indicators">--}}
-                                {{--<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>--}}
-                                {{--<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>--}}
-                                {{--<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>--}}
-                                {{--</ol>--}}
+
 
 
 
