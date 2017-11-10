@@ -8,12 +8,15 @@
         <?php if(! Auth::guest()): ?>
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="<?php echo e(Gravatar::get($user->email)); ?>" class="img-circle" alt="User Image" />
+                    <img src="<?php echo e(Auth::user()->avatar ? Auth::user()->avatar : Gravatar::get($user->email)); ?>" class="img-circle" alt="User Image" />
                 </div>
                 <div class="pull-left info">
                     <p><?php echo e(Auth::user()->name); ?></p>
                     <!-- Status -->
-                    <a href="#"><i class="fa fa-circle text-success"></i> <?php echo e(trans('adminlte_lang::message.online')); ?></a>
+                    
+                        <i class="fa fa-circle text-success"></i> <?php echo e(trans('adminlte_lang::message.online')); ?>
+
+                    
                 </div>
             </div>
     <?php endif; ?>

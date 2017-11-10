@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->integer('coordenacao_id')->nullable()->unsigned();
             $table->boolean('ativo')->nullable();
             $table->integer('resp_coord_id')->nullable()->unsigned();
+            $table->binary('avatar')->nullable();
             $table->rememberToken();
             $table->timestamps();
 
@@ -33,6 +34,11 @@ class CreateUsersTable extends Migration
 
 
         });
+
+        Schema::table('users', function(Blueprint $table){
+            DB::statement('ALTER TABLE users MODIFY avatar LONGBLOB');
+        });
+
 
         DB::table('users')->insert(
             array(

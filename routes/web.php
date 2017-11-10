@@ -27,16 +27,9 @@ Route::group(['middleware'=>['web']],function(){
         Route::post('register',array('as' => 'register.create', 'uses' => 'AuthController@create'));
 
 
-//        Route::get('logout',array('as'=>'auth.logout', 'uses'=>'AuthController@logout'));
         Route::post('logout',array('as'=>'auth.logout', 'uses'=>'AuthController@logout'));
 
 
-
-
-//        Route::get('password/reset', 'Admin\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
-//        Route::post('password/email', 'Admin\ForgotPasswordController@sendResetLinkEmail');
-//        Route::get('password/reset/{token}', 'Admin\ResetPasswordController@showResetForm')->name('password.token');
-//        Route::post('password/reset', 'Admin\ResetPasswordController@reset');
 
     });
 
@@ -44,8 +37,11 @@ Route::group(['middleware'=>['web']],function(){
         Route::get('/',array('as' => 'dashboard', 'uses' => 'DashboardController@index'));
 
 
-
     });
+
+
+
+    Route::get('perfil',array('as'=>'perfil', 'uses'=>'AuthController@perfil'));
 
 
 
@@ -65,11 +61,11 @@ Route::group(['middleware'=>['web']],function(){
 
 
 
-//    Route::get('perfil',array('as'=>'perfil', 'uses'=>'AuthController@perfil'));
-
 
 
     Route::get('/tv',array('as' => 'dashboard', 'uses' => 'DashboardController@tv'));
+
+
 
 
 

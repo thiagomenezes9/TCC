@@ -76,12 +76,14 @@ class AuthController extends Controller
 
         return redirect('auth/login');
     }
+////
+////
+////
+    public function perfil(){
+        $usuario = Auth::user();
 
-
-
-//    public function perfil(){
-//        $usuario = Auth::user();
-//        return view('auth.perfil',compact('usuario'));
-//    }
+        dd($usuario);
+        return view('user.perfil',compact('usuario'));
+    }
 
 }
