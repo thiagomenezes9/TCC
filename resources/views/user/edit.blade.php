@@ -127,11 +127,11 @@
 
 
 
-                            <div class="form-group">
-                                <label for="imagem" class="col-sm-2 control-label">Avatar</label>
-                                <input name="imagem" type="file" class="form-control-file"
-                                       id="imagem" autofocus>
-                            </div>
+                            {{--<div class="form-group">--}}
+                                {{--<label for="imagem" class="col-sm-2 control-label">Avatar</label>--}}
+                                {{--<input name="imagem" type="file" class="form-control-file"--}}
+                                       {{--id="imagem" autofocus>--}}
+                            {{--</div>--}}
 
 
 

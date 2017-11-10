@@ -79,6 +79,24 @@ Perfil do Usuario
 
 
                         <div class="form-group">
+                            <label for="nome" class="col-sm-2 control-label" >Nome</label>
+                            <div class="col-sm-10">
+                                <input name="nome" value="{{ $usuario->name }}" type="text" class="form-control input-lg"
+                                       id="nome" placeholder="Nome do Usuário" autofocus>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="sigla" class="col-sm-2 control-label" >Matricula</label>
+                            <div class="col-sm-10">
+                                <input name="matricula" value="{{$usuario->matricula}}" type="text" class="form-control input-lg"
+                                       id="matricula" placeholder="Matricula do Usuário" autofocus>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
                             <label for="imagem" class="col-sm-2 control-label">Upload Imagem</label>
                             <input name="imagem" type="file" class="form-control-file"
                                    id="imagem" autofocus>
