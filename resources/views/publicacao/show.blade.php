@@ -82,6 +82,12 @@
 
                             <img src="{{$publicacao->imagem}}" width="450" height="450" id="imagem">
 
+
+
+                         @else
+
+                            <p><strong>Texto da Publicação : </strong> {{$publicacao->texto}}</p>
+
                         @endif
                         <br><br><p><strong>LOG</strong></p>
 

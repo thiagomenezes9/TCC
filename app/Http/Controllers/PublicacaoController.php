@@ -84,7 +84,7 @@ class PublicacaoController extends Controller
         if($request->tipo == 'tv'){
 
             $this->validate($request,[
-                'titulo'=>'required',
+                'titulo'=>'required|max:25',
                 'data_expiracao' => 'required|date|after:'.Carbon::now()
 
             ]);
@@ -99,7 +99,7 @@ class PublicacaoController extends Controller
         }else{
 
             $this->validate($request,[
-                'texto'=>'required',
+                'titulo'=>'required|max:25',
                 'titulo' => 'required'
 
             ]);
@@ -216,7 +216,7 @@ class PublicacaoController extends Controller
         if($request->tipo == 'tv'){
 
             $this->validate($request,[
-                'titulo'=>'required',
+                'titulo'=>'required|max:25',
                 'data_expiracao' => 'required|date|after:'.Carbon::now()
 
             ]);
@@ -229,7 +229,7 @@ class PublicacaoController extends Controller
         }else{
 
             $this->validate($request,[
-                'texto'=>'required',
+                'titulo'=>'required|max:25',
                 'titulo' => 'required'
 
             ]);

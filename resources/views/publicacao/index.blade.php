@@ -131,6 +131,7 @@
                             <thead>
                             <tr>
                                 <td class="col-md-4"><strong>Titulo</strong></td>
+                                <td class="col-md-2"><strong>Destino</strong></td>
                                 <td class="col-md-2"><strong>Criador</strong></td>
                                 <td class="col-md-2"><strong>Ativa</strong></td>
                                 <td class="col-md-2"><strong>Data Criação</strong></td>
@@ -146,6 +147,7 @@
 
                                     <tr align="center">
                                         <td align="left">{{ $p->titulo }}</td>
+                                        <td align="left">{{ $p->tipo }}</td>
                                         <td align="left">{{ $p->user->name }}</td>
                                         <td align="left">{{$p->ativo ? 'Sim' : 'Não'}}</td>
                                         <td align="left">{{$p->created_at->format('d/m/Y')}}</td>

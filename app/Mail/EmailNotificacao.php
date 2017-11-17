@@ -32,10 +32,7 @@ class EmailNotificacao extends Mailable
      */
     public function build()
     {
-//        dd($this->publicacao);
 
-//
-//
         return $this->view('notificacao.email')->with(['publicacao'=>$this->publicacao])
                 ->subject('Nova Publicação');
     }

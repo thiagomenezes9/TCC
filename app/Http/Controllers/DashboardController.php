@@ -41,11 +41,4 @@ class DashboardController extends Controller
     }
 
 
-
-
-    public function tvv(){
-
-        return view('publicacao/showTVV');
-
-    }
 }

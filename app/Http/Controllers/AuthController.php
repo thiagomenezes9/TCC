@@ -82,7 +82,7 @@ class AuthController extends Controller
     public function perfil(){
         $usuario = Auth::user();
 
-        dd($usuario);
+//        dd($usuario);
         return view('user.perfil',compact('usuario'));
     }
 

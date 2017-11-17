@@ -37,9 +37,28 @@
                                                     @for($i=0;$i<count($publicacoes);$i++)
                                                         <div class="item {{ $i==0 ? 'active': '' }} ">
 
-                                                            <img src="{{$publicacoes[$i]->imagem}} " title="{{$publicacoes[$i]->titulo}}"/>
+                                                            @if(empty($publicacoes[$i]->imagem))
 
-                                                            <h3 style="color:black; text-align: center">{{$publicacoes[$i]->titulo}}</h3>
+                                                                <img id="imagem" src="{{URL::asset('/Modelo.jpg')}}"/>
+
+
+                                                                <div id="titulo">
+                                                                    {{$publicacoes[$i]->titulo}}
+                                                                </div>
+
+
+                                                                <div id="texto">
+                                                                    {{$publicacoes[$i]->texto}}
+                                                                </div>
+
+                                                                <h3 style="color:black; text-align: center">{{$publicacoes[$i]->titulo}}</h3>
+
+                                                            @else
+                                                                <img src="{{$publicacoes[$i]->imagem}} " title="{{$publicacoes[$i]->titulo}}"/>
+
+                                                                <h3 style="color:black; text-align: center">{{$publicacoes[$i]->titulo}}</h3>
+
+                                                            @endif
 
                                                         </div>
 
@@ -47,10 +66,11 @@
 
                                                     @endfor
 
-                                                 @else
-                                                    <h3>Sem publicacoes</h3>
 
-                                                   @endif
+                                                @else
+                                                    <h3>Sem Publicações</h3>
+
+                                                @endif
                                             </div>
 
                                         </div>
@@ -73,6 +93,38 @@
 @section('scripts')
     @include('adminlte::layouts.partials.scripts')
 
+
+    <style>
+        #imagem {
+            width: 1200px;
+            height: 600px;
+        }
+
+
+        #texto {
+            position: absolute;
+            margin-top: -475px;
+            left: 150px;
+            z-index:9999;
+            color: black;
+            max-width: 800px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+
+        #titulo{
+            position: absolute;
+            margin-top: -600px;
+            left: 250px;
+            z-index:9999;
+            color: white;
+            max-width: 600px;
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+    </style>
 
 @show
 
