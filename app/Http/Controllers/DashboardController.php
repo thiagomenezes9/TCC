@@ -39,4 +39,13 @@ class DashboardController extends Controller
 
         return view('publicacao/showTV',compact('publicacoes'));
     }
+
+
+
+
+    public function tvv(){
+
+        return view('publicacao/showTVV');
+
+    }
 }

@@ -29,6 +29,9 @@ Route::group(['middleware'=>['web']],function(){
 
         Route::post('logout',array('as'=>'auth.logout', 'uses'=>'AuthController@logout'));
 
+//        Route::get('perfil','AuthController@perfil')->name('perfil');
+
+        Route::get('/perfil',array('as'=>'perfil', 'uses'=>'AuthController@perfil'));
 
 
     });
@@ -41,7 +44,9 @@ Route::group(['middleware'=>['web']],function(){
 
 
 
-    Route::get('/perfil',array('as'=>'perfil', 'uses'=>'AuthController@perfil'));
+
+
+
 
 
 
@@ -64,6 +69,8 @@ Route::group(['middleware'=>['web']],function(){
 
 
     Route::get('/tv',array('as' => 'dashboard', 'uses' => 'DashboardController@tv'));
+
+    Route::get('/tvv',array('as' => 'dashboard', 'uses' => 'DashboardController@tvv'));
 
 
 
