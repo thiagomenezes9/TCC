@@ -128,7 +128,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="material-icons">face</i>
                                                 </span>
-                                            <input type="text" class="form-control" placeholder="First Name..." name="name">
+                                            <input type="text" class="form-control" placeholder="Primeiro nome..." name="name">
                                         </div>
                                         <div class="input-group">
                                                 <span class="input-group-addon">
@@ -146,7 +146,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="material-icons">lock_outline</i>
                                                 </span>
-                                            <input type="password" placeholder="Password..." name="password" class="form-control" />
+                                            <input type="password" placeholder="Senha..." name="password" class="form-control" />
                                         </div>
 
                                         <div class="input-group">

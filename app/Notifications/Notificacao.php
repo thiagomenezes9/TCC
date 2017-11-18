@@ -43,9 +43,10 @@ class Notificacao extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('The introduction to the notification.')
-            ->action('Notification Action', url(config('app.url').route('password.reset',$this->token,false)))
-            ->line('Thank you for using our application!');
+            ->subject('Alteração de Senha')
+            ->line('Foi solicitado a mudança de senha de seu usuário na nossa aplicação, para mudar basta clicar no botão abaixo, caso não tenha solicitado por favor ignore esta mensagem.')
+            ->action('Alterar Senha', url(config('app.url').route('password.reset',$this->token,false)))
+            ->line('Obrigado por usar nossa aplicação!');
 
     }
 

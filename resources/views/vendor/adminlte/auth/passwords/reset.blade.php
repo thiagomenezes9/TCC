@@ -149,7 +149,7 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="card card-signup">
-                        <h2 class="card-title text-center">Registro</h2>
+                        <h2 class="card-title text-center">Alterar Senha</h2>
                         <div class="row">
 
                             {{--<div class="col-md-5">--}}
@@ -186,51 +186,73 @@
 
                                 <input type="hidden" name="token" value="{{ $token }}">
 
-                                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                    <label for="email" class="col-md-4 control-label">Endereço de e-mail</label>
 
-                                    <div class="col-md-6">
-                                        <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
+                                <div class="card-content">
 
-                                        @if ($errors->has('email'))
-                                            <span class="help-block">
+                                    <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">email</i>
+                                            </span>
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Endereço de e-mail</label>
+                                            <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
+
+                                            @if ($errors->has('email'))
+                                                <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                        @endif
+                                            @endif
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">lock_outline</i>
+                                            </span>
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Senha</label>
+                                            <input id="password" type="password" class="form-control" name="password" required>
 
-                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                    <label for="password" class="col-md-4 control-label">Senha</label>
-
-                                    <div class="col-md-6">
-                                        <input id="password" type="password" class="form-control" name="password" required>
-
-                                        @if ($errors->has('password'))
-                                            <span class="help-block">
+                                            @if ($errors->has('password'))
+                                                <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                        @endif
+                                            @endif
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                                    <label for="password-confirm" class="col-md-4 control-label">Confirma Senha</label>
-                                    <div class="col-md-6">
-                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
 
-                                        @if ($errors->has('password_confirmation'))
-                                            <span class="help-block">
+
+                                    <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">lock_outline</i>
+                                            </span>
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Confirmar Senha</label>
+                                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+
+                                            @if ($errors->has('password_confirmation'))
+                                                <span class="help-block">
                                         <strong>{{ $errors->first('password_confirmation') }}</strong>
                                     </span>
-                                        @endif
+                                            @endif
+                                        </div>
                                     </div>
+
+
+
+
+
                                 </div>
+
+
+
+
+
 
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-4">
                                         <button type="submit" class="btn btn-primary">
-                                            Reseta Senha
+                                            Resetar Senha
                                         </button>
                                     </div>
                                 </div>

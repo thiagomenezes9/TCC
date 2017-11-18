@@ -125,7 +125,7 @@
                                                 <i class="material-icons">email</i>
                                             </span>
                                         <div class="form-group label-floating">
-                                            <label class="control-label">Email address</label>
+                                            <label class="control-label">Endereço de e-mail</label>
                                             <input type="email" class="form-control" name="email">
                                         </div>
                                     </div>
@@ -134,7 +134,7 @@
                                                 <i class="material-icons">lock_outline</i>
                                             </span>
                                         <div class="form-group label-floating">
-                                            <label class="control-label">Password</label>
+                                            <label class="control-label">Senha</label>
                                             <input type="password" class="form-control" name="password">
                                         </div>
                                     </div>

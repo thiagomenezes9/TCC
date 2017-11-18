@@ -149,7 +149,7 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="card card-signup">
-                        <h2 class="card-title text-center">Registro</h2>
+                        <h2 class="card-title text-center">Resetar Senha</h2>
                         <div class="row">
 
                             
@@ -192,7 +192,7 @@
                                     
                                     <div class="input-group">
                                                 <span class="input-group-addon">
-                                                    <i class="material-icons"></i>
+                                                    <i class="material-icons">email</i>
                                                 </span>
                                         <input type="email" class="form-control" placeholder="Email..." name="email">
                                     </div>
