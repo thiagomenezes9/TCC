@@ -91,15 +91,15 @@
 
                             {{--<div class="col-md-5">--}}
                                 <div class="social text-center">
-                                    <button class="btn btn-just-icon btn-round btn-twitter">
-                                        <i class="fa fa-twitter"></i>
-                                    </button>
-                                    <button class="btn btn-just-icon btn-round btn-dribbble">
-                                        <i class="fa fa-dribbble"></i>
-                                    </button>
-                                    <button class="btn btn-just-icon btn-round btn-facebook">
-                                        <i class="fa fa-facebook"> </i>
-                                    </button>
+                                    {{--<button class="btn btn-just-icon btn-round btn-twitter">--}}
+                                        {{--<i class="fa fa-twitter"></i>--}}
+                                    {{--</button>--}}
+                                    {{--<button class="btn btn-just-icon btn-round btn-dribbble">--}}
+                                        {{--<i class="fa fa-dribbble"></i>--}}
+                                    {{--</button>--}}
+                                    {{--<button class="btn btn-just-icon btn-round btn-facebook">--}}
+                                        {{--<i class="fa fa-facebook"> </i>--}}
+                                    {{--</button>--}}
 
 
 

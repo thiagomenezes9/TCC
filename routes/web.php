@@ -11,8 +11,11 @@
 |
 */
 
-Route::get('/', array('as' => 'auth.login', 'uses' => 'AuthController@login'));
 
+
+
+
+Route::get('/', array('as' => 'auth.login', 'uses' => 'AuthController@login'));
 
 
 
@@ -43,13 +46,6 @@ Route::group(['middleware'=>['web']],function(){
     });
 
 
-
-
-
-
-
-
-
     Route::get('publicacoes/tv','PublicacaoController@createTV')->name('PublicacaoCreateTV');
     Route::get('publicacoes/site','PublicacaoController@createSite')->name('PublicacaoCreateSite');
 
@@ -75,11 +71,11 @@ Route::group(['middleware'=>['web']],function(){
 
 
 
+
     Route::get('password/reset','Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
     Route::post('password/email','Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
     Route::get('password/reset/{token}','Auth\ResetPasswordController@showResetForm')->name('password.reset');
     Route::post('password/reset','Auth\ResetPasswordController@reset');
-
 
 
 
