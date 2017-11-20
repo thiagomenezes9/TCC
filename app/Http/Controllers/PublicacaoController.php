@@ -113,7 +113,8 @@ class PublicacaoController extends Controller
 
             $arquivo = Input::file('imagem');
             $form = $request->all();
-            $form['imagem'] = (string) Image::make($arquivo)->encode('data-url');
+//            $form['imagem'] = (string) Image::make($arquivo)->encode('data-url');
+            $form['imagem'] = (string) Image::make($arquivo)->resize(1200,600)->encode('data-url');
             $publicacao->imagem = $form['imagem'];
 
         }else{
@@ -150,7 +151,8 @@ class PublicacaoController extends Controller
 
 
         foreach (Coordenacao::find(1)->membros as $membro){
-            Mail::to($membro)->send(new EmailNotificacao($publicacao->id));
+            if($membro->ativo)
+               Mail::to($membro)->send(new EmailNotificacao($publicacao->id));
         }
 
 

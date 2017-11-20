@@ -40,6 +40,7 @@
                                                             @if(empty($publicacoes[$i]->imagem))
 
                                                                 <img id="imagem" src="{{URL::asset('/Modelo.jpg')}}"/>
+                                                                {{--<img src="{{URL::asset('/Modelo.jpg')}}"/>--}}
 
 
                                                                 <div id="titulo">
@@ -96,6 +97,7 @@
 
     <style>
         #imagem {
+
             width: 1200px;
             height: 600px;
         }
@@ -104,7 +106,7 @@
         #texto {
             position: absolute;
             margin-top: -475px;
-            left: 150px;
+            left: 90px;
             z-index:9999;
             color: black;
             max-width: 800px;
@@ -120,7 +122,7 @@
             z-index:9999;
             color: white;
             max-width: 600px;
-            font-size: 60px;
+            font-size: 48px;
             font-weight: bold;
         }
 
