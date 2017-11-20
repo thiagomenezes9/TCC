@@ -34,9 +34,6 @@ Route::group(['middleware'=>['web']],function(){
 
 
 
-//        Route::get('/perfil',array('as'=>'perfil', 'uses'=>'AuthController@perfil'));
-
-
     });
 
     Route::group(['prefix' => 'dashboard','middleware'=>'auth'],function (){
