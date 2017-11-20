@@ -236,7 +236,7 @@
                                                    font-family: arial; color: #fff; font-size: 15px;
                                                    font-weight: bold; margin: 0px; padding: 0px;
                                                    text-align: center; word-wrap: break-word; width:
-                                                   100%;">Ir para Publicação</a>
+                                                   100%;" href="{{url(config('app.url').('/publicacoes/'.$publicacao->id))}}">Ir para Publicação</a>
                                                 </td>
                                             </tr>
                                             </tbody>

@@ -46,14 +46,20 @@ Route::group(['middleware'=>['web']],function(){
     });
 
 
+    Route::get('perfil','AuthController@perfil')->name('perfil');
+
+
     Route::get('publicacoes/tv','PublicacaoController@createTV')->name('PublicacaoCreateTV');
     Route::get('publicacoes/site','PublicacaoController@createSite')->name('PublicacaoCreateSite');
 
 
+    Route::group(['middleware'=>'auth'],function(){
 
-    Route::resource('coordenacoes','CoordenacaoController');
-    Route::resource('usuarios','UserController');
-    Route::resource('publicacoes','PublicacaoController');
+        Route::resource('coordenacoes','CoordenacaoController');
+        Route::resource('usuarios','UserController');
+        Route::resource('publicacoes','PublicacaoController');
+
+    });
 
 
     Route::get('publicacoes/desativar/{id}','PublicacaoController@desativar')->name('PublicacaoDesativar');
@@ -61,14 +67,7 @@ Route::group(['middleware'=>['web']],function(){
 
 
 
-
-
-
     Route::get('/tv',array('as' => 'dashboard', 'uses' => 'DashboardController@tv'));
-
-
-    Route::get('perfil','AuthController@perfil')->name('perfil');
-
 
 
 

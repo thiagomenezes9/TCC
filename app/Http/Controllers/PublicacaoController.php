@@ -99,7 +99,7 @@ class PublicacaoController extends Controller
         }else{
 
             $this->validate($request,[
-                'titulo'=>'required|max:25',
+                'texto'=>'required',
                 'titulo' => 'required'
 
             ]);
@@ -230,7 +230,7 @@ class PublicacaoController extends Controller
 
             $this->validate($request,[
                 'titulo'=>'required|max:25',
-                'titulo' => 'required'
+                'texto' => 'required'
 
             ]);
 
