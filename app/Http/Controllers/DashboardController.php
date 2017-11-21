@@ -33,6 +33,7 @@ class DashboardController extends Controller
 
         $publicacoes = DB::table('publicacaos')->where([
             ['tipo', '=', 'TV'],
+//            ['publicado', '=', '1']
             ['publicado', '=', '1'],
             ['data_expiracao', '>=', Carbon::now()]
         ])

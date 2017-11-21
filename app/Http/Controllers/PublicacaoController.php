@@ -85,7 +85,8 @@ class PublicacaoController extends Controller
 
             $this->validate($request,[
                 'titulo'=>'required|max:25',
-                'data_expiracao' => 'required|date|after:'.Carbon::now()
+                'data_expiracao' => 'required|date|after:'.Carbon::now(),
+                'texto'=>'max:500'
 
             ]);
 
@@ -219,7 +220,8 @@ class PublicacaoController extends Controller
 
             $this->validate($request,[
                 'titulo'=>'required|max:25',
-                'data_expiracao' => 'required|date|after:'.Carbon::now()
+                'data_expiracao' => 'required|date|after:'.Carbon::now(),
+                'texto'=>'max:500'
 
             ]);
 

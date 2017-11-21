@@ -45,11 +45,13 @@
 
                                                                 <div id="titulo">
                                                                     {{$publicacoes[$i]->titulo}}
+
                                                                 </div>
 
 
                                                                 <div id="texto">
                                                                     {{$publicacoes[$i]->texto}}
+
                                                                 </div>
 
                                                                 <h3 style="color:black; text-align: center">{{$publicacoes[$i]->titulo}}</h3>
@@ -99,14 +101,14 @@
         #imagem {
 
             width: 1200px;
-            height: 600px;
+            height: 400px;
         }
 
 
         #texto {
             position: absolute;
-            margin-top: -475px;
-            left: 90px;
+            margin-top: -350px;
+            left: 50px;
             z-index:9999;
             color: black;
             max-width: 800px;
@@ -117,12 +119,12 @@
 
         #titulo{
             position: absolute;
-            margin-top: -600px;
-            left: 250px;
+            margin-top: -410px;
+            left: 200px;
             z-index:9999;
             color: white;
-            max-width: 600px;
-            font-size: 48px;
+            max-width: 800px;
+            font-size: 42px;
             font-weight: bold;
         }
 
