@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Publicacao;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
@@ -42,6 +43,15 @@ class DashboardController extends Controller
 
 
         return view('publicacao/showTV',compact('publicacoes'));
+    }
+
+
+
+    public function perfil(){
+        $usuario = Auth::user();
+
+//        dd($usuario);
+        return view('user.perfil',compact('usuario'));
     }
 
 

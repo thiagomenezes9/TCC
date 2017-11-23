@@ -43,7 +43,7 @@ Route::group(['middleware'=>['web']],function(){
     });
 
 
-    Route::get('perfil','AuthController@perfil')->name('perfil');
+
 
 
     Route::get('publicacoes/tv','PublicacaoController@createTV')->name('PublicacaoCreateTV');
@@ -74,6 +74,9 @@ Route::group(['middleware'=>['web']],function(){
     Route::post('password/reset','Auth\ResetPasswordController@reset');
 
 
+
+//    Route::get('/perfil','AuthController@perfil')->name('perfil');
+    Route::get('/perfil',array('as' => 'perfil', 'uses' => 'DashboardController@perfil'));
 
 });
 
