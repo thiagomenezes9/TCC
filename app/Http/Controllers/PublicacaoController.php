@@ -40,17 +40,23 @@ class PublicacaoController extends Controller
                 $publicacoes = DB::table('publicacaos')
                     ->join('users', 'users.id', '=', 'publicacaos.user_id')
                     ->join('coordenacaos', 'users.coordenacao_id', '=', 'coordenacaos.id')
-                    ->select('publicacaos.*')->where('ativo', '=', '1')
+                    ->select('publicacaos.*')->where('users.ativo', '=', '1')
 //                    ->select('publicacaos.*')
                     ->get();
 
+                //VERIFICAR O Q RETORNA PARA A VISAO
+
 
             } else {
-                $publicacoes = Publicacao::all()->where([['user_id', '=', $user->id], ['ativo', '=', '1']]);
+                $publicacoes = Publicacao::all()->where([['user_id', '=', $user->id], ['ativo', '=', '1']])->get();
 //                $publicacoes = Publicacao::all()->where('user_id', '=', $user->id);
+
+                //VERIFICAR PQ NAO ACEITA DOIS PARAMETROS
             }
 
         }
+
+        dd($publicacoes);
 
 
         return view('publicacao.index',compact('publicacoes'));

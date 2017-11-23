@@ -89,15 +89,15 @@
 
                 <style>
                     #imagem {
-                        width: 1201px;
-                        height: 591px;
+                        width: 1200px;
+                        height: 400px;
                     }
 
 
                     #texto {
                         position: absolute;
-                        margin-top: -475px;
-                        left: 150px;
+                        margin-top: -350px;
+                        left: 50px;
                         z-index:9999;
                         color: black;
                         max-width: 800px;
@@ -108,12 +108,12 @@
 
                     #titulo{
                         position: absolute;
-                        margin-top: -600px;
-                        left: 250px;
+                        margin-top: -410px;
+                        left: 200px;
                         z-index:9999;
                         color: white;
-                        max-width: 600px;
-                        font-size: 60px;
+                        max-width: 800px;
+                        font-size: 42px;
                         font-weight: bold;
                     }
 
