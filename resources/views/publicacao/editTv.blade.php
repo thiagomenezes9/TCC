@@ -84,7 +84,7 @@
 
 
 
-                            <input type="hidden" name="tipo" value="site"/>
+                            <input type="hidden" name="tipo" value="tv"/>
 
 
 

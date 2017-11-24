@@ -90,6 +90,7 @@ class UserController extends Controller
             $this->validate($request, [
                 'nome' => 'required',
                 'matricula' => 'required',
+                'imagem'=>'image'
             ]);
 
             $user = User::findOrFail($id);
@@ -129,6 +130,12 @@ class UserController extends Controller
 
             return redirect('usuarios');
         }
+
+        $this->validate($request, [
+            'nome' => 'required',
+            'matricula' => 'required',
+            'imagem'=>'image'
+        ]);
 
         $user = User::findOrFail($id);
 

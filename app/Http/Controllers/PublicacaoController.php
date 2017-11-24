@@ -6,6 +6,7 @@ use App\Coordenacao;
 use App\Log;
 use App\Mail\EmailNotificacao;
 use App\Publicacao;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,28 +36,24 @@ class PublicacaoController extends Controller
 //                $publicacoes = Publicacao::all()->where('ativo', '=', '1');
                 $publicacoes = Publicacao::all();
             } elseif (isset($user->responsavel)) {
-//            $publicacoes = Publicacao::all()->where('');
 
-                $publicacoes = DB::table('publicacaos')
-                    ->join('users', 'users.id', '=', 'publicacaos.user_id')
-                    ->join('coordenacaos', 'users.coordenacao_id', '=', 'coordenacaos.id')
-                    ->select('publicacaos.*')->where('users.ativo', '=', '1')
-//                    ->select('publicacaos.*')
-                    ->get();
+                $publicacoes = Publicacao::whereHas('user', function ($query) {
 
-                //VERIFICAR O Q RETORNA PARA A VISAO
-
+                    $user = Auth::user();
+                    $query->where('coordenacao_id', '=', $user->coordenacao_id);
+                })->get();
+//
 
             } else {
-                $publicacoes = Publicacao::all()->where([['user_id', '=', $user->id], ['ativo', '=', '1']])->get();
-//                $publicacoes = Publicacao::all()->where('user_id', '=', $user->id);
+//
+                $publicacoes = Publicacao::all()->where('user_id', '=', $user->id);
 
-                //VERIFICAR PQ NAO ACEITA DOIS PARAMETROS
+
             }
 
         }
 
-        dd($publicacoes);
+//        dd($publicacoes);
 
 
         return view('publicacao.index',compact('publicacoes'));
@@ -92,7 +89,8 @@ class PublicacaoController extends Controller
             $this->validate($request,[
                 'titulo'=>'required|max:25',
                 'data_expiracao' => 'required|date|after:'.Carbon::now(),
-                'texto'=>'max:500'
+                'texto'=>'max:500',
+                'imagem'=>'image'
 
             ]);
 
@@ -107,7 +105,8 @@ class PublicacaoController extends Controller
 
             $this->validate($request,[
                 'texto'=>'required',
-                'titulo' => 'required'
+                'titulo' => 'required',
+                'imagem'=>'image'
 
             ]);
 
@@ -227,8 +226,8 @@ class PublicacaoController extends Controller
             $this->validate($request,[
                 'titulo'=>'required|max:25',
                 'data_expiracao' => 'required|date|after:'.Carbon::now(),
-                'texto'=>'max:500'
-
+                'texto'=>'max:500',
+                'imagem'=>'image'
             ]);
 
 
@@ -240,7 +239,8 @@ class PublicacaoController extends Controller
 
             $this->validate($request,[
                 'titulo'=>'required|max:25',
-                'texto' => 'required'
+                'texto' => 'required',
+                'imagem'=>'image'
 
             ]);
 
