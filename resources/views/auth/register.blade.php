@@ -128,19 +128,19 @@
                                                 <span class="input-group-addon">
                                                     <i class="material-icons">face</i>
                                                 </span>
-                                            <input type="text" class="form-control" placeholder="Primeiro nome..." name="name">
+                                            <input type="text" value="{{old('name')}}" class="form-control" placeholder="Primeiro nome..." name="name">
                                         </div>
                                         <div class="input-group">
                                                 <span class="input-group-addon">
                                                     <i class="material-icons">card_membership</i>
                                                 </span>
-                                            <input type="text" class="form-control" placeholder="Matricula..." name="matricula">
+                                            <input type="text" value="{{old('matricula')}}" class="form-control" placeholder="Matricula..." name="matricula">
                                         </div>
                                         <div class="input-group">
                                                 <span class="input-group-addon">
                                                     <i class="material-icons">email</i>
                                                 </span>
-                                            <input type="email" class="form-control" placeholder="Email..." name="email">
+                                            <input type="email" value="{{old('email')}}" class="form-control" placeholder="Email..." name="email">
                                         </div>
                                         <div class="input-group">
                                                 <span class="input-group-addon">
@@ -153,14 +153,14 @@
                                                 <span class="input-group-addon">
                                                     <i class="material-icons">lock_outline</i>
                                                 </span>
-                                            <input type="password" placeholder="Confirmar..." name="password_confirmation" class="form-control" />
+                                            <input type="password"  placeholder="Confirmar..." name="password_confirmation" class="form-control" />
                                         </div>
                                         <!-- If you want to add a checkbox to this form, uncomment this code -->
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" name="optionsCheckboxes" checked> Eu aceito os termos e condições.
-                                            </label>
-                                        </div>
+                                        {{--<div class="checkbox">--}}
+                                            {{--<label>--}}
+                                                {{--<input type="checkbox" name="optionsCheckboxes" checked> Eu aceito os termos e condições.--}}
+                                            {{--</label>--}}
+                                        {{--</div>--}}
                                     </div>
                                     <div class="footer text-center">
                                         <button type="submit" class="btn btn-primary btn-round">Vamos Começar</button>

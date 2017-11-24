@@ -117,7 +117,7 @@
 
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-info pull-right btn-lg">
-                                    Save</button>
+                                    Salvar</button>
 
                             </div>
 
