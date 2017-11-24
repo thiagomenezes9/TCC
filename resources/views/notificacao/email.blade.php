@@ -191,8 +191,8 @@
                                                       center;">
 
                                                         Uma nova publicação foi criada no portal. Com o titulo <strong>{{$publicacao->titulo}}</strong><br>
-                                                        Criada pelo {{$publicacao->user->name}} tem como data final {{\Carbon\Carbon::parse($publicacao->data_expiracao)->format('d/m/Y')}}.<br>
-                                                        Depois coloco mais coisas aki, foi mais um teste.
+                                                        Criada pelo <strong>{{$publicacao->user->name}}</strong>strong> tem como data final {{\Carbon\Carbon::parse($publicacao->data_expiracao)->format('d/m/Y')}}.<br>
+
 
                                                         <span style="line-height: 0; display:
                                                          none;"></span><span style="line-height: 0;
