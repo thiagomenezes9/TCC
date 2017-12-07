@@ -107,7 +107,7 @@
 
         #texto {
             position: absolute;
-            margin-top: -350px;
+            margin-top: -42%;
             left: 50px;
             z-index:9999;
             color: black;
@@ -119,7 +119,7 @@
 
         #titulo{
             position: absolute;
-            margin-top: -410px;
+            margin-top: -50%;
             left: 200px;
             z-index:9999;
             color: white;
