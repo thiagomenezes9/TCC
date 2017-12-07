@@ -253,7 +253,7 @@ class PublicacaoController extends Controller
 
             $arquivo = Input::file('imagem');
             $form = $request->all();
-            $form['imagem'] = (string) Image::make($arquivo)->encode('data-url');
+            $form['imagem'] = (string) Image::make($arquivo)->resize(1200,600)->encode('data-url');
             $publicacao->imagem = $form['imagem'];
 
         }else{

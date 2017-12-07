@@ -39,7 +39,7 @@
 
                                                             @if(empty($publicacoes[$i]->imagem))
 
-                                                                <img id="imagem" src="{{URL::asset('/Modelo.jpg')}}"/>
+                                                                <img id="imagem" src="{{URL::asset('/Modelo.jpg')}}" title="{{$publicacoes[$i]->titulo}}" />
                                                                 {{--<img src="{{URL::asset('/Modelo.jpg')}}"/>--}}
 
 
@@ -100,8 +100,8 @@
     <style>
         #imagem {
 
-            width: 1200px;
-            height: 400px;
+            width: 100%;
+            height: 100%;
         }
 
 
