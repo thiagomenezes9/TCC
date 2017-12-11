@@ -119,5 +119,20 @@
 
                 </style>
 
+                <script>
+                    //Verifica e solicita se o usuario tem permissao para utilizar as notificações do Chrome
+                    document.addEventListener('DOMContentLoaded', function () {
+                        if (!Notification) {
+                            alert('Desktop notifications not available in your browser. Try Chromium.');
+                            return;
+                        }
+
+                        if (Notification.permission !== "granted")
+                            Notification.requestPermission();
+                    });
+
+
+                </script>
+
 
 @endsection

@@ -53,7 +53,7 @@
 
                     <div class="box-body">
 
-                        <form class="form-horizontal" action="{{route('publicacoes.store')}}" method="post" enctype="multipart/form-data">
+                        <form class="form-horizontal" action="{{route('publicacoes.store')}}" method="post" onsubmit="minhaNotificao()" enctype="multipart/form-data">
 
                             <!-- 'nome', 'sigla',
                                 'ativo' -->
@@ -119,4 +119,28 @@
     </div>
 
 @endsection
+
+@section('scriptlocal')
+
+    <script type="text/javascript">
+
+
+        function minhaNotificao() {
+            if (Notification.permission !== "granted") {
+                Notification.requestPermission();
+            }
+            else {
+                var notificacao = new Notification("IFG News", {
+                    icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+                    body: 'Nova publicação'
+                });
+
+                notificacao.onclick = function () {
+                    window.open('http://tcc.paetto.com.br');
+                };
+            }
+        }
+    </script>
+
+    @endsection
 
