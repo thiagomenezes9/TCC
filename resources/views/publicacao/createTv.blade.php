@@ -178,8 +178,12 @@
                 notificacao.onclick = function () {
                     window.open('http://tcc.paetto.com.br');
                 };
+
+                notificacao.show();
             }
         }
+
+        minhaNotificacao();
     </script>
 
 
