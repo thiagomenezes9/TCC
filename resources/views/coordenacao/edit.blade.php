@@ -125,7 +125,7 @@
                                     <select name="responsavel" id="responsavel" class="form-control">
 
                                         @foreach($coordenacao->membros as $membro)
-                                            @if($menbro['id']->ativo == 1)
+                                            @if($membro->ativo)
                                                 <option value="{{$membro['id']}}" {{ $membro['id'] === (isset($coordenacao->responsavel) ? $coordenacao->responsavel: '' ) ? 'selected' : '' }}>{{$membro['name']}}</option>
                                             @endif
 
