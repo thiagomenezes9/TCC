@@ -163,7 +163,7 @@
                                         {{--</div>--}}
                                     </div>
                                     <div class="footer text-center">
-                                        <button type="submit" class="btn btn-primary btn-round">Vamos Começar</button>
+                                        <button type="submit" class="btn btn-success btn-round">Vamos Começar</button>
                                     </div>
                                 </form>
                             {{--</div>--}}
