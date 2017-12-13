@@ -162,8 +162,12 @@ class PublicacaoController extends Controller
         }
 
 
-        $resp = $user->membro->responsavel;
-        Mail::to($resp)->send(new EmailNotificacao($publicacao->id));
+        if(! $user->membro === Coordenacao::find(1)){
+            $resp = $user->membro->responsavel;
+            Mail::to($resp)->send(new EmailNotificacao($publicacao->id));
+        }
+
+
 
 
 
