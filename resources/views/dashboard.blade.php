@@ -54,7 +54,7 @@
                                                             <h3 style="color:black; text-align: center">{{$publicacoes[$i]->titulo}}</h3>
 
                                                         @else
-                                                            <img src="{{$publicacoes[$i]->imagem}} " title="{{$publicacoes[$i]->titulo}}"/>
+                                                            <img src="{{$publicacoes[$i]->imagem}} " width="100%" height="100%" title="{{$publicacoes[$i]->titulo}}"/>
 
                                                             <h3 style="color:black; text-align: center">{{$publicacoes[$i]->titulo}}</h3>
 

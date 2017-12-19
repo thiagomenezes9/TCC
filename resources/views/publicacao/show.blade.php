@@ -49,13 +49,15 @@
 
                             <div align="left" class="col col-lg-2"><a href="{{route('publicacoes.index')}}" class="btn btn-info">Voltar</a></div>
                             <div align="right" class="col-12 col-md-auto">
-                                @if(Auth::user()->membro->sigla == 'CCS' && $publicacao->publicado==0)
+                                @if(Auth::user()->membro->sigla == 'CCS' && $publicacao->publicado==0 && $publicacao->ativo)
                                      <a href="{{route('PublicacaoPublicar',$publicacao->id)}}" class="btn btn-success">Publicar</a>
                                 @endif
-                                @if(!$publicacao->publicado)
+                                @if(!$publicacao->publicado && $publicacao->ativo)
                                     @if($publicacao->user_id == Auth::user()->id)
                                        <a href="{{route('publicacoes.edit',$publicacao->id)}}" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i>Editar</a>
+
                                         <a href="{{route('PublicacaoDesativar',$publicacao->id)}}" class="btn btn-danger">Desativar</a>
+
                                     @endif
                                 @endif
                             </div>
@@ -80,7 +82,7 @@
 
                             <p><strong>Imagem : </strong></p><br>
 
-                            <img src="{{$publicacao->imagem}}" width="450" height="450" id="imagem">
+                            <img src="{{$publicacao->imagem}}" width="100%" height="100%" id="imagem">
 
 
 
@@ -133,12 +135,12 @@
 
             $("#imagem").bind('mouseover', function () {
 
-                $(this).animate({height: "900px", width: "1200px"});
+                $(this).animate({height: "140%", width: "140%"});
 
             })
             $("#imagem").bind('mouseout', function () {
 
-                $(this).animate({height: "450px", width: "450px"});
+                $(this).animate({height: "100%", width: "100%"});
 
             })
         })
