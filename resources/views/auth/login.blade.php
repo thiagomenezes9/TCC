@@ -140,7 +140,7 @@
                                     </div>
                                 </div>
                                 <div class="footer text-center">
-                                    <button  type="submit" class="btn btn-success btn-round">Vamos La</button><br>
+                                    <button  type="submit" class="btn btn-success btn-round">Vamos Lá</button><br>
                                     <a href="{{route('password.request')}}"> Esqueceu a senha ?</a>
                                 </div>
                             </div>
