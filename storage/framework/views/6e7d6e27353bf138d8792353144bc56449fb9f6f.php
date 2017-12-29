@@ -12,10 +12,10 @@
                 </div>
                 <div class="pull-left info">
                     <p><?php echo e(Auth::user()->name); ?></p>
+                    <span><?php echo e(Auth::user()->membro->sigla); ?></span>
                     <!-- Status -->
                     
-                        <i class="fa fa-circle text-success"></i> <?php echo e(trans('adminlte_lang::message.online')); ?>
-
+                        
                     
                 </div>
             </div>

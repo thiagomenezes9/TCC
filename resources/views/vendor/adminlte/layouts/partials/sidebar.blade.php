@@ -12,9 +12,10 @@
                 </div>
                 <div class="pull-left info">
                     <p>{{ Auth::user()->name }}</p>
+                    <span>{{Auth::user()->membro->sigla}}</span>
                     <!-- Status -->
                     {{--<a href="#">--}}
-                        <i class="fa fa-circle text-success"></i> {{ trans('adminlte_lang::message.online') }}
+                        {{--<i class="fa fa-circle text-success"></i> {{ trans('adminlte_lang::message.online') }}--}}
                     {{--</a>--}}
                 </div>
             </div>
