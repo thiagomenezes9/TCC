@@ -12,7 +12,16 @@
                 </div>
                 <div class="pull-left info">
                     <p>{{ Auth::user()->name }}</p>
-                    <span>{{Auth::user()->membro->sigla}}</span>
+
+
+
+
+                    @if(isset(Auth::user()->membro))
+                        <span>{{Auth::user()->membro->sigla }}</span>
+                      @else
+                        <span>User sem acesso</span>
+                    @endif
+
                     <!-- Status -->
                     {{--<a href="#">--}}
                         {{--<i class="fa fa-circle text-success"></i> {{ trans('adminlte_lang::message.online') }}--}}

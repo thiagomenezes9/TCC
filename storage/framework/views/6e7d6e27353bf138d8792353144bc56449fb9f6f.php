@@ -12,7 +12,16 @@
                 </div>
                 <div class="pull-left info">
                     <p><?php echo e(Auth::user()->name); ?></p>
-                    <span><?php echo e(Auth::user()->membro->sigla); ?></span>
+
+
+
+
+                    <?php if(isset(Auth::user()->membro)): ?>
+                        <span><?php echo e(Auth::user()->membro->sigla); ?></span>
+                      <?php else: ?>
+                        <span>User sem acesso</span>
+                    <?php endif; ?>
+
                     <!-- Status -->
                     
                         
