@@ -143,11 +143,12 @@ class UserController extends Controller
 
         $user = User::findOrFail($id);
 
-        $arquivo = Input::file('imagem');
-        $form = $request->all();
-        $form['imagem'] = (string)Image::make($arquivo)->resize(300,300)->encode('data-url');
-        $user->avatar= $form['imagem'];
-
+        if(isset($request->imagem)) {
+            $arquivo = Input::file('imagem');
+            $form = $request->all();
+            $form['imagem'] = (string)Image::make($arquivo)->resize(300, 300)->encode('data-url');
+            $user->avatar = $form['imagem'];
+        }
         $user->name=$request->nome;
         $user->matricula=$request->matricula;
 
