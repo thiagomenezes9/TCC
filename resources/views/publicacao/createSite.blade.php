@@ -120,33 +120,33 @@
 
 @endsection
 
-@section('scriptlocal')
+{{--@section('scriptlocal')--}}
 
-    <script type="text/javascript">
+    {{--<script type="text/javascript">--}}
 
 
-        function minhaNotificao() {
-            if (Notification.permission !== "granted") {
-                Notification.requestPermission();
-            }
-            else {
-                var notificacao = new Notification("IFG News", {
-                    icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
-                    body: 'Nova publicação'
-                });
+        {{--function minhaNotificao() {--}}
+            {{--if (Notification.permission !== "granted") {--}}
+                {{--Notification.requestPermission();--}}
+            {{--}--}}
+            {{--else {--}}
+                {{--var notificacao = new Notification("IFG News", {--}}
+                    {{--icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',--}}
+                    {{--body: 'Nova publicação'--}}
+                {{--});--}}
 
-                notificacao.onclick = function () {
-                    window.open('http://tcc.paetto.com.br');
-                };
+                {{--notificacao.onclick = function () {--}}
+                    {{--window.open('http://tcc.paetto.com.br');--}}
+                {{--};--}}
 
-                notificacao.show();
-            }
+                {{--notificacao.show();--}}
+            {{--}--}}
 
-        }
+        {{--}--}}
 
-        minhaNotificacao();
+        {{--minhaNotificacao();--}}
 
-    </script>
+    {{--</script>--}}
 
-    @endsection
+    {{--@endsection--}}
 
