@@ -53,7 +53,7 @@
 
                     <div class="box-body">
 
-                        <form class="form-horizontal" action="{{route('publicacoes.store')}}" method="post" onsubmit="minhaNotificao()" enctype="multipart/form-data">
+                        <form class="form-horizontal" action="{{route('publicacoes.store')}}" method="post" enctype="multipart/form-data">
 
                             <!-- 'nome', 'sigla',
                                 'ativo' -->
