@@ -157,7 +157,7 @@
                                                 box-sizing: border-box; font-family: arial; width:
                                                 100%;"><img class="partial-image" width="245" style="box-sizing: border-box;
                                                 display: block; max-width: 600px; min-width:
-                                                160px;" dfsrc="http://teste.images.imtrk.net/uploads/iamkt/image/572baaa33051c__245x245.png" src="http://teste.images.imtrk.net/uploads/iamkt/image/572baaa33051c__245x245.png"></a></td>
+                                                160px;" dfsrc="http://www.acontececuritiba.com.br/n/images/fotos/noticias.png" src="http://www.acontececuritiba.com.br/n/images/fotos/noticias.png"></a></td>
                                         </tr>
                                         </tbody>
                                     </table>
