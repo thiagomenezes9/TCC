@@ -47,7 +47,7 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Nova Publicação - TV</h3>
+                        <h3 class="box-title">Nova Publicação - SITE</h3>
                         <div align="right"><a href="{{route('publicacoes.index')}}" class="btn btn-info">Voltar</a></div>
                     </div>
 
