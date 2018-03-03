@@ -31,13 +31,26 @@
                     <div class="box-body">
 
 
-                        <p><strong><h2>Nome : {{$usuario->name}}</h2></strong></p><br>
+                        <p><strong><h2>Nome : {{$usuario->name}}</h2></strong></p>
+                        <br>
                         <p><strong>Email : {{$usuario->email}}</strong></p><br>
                         <p><strong>Matricula : {{$usuario->matricula}}</strong></p><br>
                         <p><strong>Ativo : {{$usuario->ativo ? 'Sim' : 'Não'}}</strong></p><br>
-                        <p><strong>Membro da Coordenação : {{isset($usuario->membro->nome) ?  $usuario->membro->nome : '' }} - {{isset($usuario->membro->sigla) ?  $usuario->membro->sigla : '' }}</strong></p><br>
+                        <p><strong>Membro da Coordenação
+                                : {{isset($usuario->membro->nome) ?  $usuario->membro->nome : '' }}
+                                - {{isset($usuario->membro->sigla) ?  $usuario->membro->sigla : '' }}</strong></p><br>
                         @if(isset($usuario->responsavel->nome))
-                            <p><strong>Responsavel da Coordenação : {{isset($usuario->responsavel->nome) ?  $usuario->responsavel->nome : '' }}</strong></p><br>
+                            <p><strong>Responsavel da Coordenação
+                                    : {{isset($usuario->responsavel->nome) ?  $usuario->responsavel->nome : '' }}</strong>
+                            </p><br>
+                        @endif
+
+
+
+                        @if(isset($usuario->avatar))
+
+                            <p><strong>Foto Perfil : </strong></p><br>
+                            <img src="{{$usuario->avatar}}" width="100%" height="100%" id="imagem">
                         @endif
 
 

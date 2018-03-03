@@ -206,6 +206,16 @@ class PublicacaoController extends Controller
     {
         $publicacao = Publicacao::find($id);
 
+        try{
+            $this->authorize('edit', $publicacao);
+        }catch (\Exception $exception){
+            //return 'vc nao pode';
+            //abort(500);
+            return redirect()->route('publicacoes.index',$id)->with('fail','Erro ao tentar editar publicação')->withInput();
+        }
+
+
+
         if($publicacao->tipo == 'TV'){
             return view('publicacao.editTv',compact('publicacao'));
         }
@@ -323,6 +333,16 @@ class PublicacaoController extends Controller
 
     public function desativar($id){
         $publicacao = Publicacao::find($id);
+
+        try{
+            $this->authorize('edit', $publicacao);
+        }catch (\Exception $exception){
+            //return 'vc nao pode';
+            //abort(500);
+            return redirect()->route('publicacoes.index',$id)->with('fail','Erro ao tentar editar publicação')->withInput();
+        }
+
+
 
         if($publicacao->publicado == 0){
             $publicacao->ativo = 0;

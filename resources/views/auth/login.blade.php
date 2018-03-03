@@ -137,6 +137,13 @@
                                             <label class="control-label">Senha</label>
                                             <input type="password" class="form-control" name="password">
                                         </div>
+
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="remember">Relembrar senha
+                                            </label>
+                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="footer text-center">
