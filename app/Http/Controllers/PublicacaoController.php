@@ -371,6 +371,17 @@ class PublicacaoController extends Controller
     public function publicar($id){
         $publicacao = Publicacao::find($id);
 
+
+//        try{
+//            $this->authorize('publicar');
+//        }catch (\Exception $exception){
+//            //return 'vc nao pode';
+//            //abort(500);
+//            return redirect()->route('publicacoes.index',$id)->with('fail','Erro ao tentar publicar')->withInput();
+//        }
+
+
+
         $publicacao->publicado = 1;
         $publicacao->data_publicacao = Carbon::now();
 

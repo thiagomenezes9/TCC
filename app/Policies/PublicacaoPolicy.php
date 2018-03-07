@@ -18,14 +18,18 @@ class PublicacaoPolicy
 
 
 
-//    public function before($user , $ability){
-//        if($user->membro == User::_TYPEADMIN){
-//            return true;
-//        }
-//    }
+    public function before($user , $ability){
+        if($user->membro->sigla == 'CCS'){
+            return true;
+        }
+    }
 
 
     public function edit(User $user , Publicacao $publicacao){
         return $user->id === $publicacao->user->id;
     }
+
+
+
+
 }

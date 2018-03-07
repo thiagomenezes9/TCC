@@ -23,11 +23,7 @@
 
 
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                {{--<ol class="carousel-indicators">--}}
-                                {{--<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>--}}
-                                {{--<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>--}}
-                                {{--<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>--}}
-                                {{--</ol>--}}
+
 
 
                                 <div class="carousel-inner" role="listbox">
@@ -62,8 +58,6 @@
 
                                             </div>
 
-
-
                                         @endfor
 
 
@@ -74,6 +68,17 @@
 
 
                                 </div>
+
+
+
+                                <a class="carousel-control left" href="#carouselExampleIndicators" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </a>
+                                <a class="carousel-control right" href="#carouselExampleIndicators" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </a>
+
+
 
                             </div>
                             {{--</div>--}}
@@ -89,28 +94,65 @@
 
 @section('scriptlocal')
 
+    {{--<style>--}}
+        {{--#imagem {--}}
+            {{--width: 1200px;--}}
+            {{--height: 400px;--}}
+            {{--/*width: 100%;*/--}}
+            {{--/*height: 100%;*/--}}
+        {{--}--}}
+
+        {{--#texto {--}}
+            {{--position: absolute;--}}
+            {{--margin-top: -350px;--}}
+            {{--left: 50px;--}}
+            {{--z-index: 9999;--}}
+            {{--color: black;--}}
+            {{--max-width: 800px;--}}
+            {{--font-size: 25px;--}}
+            {{--font-weight: bold;--}}
+        {{--}--}}
+
+        {{--#titulo {--}}
+            {{--position: absolute;--}}
+            {{--margin-top: -410px;--}}
+            {{--left: 200px;--}}
+            {{--z-index: 9999;--}}
+            {{--color: white;--}}
+            {{--max-width: 800px;--}}
+            {{--font-size: 42px;--}}
+            {{--font-weight: bold;--}}
+        {{--}--}}
+
+    {{--</style>--}}
+
+
+
     <style>
         #imagem {
-            width: 1200px;
-            height: 400px;
+
+            width: 100%;
+            height: 100%;
         }
+
 
         #texto {
             position: absolute;
-            margin-top: -350px;
+            margin-top: -42%;
             left: 50px;
-            z-index: 9999;
+            z-index:9999;
             color: black;
             max-width: 800px;
             font-size: 25px;
             font-weight: bold;
         }
 
-        #titulo {
+
+        #titulo{
             position: absolute;
-            margin-top: -410px;
-            left: 200px;
-            z-index: 9999;
+            margin-top: -51%;
+            left: 150px;
+            z-index:9999;
             color: white;
             max-width: 800px;
             font-size: 42px;
@@ -118,6 +160,8 @@
         }
 
     </style>
+
+
 
     {{--<script>--}}
     {{--//Verifica e solicita se o usuario tem permissao para utilizar as notificações do Chrome--}}

@@ -36,7 +36,12 @@
                         <p><strong>Ativo : {{$coordenacao->ativo ? 'Sim' : 'Não'}}</strong></p><br>
                         <p><strong>Responsavel : {{isset($coordenacao->responsavel->name) ?  $coordenacao->responsavel->name : '' }}</strong></p><br>
 
+                        <br>
 
+                        <p><strong>Membros : </strong></p>
+                        @foreach($coordenacao->membros as $membro)
+                            <p>{{$membro->name}}</p>
+                        @endforeach
 
                     </div>
                 </div>

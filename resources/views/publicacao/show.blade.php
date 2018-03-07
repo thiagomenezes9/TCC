@@ -53,7 +53,7 @@
                                      <a href="{{route('PublicacaoPublicar',$publicacao->id)}}" class="btn btn-success">Publicar</a>
                                 @endif
                                 @if(!$publicacao->publicado && $publicacao->ativo)
-                                    @if($publicacao->user_id == Auth::user()->id)
+                                    @if(($publicacao->user_id == Auth::user()->id) || Auth::user()->membro->sigla == 'CCS' )
                                        <a href="{{route('publicacoes.edit',$publicacao->id)}}" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i>Editar</a>
 
                                         <a href="{{route('PublicacaoDesativar',$publicacao->id)}}" class="btn btn-danger">Desativar</a>

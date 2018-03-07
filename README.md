@@ -1,2 +1,2 @@
 # TCC
-E necessario configurar o arquivo .env
+Este foi meu projeto de TCC
