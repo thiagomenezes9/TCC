@@ -331,8 +331,13 @@ class PublicacaoController extends Controller
 
 
 
-    public function desativar($id){
+    public function desativar(Request $request,$id){
         $publicacao = Publicacao::find($id);
+
+
+
+//        dd($request->motivo);
+
 
         try{
             $this->authorize('edit', $publicacao);
@@ -354,7 +359,10 @@ class PublicacaoController extends Controller
 
             $log->publicacao()->associate($publicacao);
             $log->user()->associate(Auth::user());
-            $log->desc = "Desativou";
+            $log->desc = "Desativou - ".$request->motivo;
+
+
+//            dd($log->desc);
 
             $log->save();
 

@@ -56,11 +56,65 @@
                                     @if(($publicacao->user_id == Auth::user()->id) || Auth::user()->membro->sigla == 'CCS' )
                                        <a href="{{route('publicacoes.edit',$publicacao->id)}}" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i>Editar</a>
 
-                                        <a href="{{route('PublicacaoDesativar',$publicacao->id)}}" class="btn btn-danger">Desativar</a>
+                                        {{--<a href="{{route('PublicacaoDesativar',$publicacao->id)}}" class="btn btn-danger">Desativar</a>--}}
+
+                                            <a class="btn btn-small btn-danger" data-toggle="modal" href="#myModal" >
+                                                <i class="fa fa-trash-o"></i>
+                                                Excluir
+                                            </a>
+
 
                                     @endif
                                 @endif
                             </div>
+
+                            <div class="modal fade modal-danger" id="myModal" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Excluir</h4>
+                                        </div>
+
+                                        <div class="modal-body text-center">
+                                            <p>Realmente Deseja Desativar a publicação ??</p>
+                                        </div>
+
+                                        <div class="modal-footer">
+
+                                            <form id="formDelete"
+                                                  action="{{route('PublicacaoDesativar',$publicacao->id)}}"
+                                                  method="post">
+
+                                                {{ csrf_field() }}
+
+                                                {{--<div class="form-group">--}}
+                                                    {{--<label for="titulo" class="col-sm-2 control-label" >Motivo</label>--}}
+                                                    <div class="col-sm-12">
+                                                        <input name="motivo"  type="text" class="form-control input-lg"
+                                                               id="motivo" placeholder="Motivo de desativar" autofocus>
+                                                    </div>
+                                                {{--</div>--}}
+
+                                                <button class="btn btn-danger" type="submit">Excluir</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+
+
+                                            </form>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+
+
                         </div>
                     </div>
 
@@ -119,7 +173,13 @@
 
 
 
+
+
+
                     </div>
+
+
+
                 </div>
             </div>
         </div>

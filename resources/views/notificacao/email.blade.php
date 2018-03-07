@@ -190,9 +190,17 @@
                                                     <div style="text-align:
                                                       center;">
 
-                                                        Uma nova publicação foi criada no portal. Com o titulo <strong>{{$publicacao->titulo}}</strong><br>
-                                                        Criada pelo <strong>{{$publicacao->user->name}}</strong> tem como data final {{\Carbon\Carbon::parse($publicacao->data_expiracao)->format('d/m/Y')}}.<br>
+                                                        @if($publicacao->tipo == 'TV')
 
+                                                            Uma nova publicação foi criada no portal. Com o titulo <strong>{{$publicacao->titulo}}</strong><br>
+                                                            Criada pelo <strong>{{$publicacao->user->name}}</strong> tem como data final {{\Carbon\Carbon::parse($publicacao->data_expiracao)->format('d/m/Y')}}.<br>
+
+
+
+                                                        @else
+                                                            Uma nova publicação foi criada no portal. Com o titulo <strong>{{$publicacao->titulo}}</strong><br>
+                                                            Criada pelo <strong>{{$publicacao->user->name}}</strong>
+                                                            @endif
 
                                                         <span style="line-height: 0; display:
                                                          none;"></span><span style="line-height: 0;

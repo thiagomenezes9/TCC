@@ -59,7 +59,8 @@ Route::group(['middleware'=>['web']],function(){
     });
 
 
-    Route::get('publicacoes/desativar/{id}','PublicacaoController@desativar')->name('PublicacaoDesativar');
+//    Route::get('publicacoes/desativar/{id}','PublicacaoController@desativar')->name('PublicacaoDesativar');
+    Route::post('publicacoes/desativar/{id}','PublicacaoController@desativar')->name('PublicacaoDesativar');
     Route::get('publicacoes/publicar/{id}','PublicacaoController@publicar')->name('PublicacaoPublicar');
 
 
