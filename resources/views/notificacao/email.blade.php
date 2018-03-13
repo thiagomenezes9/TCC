@@ -102,8 +102,15 @@
                                                    none; box-sizing: border-box; font-family: arial;
                                                    width: 100%; font-size: 25px; text-align: center;
                                                    word-wrap: break-word; color: rgb(102,102,102);" target="_blank"><span style="font-size: inherit;
-                                                   text-align: center; width: 100%; color: #666;">Hey
-                                                   você! Nova Publicação</span></a>
+                                                   text-align: center; width: 100%; color: #666;">
+                                                            @if($log->desc == 'Criou')
+                                                                Hey você! Nova Publicação
+                                                            @else
+                                                                Hey você, Novidades sobre sua publicação
+                                                                @endif
+
+
+                                                        </span></a>
                                                 </h2>
                                             </td>
                                         </tr>
@@ -191,17 +198,31 @@
                                                     <div style="text-align:
                                                       center;">
 
-                                                        @if($publicacao->tipo == 'TV')
 
-                                                            Uma nova publicação foi criada no portal. Com o titulo <strong>{{$publicacao->titulo}}</strong><br>
-                                                            Criada pelo <strong>{{$publicacao->user->name}}</strong> tem como data final {{\Carbon\Carbon::parse($publicacao->data_expiracao)->format('d/m/Y')}}.<br>
+                                                        @if($log->desc == 'Criou')
+                                                            @if($publicacao->tipo == 'TV')
+
+                                                                Uma nova publicação foi criada no portal. Com o titulo <strong>{{$publicacao->titulo}}</strong><br>
+                                                                Criada pelo <strong>{{$publicacao->user->name}}</strong> tem como data final {{\Carbon\Carbon::parse($publicacao->data_expiracao)->format('d/m/Y')}}.<br>
 
 
 
+                                                            @else
+                                                                Uma nova publicação foi criada no portal. Com o titulo <strong>{{$publicacao->titulo}}</strong><br>
+                                                                Criada pelo <strong>{{$publicacao->user->name}}</strong>
+                                                                @endif
+                                                        @elseif($log->desc == 'Alterou')
+                                                            Sua publicação foi alterada pelo(a) <strong>{{$log->user->name}}</strong><br>
+                                                            Acompanhe mais detalhes no link abaixo.
+                                                        @elseif($log->desc == 'Publicou')
+                                                            Parabens!!!<br>
+                                                            Sua publicação foi publicada, todos agora pode ver sua noticia.
                                                         @else
-                                                            Uma nova publicação foi criada no portal. Com o titulo <strong>{{$publicacao->titulo}}</strong><br>
-                                                            Criada pelo <strong>{{$publicacao->user->name}}</strong>
-                                                            @endif
+                                                            Sua publicaçaõ foi desativada pelo(a) <strong>{{$log->user->name}}</strong><br>
+                                                            justificou dizendo : <strong>{{$log->desc}}</strong>
+
+                                                        @endif
+
 
                                                         <span style="line-height: 0; display:
                                                          none;"></span><span style="line-height: 0;

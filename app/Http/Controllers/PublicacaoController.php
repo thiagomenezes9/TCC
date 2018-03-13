@@ -197,14 +197,19 @@ class PublicacaoController extends Controller
 
         foreach (Coordenacao::find(1)->membros as $membro){
             if($membro->ativo)
-               Mail::to($membro)->send(new EmailNotificacao($publicacao->id));
+               Mail::to($membro)->send(new EmailNotificacao($publicacao->id,$log->id));
         }
 
 
         if(! $user->membro === Coordenacao::find(1)){
             $resp = $user->membro->responsavel;
-            Mail::to($resp)->send(new EmailNotificacao($publicacao->id));
+            Mail::to($resp)->send(new EmailNotificacao($publicacao->id,$log->id));
         }
+
+
+
+        Mail::to($user)->send(new EmailNotificacao($publicacao->id,$log->id));
+        //manda para quem esta criando Auth::user();
 
 
 
@@ -337,6 +342,15 @@ class PublicacaoController extends Controller
         $log->save();
 
 
+
+        $user = $publicacao->user;
+
+        Mail::to($user)->send(new EmailNotificacao($publicacao->id,$log->id));
+        //manda para o dono da publicação $dono = $publicacao->user();
+
+
+
+
         return redirect('publicacoes');
     }
 
@@ -390,6 +404,13 @@ class PublicacaoController extends Controller
             $log->save();
 
 
+
+            $user = $publicacao->user;
+
+            Mail::to($user)->send(new EmailNotificacao($publicacao->id,$log->id));
+            //mandar log para o dono da publicação
+
+
         }else{
             return redirect()->route('publivcacoes.show',$id)->with('fail','Publicação foi publicada não e possivel desativar!')->withInput();
         }
@@ -431,7 +452,10 @@ class PublicacaoController extends Controller
         $log->save();
 
 
+        $user = $publicacao->user;
 
+        Mail::to($user)->send(new EmailNotificacao($publicacao->id,$log->id));
+        //mandar para o dono da publicação
 
         return redirect()->route('publicacoes.index')->with('success','Publicação foi publicada!')->withInput();
 
