@@ -141,8 +141,12 @@
 
 
                          @else
-
-                            <p><strong>Texto da Publicação : </strong> {{$publicacao->texto}}</p>
+                            @if($publicacao->tipo == 'SITE')
+                                <p><strong>Texto da Publicação : </strong>
+                                {!! $publicacao->texto !!}
+                            @else
+                                <p><strong>Texto da Publicação : </strong> {{$publicacao->texto}}</p>
+                            @endif
 
                         @endif
                         <br><br><p><strong>LOG</strong></p>
@@ -205,5 +209,13 @@
             })
         })
     </script>
+
+    <style>
+        textarea {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 
 @endsection

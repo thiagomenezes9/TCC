@@ -98,21 +98,23 @@
                             </div>
 
 
-                            <div class="form-group">
-                                <label for="texto" class="col-sm-2 control-label" >Texto</label>
-                                <div class="col-sm-10">
-                                    <textarea name="texto" value="{{ $publicacao->texto }}" type="text" class="form-control input-lg"
-                                              id="texto" placeholder="{{ $publicacao->texto }}" autofocus ></textarea>
-                                </div>
-                            </div>
+                            {{--<div class="form-group">--}}
+                                {{--<label for="texto" class="col-sm-2 control-label" >Texto</label>--}}
+                                {{--<div class="col-sm-10">--}}
+                                    {{--<textarea name="texto" value="{{ $publicacao->texto }}" type="text" class="form-control input-lg"--}}
+                                              {{--id="texto" placeholder="{{ $publicacao->texto }}" autofocus ></textarea>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+
+                            <textarea id="summernote" name="texto" class="summernote"></textarea>
 
 
 
-                            <div class="form-group">
-                                <label for="imagem" class="col-sm-2 control-label">Imagem</label>
-                                <input name="imagem" type="file" class="form-control-file"
-                                       id="imagem" autofocus>
-                            </div>
+                            {{--<div class="form-group">--}}
+                                {{--<label for="imagem" class="col-sm-2 control-label">Imagem</label>--}}
+                                {{--<input name="imagem" type="file" class="form-control-file"--}}
+                                       {{--id="imagem" autofocus>--}}
+                            {{--</div>--}}
 
 
 
@@ -132,6 +134,44 @@
             </div>
         </div>
     </div>
+
+
+@endsection
+
+
+
+@section('scriptlocal')
+
+
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js"></script>
+
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function() {
+            // $('#summernote').summernote({
+            //     // placeholder: 'Hello stand alone ui',
+            //     //tabsize: 2,
+            //     // height: 100,
+            //     // lang: 'pt-br',
+            //     height: 300,                 // set editor height
+            //     minHeight: null,             // set minimum height of editor
+            //     maxHeight: null,             // set maximum height of editor
+            //     focus: true
+            // });
+
+            var content = {!! json_encode($publicacao->texto) !!};
+
+            $('.summernote').summernote('code', content);
+
+        });
+
+    </script>
+
+
+
 
 
 @endsection

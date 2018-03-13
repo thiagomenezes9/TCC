@@ -6,12 +6,13 @@
         body{margin:
                 0;padding: 0;
         }
-        @media only screen and (max-width:640px){
-            table, img[class="partial-image"]{
-                width:100% !important;
-                height:auto !important;
+        @media only screen and (max-width:640px) {
+            table, img[class="partial-image"] {
+                width: 100% !important;
+                height: auto !important;
                 min-width: 200px !important;
             }
+        }
     </style>
 </head>
 <body>
@@ -254,109 +255,7 @@
                             </tr>
                             </tbody>
                         </table>
-                        {{--<table style="border-collapse: collapse;--}}
-                           {{--border-spacing: 0; box-sizing: border-box;--}}
-                           {{--min-height: 40px; position: relative; width: 100%;--}}
-                           {{--display: table;">--}}
-                            {{--<tbody>--}}
-                            {{--<tr>--}}
-                                {{--<td style="border-collapse: collapse; font-family:--}}
-                                    {{--Arial; padding: 10px 15px;">--}}
-                                    {{--<table width="100%" style="border-collapse: collapse; border-spacing:--}}
-                                       {{--0; font-family: Arial;">--}}
-                                        {{--<tbody>--}}
-                                        {{--<tr>--}}
-                                            {{--<td style="border-collapse: collapse;">--}}
-                                                {{--<hr style="border-color: rgb(255,138,48);--}}
-                                                   {{--border-style:--}}
-                                                   {{--dashed;">--}}
-                                            {{--</td>--}}
-                                        {{--</tr>--}}
-                                        {{--</tbody>--}}
-                                    {{--</table>--}}
-                                {{--</td>--}}
-                            {{--</tr>--}}
-                            {{--</tbody>--}}
-                        {{--</table>--}}
-                        {{--<table style="border-collapse: collapse;--}}
-                           {{--border-spacing: 0; box-sizing: border-box;--}}
-                           {{--min-height: 40px; position: relative; width:--}}
-                           {{--100%;">--}}
-                            {{--<tbody>--}}
-                            {{--<tr>--}}
-                                {{--<td style="border-collapse:--}}
-                                    {{--collapse; font-family: Arial; padding: 10px 15px;--}}
-                                    {{--background-color: rgb(255,138,48);">--}}
-                                    {{--<table width="100%" style="border-collapse: collapse;--}}
-                                       {{--border-spacing: 0; text-align: left; font-family:--}}
-                                       {{--Arial;">--}}
-                                        {{--<tbody>--}}
-                                        {{--<tr>--}}
-                                            {{--<td style="border-collapse:--}}
-                                                {{--collapse;">--}}
-                                                {{--<div style="font-family: Arial;--}}
-                                                   {{--font-size: 15px; font-weight: normal; line-height:--}}
-                                                   {{--170%; text-align: left; color: rgb(120,113,99);--}}
-                                                   {{--word-wrap: break-word;">--}}
-                                                    {{--<div style="text-align:--}}
-                                                      {{--center; color: rgb(255,255,255);">Entre em--}}
-                                                        {{--contato!--}}
-                                                    {{--</div>--}}
-                                                    {{--<a style="text-align: center;display:block;--}}
-                                                      {{--color: rgb(255,255,255);" href="callto:(51) 3086-0262">(51) 3086-0262--}}
-                                                    {{--</a>--}}
-                                                    {{--<a style="text-align: center;display:block; color: rgb(255,255,255);" href="mailto:contato@iagente.com.br">--}}
-                                                        {{--contato@iagente.com.br--}}
-                                                    {{--</a>--}}
-                                                {{--</div>--}}
-                                            {{--</td>--}}
-                                        {{--</tr>--}}
-                                        {{--</tbody>--}}
-                                    {{--</table>--}}
-                                {{--</td>--}}
-                            {{--</tr>--}}
-                            {{--</tbody>--}}
-                        {{--</table>--}}
-                        {{--<table style="border-collapse: collapse;--}}
-                           {{--border-spacing: 0; box-sizing: border-box;--}}
-                           {{--min-height: 40px; position: relative; width:--}}
-                           {{--100%;">--}}
-                            {{--<tbody>--}}
-                            {{--<tr>--}}
-                                {{--<td style="border-collapse:--}}
-                                    {{--collapse; font-family: Arial; padding: 10px--}}
-                                    {{--15px;">--}}
-                                    {{--<table width="100%" style="border-collapse: collapse; border-spacing:--}}
-                                       {{--0; font-family: Arial;">--}}
-                                        {{--<tbody>--}}
-                                        {{--<tr>--}}
-                                            {{--<td style="border-collapse: collapse;">--}}
-                                                {{--<hr style="border-color: rgb(255,138,48);--}}
-                                                   {{--border-style:--}}
-                                                   {{--dashed;">--}}
-                                            {{--</td>--}}
-                                        {{--</tr>--}}
-                                        {{--</tbody>--}}
-                                    {{--</table>--}}
-                                {{--</td>--}}
-                            {{--</tr>--}}
-                            {{--</tbody>--}}
-                        {{--</table>--}}
-                        {{--<a href="http://www.facebook.com" target="_blank" style="display: inline-block;--}}
-                                                {{--text-decoration: none; box-sizing: border-box;--}}
-                                                {{--font-family: arial; width: auto!important;">--}}
-                            {{--&nbsp;--}}
-                            {{--<img style="height: auto; width: 30px;" dfsrc="http://imgnode1.iagentecorp.com/iagentemail/drag-drop/facebook.png" src="http://imgnode1.iagentecorp.com/iagentemail/drag-drop/facebook.png">--}}
-                            {{--&nbsp;--}}
-                        {{--</a>--}}
-                        {{--<a href="http://www.twitter.com" target="_blank" style="display: inline-block;--}}
-                                                   {{--text-decoration: none; box-sizing: border-box;--}}
-                                                   {{--font-family: arial; width: auto!important;">--}}
-                            {{--&nbsp;--}}
-                            {{--<img style="height: auto; width: 30px;" dfsrc="http://imgnode1.iagentecorp.com/iagentemail/drag-drop/twitter.png" src="http://imgnode1.iagentecorp.com/iagentemail/drag-drop/twitter.png">--}}
 
-                            {{--&nbsp;--}}
-                        {{--</a>--}}
                     </td>
                 </tr>
                 </tbody>

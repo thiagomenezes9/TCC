@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
 use Intervention\Image\Facades\Image;
+
 
 class PublicacaoController extends Controller
 {
@@ -100,6 +102,19 @@ class PublicacaoController extends Controller
 
 
 
+            if(isset($request->imagem)){
+
+                $arquivo = Input::file('imagem');
+                $form = $request->all();
+//            $form['imagem'] = (string) Image::make($arquivo)->encode('data-url');
+                $form['imagem'] = (string) Image::make($arquivo)->resize(1200,600)->encode('data-url');
+                $publicacao->imagem = $form['imagem'];
+
+            }else{
+                $publicacao->texto = $request->texto;
+            }
+
+
 
         }else{
 
@@ -112,20 +127,44 @@ class PublicacaoController extends Controller
 
             $publicacao->tipo = 'SITE';
 
+
+
+            $detail=$request->texto;
+
+            $dom = new \domdocument();
+            $dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+
+            $images = $dom->getelementsbytagname('img');
+
+            foreach($images as $k => $img){
+                $data = $img->getattribute('src');
+
+                list($type, $data) = explode(';', $data);
+                list(, $data)      = explode(',', $data);
+
+                $data = base64_decode($data);
+                $image_name= time().$k.'.png';
+                $path = public_path() .'/imagensSite/'. $image_name;
+
+                file_put_contents($path, $data);
+
+                $new_path = URL::asset('/imagensSite/'.$image_name);
+
+
+                $img->removeattribute('src');
+                $img->setattribute('src', $new_path);
+            }
+
+            $detail = $dom->savehtml();
+
+            $publicacao->texto = $detail;
+
+
+
         }
 
 
-        if(isset($request->imagem)){
 
-            $arquivo = Input::file('imagem');
-            $form = $request->all();
-//            $form['imagem'] = (string) Image::make($arquivo)->encode('data-url');
-            $form['imagem'] = (string) Image::make($arquivo)->resize(1200,600)->encode('data-url');
-            $publicacao->imagem = $form['imagem'];
-
-        }else{
-            $publicacao->texto = $request->texto;
-        }
 
 
 
@@ -166,6 +205,8 @@ class PublicacaoController extends Controller
             $resp = $user->membro->responsavel;
             Mail::to($resp)->send(new EmailNotificacao($publicacao->id));
         }
+
+
 
 
 
@@ -279,12 +320,6 @@ class PublicacaoController extends Controller
 
 
         $publicacao->titulo = $request->titulo;
-//        $publicacao->ativo = 1;
-//        $publicacao->publicado = 0;
-
-
-//        $publicacao->user()->associate($user);
-
 
         $publicacao->save();
 
@@ -300,18 +335,6 @@ class PublicacaoController extends Controller
 
 
         $log->save();
-
-
-
-//        foreach (Coordenacao::find(1)->membros as $membro){
-//            Mail::to($membro)->send(new EmailNotificacao($publicacao->id));
-//        }
-//
-//
-//        $resp = $user->membro->responsavel;
-//        Mail::to($resp)->send(new EmailNotificacao($publicacao->id));
-//
-
 
 
         return redirect('publicacoes');
@@ -371,6 +394,8 @@ class PublicacaoController extends Controller
             return redirect()->route('publivcacoes.show',$id)->with('fail','Publicação foi publicada não e possivel desativar!')->withInput();
         }
 
+
+
         return redirect('publicacoes');
     }
 
@@ -404,6 +429,8 @@ class PublicacaoController extends Controller
         $log->desc = "Publicou";
 
         $log->save();
+
+
 
 
         return redirect()->route('publicacoes.index')->with('success','Publicação foi publicada!')->withInput();

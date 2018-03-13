@@ -75,11 +75,21 @@
 
                             <div class="form-group">
                                 <label for="texto" class="col-sm-2 control-label" >Texto</label>
-                                <div class="col-sm-10">
-                                    <textarea name="texto" value="{{ old('texto') }}" type="text" class="form-control input-lg"
-                                              id="texto" placeholder="Texto da publicação" autofocus ></textarea>
-                                </div>
+                                {{--<div class="col-sm-10">--}}
+                                    {{--<textarea name="texto" value="{{ old('texto') }}" type="text" class="form-control input-lg"--}}
+                                              {{--id="texto" placeholder="Texto da publicação" autofocus ></textarea>--}}
+
+                                    {{----}}
+
+
+                                {{--</div>--}}
                             </div>
+
+
+                            <textarea id="summernote" name="texto"></textarea>
+
+
+
 
 
                             {{--<div class="form-group">--}}
@@ -91,11 +101,11 @@
                             {{--</div>--}}
 
 
-                            <div class="form-group">
-                                <label for="imagem" class="col-sm-2 control-label">Imagem</label>
-                                <input name="imagem" type="file" class="form-control-file"
-                                       id="imagem" autofocus>
-                            </div>
+                            {{--<div class="form-group">--}}
+                                {{--<label for="imagem" class="col-sm-2 control-label">Imagem</label>--}}
+                                {{--<input name="imagem" type="file" class="form-control-file"--}}
+                                       {{--id="imagem" autofocus>--}}
+                            {{--</div>--}}
 
 
 
@@ -120,9 +130,46 @@
 
 @endsection
 
-{{--@section('scriptlocal')--}}
+@section('scriptlocal')
 
-    {{--<script type="text/javascript">--}}
+    <!-- include libraries(jQuery, bootstrap) -->
+    {{--<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">--}}
+    {{--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>--}}
+    {{--<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>--}}
+
+    <!-- include summernote css/js -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js"></script>
+
+
+    {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">--}}
+    {{--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>--}}
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>--}}
+    {{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>--}}
+    {{--<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">--}}
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js"></script>--}}
+
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                // placeholder: 'Hello stand alone ui',
+                //tabsize: 2,
+                // height: 100,
+                // lang: 'pt-br',
+                 height: 300,                 // set editor height
+                minHeight: null,             // set minimum height of editor
+                maxHeight: null,             // set maximum height of editor
+                focus: true
+            });
+
+        });
+
+    </script>
+
+
 
 
         {{--function minhaNotificao() {--}}
@@ -148,5 +195,5 @@
 
     {{--</script>--}}
 
-    {{--@endsection--}}
+    @endsection
 
